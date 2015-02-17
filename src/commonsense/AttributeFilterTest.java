@@ -4,6 +4,8 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.PrintWriter;
 import java.io.UnsupportedEncodingException;
+import java.util.ArrayList;
+import java.util.Arrays;
 
 public class AttributeFilterTest {
 
@@ -13,15 +15,19 @@ public class AttributeFilterTest {
 			AttributeFilter test = new AttributeFilter("attributes.json");
 			PrintWriter writer;
 			try {
-				writer = new PrintWriter("csvFiles_w_relevantColumns.txt", "UTF-8");
+				writer = new PrintWriter("csvFiles_w_RelevantColumns.txt");
 				File[] fileDir = new File(dirName).listFiles();
+				if( fileDir == null ) {
+					System.out.println("invalid directory");
+					System.exit(0);
+				}
 				for( File f : fileDir ) {
-					writer.println(test.relevance(f));
+					Integer[] temp = test.relevance(f);
+					if( temp != null && temp.length > 0 ) {
+						writer.println(f.getName() + ", " + Arrays.toString(temp));
+					}
 				}
 			} catch (FileNotFoundException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			} catch (UnsupportedEncodingException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
