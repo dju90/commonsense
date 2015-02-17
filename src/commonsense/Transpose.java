@@ -3,6 +3,7 @@ package commonsense;
 import java.io.*;
 import java.util.*;
 
+
 public class Transpose {
     public static void main(String[] args) throws IOException {
         File[] fileDir = new File(args[0]).listFiles();
@@ -11,17 +12,11 @@ public class Transpose {
         }
     }
 
-    /*
-     * Extracts the last char of a word
-     */
-    public static char extractLastChar(String word) {
-        return word.charAt(word.length() - 1);
-    }
 
     /*
      * Scans a file and transposes if necessary
      */
-    public static void scanFile(File file) throws IOException {
+    public static void scanFile(File file) {
         Scanner fileScan  = null;
         try {
             fileScan = new Scanner(file);
@@ -41,73 +36,129 @@ public class Transpose {
                     }
                 }
             }
-            if(count > 0) {
-                String[][] fullFile;
-                Scanner fullScan = null;
-                try {
-                    fullScan = new Scanner(file);
-                    int row = 0;
-                    int col = 0;
-                    List<String[]> lineRows = new LinkedList<String[]>();
-                    while (fullScan.hasNext()) {
-                        line = fullScan.nextLine();
-                        lineArr = line.split(",");
-                        lineRows.add(lineArr);
-                        col = lineArr.length;
-                        row++;
-                    }
-                    fullFile = new String[row][col];
-                    int i = 0;
-                    for (String[] lines : lineRows ) {
-                        fullFile[i] = lines;
-                        i++;
-                    }
-                    transpose(fullFile, file);
-                } finally {
-                    if (fullScan != null) {
-                        fullScan.close();
-                    }
-                }
+            if (count > 0) {
+                prepareTranspose(file);
+            } else {
+                writeToDir("../transposeTables", file);
             }
-        } finally {
-            if (fileScan != null) {
-                fileScan.close();
+            fileScan.close();
+        } catch (Exception e) {
+            System.err.println(file + " failed to read");
+        }
+    }
+
+    public static void prepareTranspose(File file) {
+        String[][] fullFile;
+        Scanner fullScan = null;
+        String line;
+        String[] lineArr;
+        try {
+            fullScan = new Scanner(file);
+            List<String[]> lineRows = new ArrayList<String[]>();
+            while (fullScan.hasNext()) {
+                line = fullScan.nextLine();
+                lineArr = line.split(",");
+                lineRows.add(lineArr);
             }
+            int col = lineRows.get(0).length;
+            fullFile = new String[lineRows.size()][col];
+            for (int i = 0; i < lineRows.size(); i++) {
+                fullFile[i] = lineRows.get(i);
+            }
+            transpose(fullFile, file);
+            fullScan.close();
+        } catch (Exception e) {
+            System.err.println(file + " failed to read");
         }
     }
 
     /*
      * Transposes the file and writes back to file
      */
-    public static void transpose(String[][] matrix, File file) throws IOException{
-        String[][] transpose = new String[matrix[0].length][matrix.length];
-        for (int i = 0; i < matrix.length; i++) {
-            for (int j = 0; j < matrix[0].length; j++) {
-                transpose[j][i] = matrix[i][j];
+    public static void transpose(String[][] matrix, File file) {
+        try {
+            String[][] transpose = new String[matrix[1].length][matrix.length];
+            for (int i = 0; i < matrix.length; i++) {
+                for (int j = 0; j < matrix[0].length; j++) {
+                    transpose[j][i] = matrix[i][j];
+                }
             }
+            writeToFile(transpose, file);
+        } catch (Exception e) {
+            logError(file, e);
         }
-        writeToFile(transpose, file);
     }
 
     /*
      * Overwrites a file with matrix in csv format
-     * TODO determine if we want a full pipeline in memory
      */
-    public static void writeToFile(String[][] matrix, File file) throws IOException{
+    public static void writeToFile(String[][] matrix, File file) {
         // false to overwrite
-        FileWriter fileWriter = new FileWriter(file, false);
-        for (int i = 0; i < matrix.length; i++) {
-            for (int j = 0; j < matrix[0].length; j++) {
-                if (j < matrix[0].length - 1) {
-                    fileWriter.write(matrix[i][j] + ",");
-                } else {
-                    fileWriter.write(matrix[i][j]);
+        try {
+            FileWriter fileWriter = new FileWriter(file, false);
+            for (int i = 0; i < matrix.length; i++) {
+                for (int j = 0; j < matrix[0].length; j++) {
+                    if (j < matrix[0].length - 1) {
+                        fileWriter.write(matrix[i][j] + ",");
+                    } else {
+                        fileWriter.write(matrix[i][j]);
+                    }
                 }
+                fileWriter.write("\n");
             }
-            fileWriter.write("\n");
+            writeToDir("../transposeTables", file);
+            fileWriter.close();
+        } catch (IOException e) {
+            logError(file, e);
         }
-        fileWriter.close();
     }
+
+    public static void writeToDir(String dir, File file) {
+        try {
+            File transposeDir = new File(dir);
+            if (!transposeDir.exists()) {
+                transposeDir.mkdir();
+            }
+            File copyFile = new File(dir + "/" + file.getName());
+            copyFile(file, copyFile);
+        } catch (Exception e) {
+            logError(file, e);
+        }
+    }
+
+    public static void copyFile(File source, File dest) {
+        InputStream input = null;
+        OutputStream output = null;
+        try {
+            input = new FileInputStream(source);
+            output = new FileOutputStream(dest);
+            byte[] buf = new byte[1024];
+            int bytesRead;
+            while ((bytesRead = input.read(buf)) > 0) {
+                output.write(buf, 0, bytesRead);
+            }
+            input.close();
+            output.close();
+        } catch (Exception e) {
+            logError(dest, e);
+        }
+    }
+
+    public static void logError(File file, Exception e) {
+        try {
+            FileWriter fw = new FileWriter("errorlog.txt", true);
+            fw.write(file + ": " + e + "\n");
+            fw.close();
+        } catch (Exception io) {
+            System.err.println("Failed to write error to log for " + file);
+        }
+    }
+
+    /*
+     * Extracts the last char of a word
+     */
+    public static char extractLastChar(String word) {
+        return word.charAt(word.length() - 2);
+    }
+
 }
-
-
