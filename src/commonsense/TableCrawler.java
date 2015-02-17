@@ -74,7 +74,15 @@ public class TableCrawler { //should we make this an object, so it can handle mu
 				}
 			}
 			if (tableMap != null && freeBaseHits != null) {
-				attMap.put(findMaxIntersect(freeBaseHits), tableMap);
+				String superEntity = findMaxIntersect(freeBaseHits);
+				if( attMap.containsKey(superEntity) ) { //append if contains
+					Map<String, HashSet<Pair<String,String>>> currentMap = attMap.get(superEntity);
+					for( String key : tableMap.keySet() ) {
+						currentMap.put(key, tableMap.get(key));
+					}
+				} else { //create new superentity
+					attMap.put(superEntity, tableMap);
+				}
 			}
 			scan.close();
 
