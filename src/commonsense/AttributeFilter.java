@@ -57,13 +57,13 @@ public class AttributeFilter {
 	/**
 	 * Returns the indices of relevant columns within a csv table file
 	 * 
-	 * @param fileName
-	 *            The name of the file.
+	 * @param scan
+	 *            Scanner with file pre-loaded
 	 * @return An ArrayList containing the indices of the relevant columns
 	 * 			null if invalid file name or empty file
 	 * @throws FileNotFoundException
 	 */
-	public ArrayList<Integer> relevance(File f) {
+	public Integer[] relevance(File f) {
 		try {
 			Scanner scan = new Scanner(f);
 			if( scan.hasNextLine() ) {
@@ -76,13 +76,13 @@ public class AttributeFilter {
 					}
 				}
 				scan.close();
-				return relevantColumns;
+				return relevantColumns.toArray(new Integer[relevantColumns.size()]);
 			}
 			scan.close();
 			return null;
-		} catch (FileNotFoundException fnfe) {
-			fnfe.printStackTrace();
+		} catch(FileNotFoundException fe) {
 			return null;
 		}
+		
 	}
 }
