@@ -146,7 +146,7 @@ public class TableCrawler { //should we make this an object, so it can handle mu
 	/*
 	 * Finds the maximum intersection between all sets
 	 * 
-	 * @return
+	 * @return -1 if no alphabetic entity column
 	 */
 	private static String findMaxIntersect(Set<Set<String>> freeBaseHits) {
 		Map<String, Integer> counts = new HashMap<String, Integer>();
