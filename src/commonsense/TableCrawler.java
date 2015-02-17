@@ -2,9 +2,11 @@ package commonsense;
 
 import java.io.File;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Set;
 
 public class TableCrawler {
+	private HashMap<String, HashMap<String, ArrayList<Pair<String, String>>>> attMap;
 	
 	public static void main(String[] args) {
 		
@@ -20,6 +22,10 @@ public class TableCrawler {
             	addToMaps(f, relevantColumns);
             }
         }
+        // unit conversion? (google library) ...how does this affect double entity comparison later?
+        // database stuff!
+        	// create entity table from key bindings of attMap ...also populate attribute table?
+        	// create superentity table from keyset of attMap  ...also populate attribute table?
 	}
 	
 	/**
@@ -30,8 +36,8 @@ public class TableCrawler {
 	private static void addToMaps(File f, ArrayList<Integer> releventColumns) {
 		// check if first columns contains entities (numeric == not an entity)
 		// do a free base lookup for each entity and add resulting SET to local map(?)
-			//map.add( freebaselookup() );
-		// grab all attributes from columns w/ index in relevantColumns and add to key-value pair, relevantAttribute HashMap<Pair<String, String>,ArrayList<Pair<String, String>>>
+			//localmap.add( freebaselookup() );
+		// grab all attributes from columns w/ index in relevantColumns and add to key-value pair, attMap HashMap
 
 		// find intersect from free base hits, modify all superEntity values in key-value pair
 
