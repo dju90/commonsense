@@ -2,7 +2,9 @@
 <classpath>
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
-	<classpathentry kind="lib" path="C:/Users/DJu90/CSE/commonsense/org.json-20120521.jar"/>
-	<classpathentry kind="lib" path="C:/Users/DJu90/CSE/commonsense/json-simple-1.1.1.jar"/>
+	<classpathentry kind="lib" path="C:/Users/The York W/Documents/git/commonsense/json-simple-1.1.1.jar"/>
+	<classpathentry kind="lib" path="C:/Users/The York W/Documents/git/commonsense/org.json-20120521.jar"/>
+	<classpathentry kind="lib" path="C:/Users/The York W/Documents/git/commonsense/jsonic-1.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/Users/The York W/Documents/git/commonsense/langdetect.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
