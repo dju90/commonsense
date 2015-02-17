@@ -63,13 +63,9 @@ public class AttributeFilter {
 	 * 			null if invalid file name or empty file
 	 * @throws FileNotFoundException
 	 */
-	public ArrayList<Integer> relevance(String fileName)
-			throws FileNotFoundException {
-		int len = fileName.length();
-		if (len < 5 || !fileName.substring(len - 4).equals(".csv")) {
-			return null;
-		} else {
-			Scanner scan = new Scanner(new File(fileName));
+	public ArrayList<Integer> relevance(File f) {
+		try {
+			Scanner scan = new Scanner(f);
 			if( scan.hasNextLine() ) {
 				String[] attributes = scan.nextLine().split(",");
 				ArrayList<Integer> relevantColumns = new ArrayList<Integer>();
@@ -83,6 +79,9 @@ public class AttributeFilter {
 				return relevantColumns;
 			}
 			scan.close();
+			return null;
+		} catch (FileNotFoundException fnfe) {
+			fnfe.printStackTrace();
 			return null;
 		}
 	}
