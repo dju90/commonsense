@@ -6,5 +6,6 @@
 	<classpathentry kind="lib" path="C:/Users/The York W/Documents/git/commonsense/org.json-20120521.jar"/>
 	<classpathentry kind="lib" path="C:/Users/The York W/Documents/git/commonsense/jsonic-1.2.0.jar"/>
 	<classpathentry kind="lib" path="C:/Users/The York W/Documents/git/commonsense/langdetect.jar"/>
+	<classpathentry kind="lib" path="C:/Users/The York W/Documents/git/commonsense/mongo-java-driver-2.13.0.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

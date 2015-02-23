@@ -5,7 +5,8 @@ import java.io.*;
 import java.util.HashMap;
 import java.util.Set;
 
-public class TableCrawler { //should we make this an object, so it can handle multiple directories?
+public class TableCrawler { //should we make this an object, so it can handle multiple directories? No
+	// Map of Superclass => (Map of entity => set of relation name and value) 
 	private static HashMap<String, HashMap<String, HashSet<Pair<String, String>>>> attMap;
 
 	public static void main(String[] args) {
@@ -31,7 +32,7 @@ public class TableCrawler { //should we make this an object, so it can handle mu
 		}
 		// unit conversion? (google library) ...how does this affect double
 		// entity comparison later?
-		// database stuff! NoSQL? (ask Dan)
+		// database stuff! NoSQL 
 		// create entity table from key bindings of attMap ...also populate
 		// attribute table?
 		// create superentity table from keyset of attMap ...also populate

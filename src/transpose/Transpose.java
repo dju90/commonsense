@@ -5,6 +5,11 @@ import java.util.*;
 
 
 public class Transpose {
+	/**
+	 * Takes in a directory, scans through all the files to transpose the file to the same format
+	 * @param args
+	 * @throws IOException
+	 */
     public static void main(String[] args) throws IOException {
         File[] fileDir = new File(args[0]).listFiles();
         for (File f : fileDir) {
@@ -13,10 +18,11 @@ public class Transpose {
     }
 
 
-    /*
-     * Scans a file and transposes if necessary
+    /**
+     * Scans a file and searches to check if the first column ends with colons, but the next column does not
+     * @param file
      */
-    public static void scanFile(File file) {
+    private static void scanFile(File file) {
         Scanner fileScan  = null;
         try {
             fileScan = new Scanner(file);
@@ -47,7 +53,11 @@ public class Transpose {
         }
     }
 
-    public static void prepareTranspose(File file) {
+    /**
+     * Read in the entire file to be transposed
+     * @param file
+     */
+    private static void prepareTranspose(File file) {
         String[][] fullFile;
         Scanner fullScan = null;
         String line;
@@ -72,10 +82,12 @@ public class Transpose {
         }
     }
 
-    /*
+    /**
      * Transposes the file and writes back to file
+     * @param matrix
+     * @param file
      */
-    public static void transpose(String[][] matrix, File file) {
+    private static void transpose(String[][] matrix, File file) {
         try {
             String[][] transpose = new String[matrix[1].length][matrix.length];
             for (int i = 0; i < matrix.length; i++) {
@@ -89,10 +101,12 @@ public class Transpose {
         }
     }
 
-    /*
-     * Overwrites a file with matrix in csv format
-     */
-    public static void writeToFile(String[][] matrix, File file) {
+   /**
+    * Takes the transposed matrix to back to the file
+    * @param matrix
+    * @param file
+    */
+    private static void writeToFile(String[][] matrix, File file) {
         // false to overwrite
         try {
             FileWriter fileWriter = new FileWriter(file, false);
@@ -113,7 +127,12 @@ public class Transpose {
         }
     }
 
-    public static void writeToDir(String dir, File file) {
+    /**
+     * Takes that file and writes to a different directory
+     * @param dir
+     * @param file
+     */
+    private static void writeToDir(String dir, File file) {
         try {
             File transposeDir = new File(dir);
             if (!transposeDir.exists()) {
@@ -126,7 +145,12 @@ public class Transpose {
         }
     }
 
-    public static void copyFile(File source, File dest) {
+    /**
+     * Copies a file from source to destination
+     * @param source
+     * @param dest
+     */
+    private static void copyFile(File source, File dest) {
         InputStream input = null;
         OutputStream output = null;
         try {
@@ -144,7 +168,12 @@ public class Transpose {
         }
     }
 
-    public static void logError(File file, Exception e) {
+    /**
+     * Write a failed operation and its error to an error log
+     * @param file
+     * @param e
+     */
+    private static void logError(File file, Exception e) {
         try {
             FileWriter fw = new FileWriter("errorlog.txt", true);
             fw.write(file + ": " + e + "\n");
@@ -154,10 +183,12 @@ public class Transpose {
         }
     }
 
-    /*
-     * Extracts the last char of a word
-     */
-    public static char extractLastChar(String word) {
+   /**
+    * Extracts the last char of a word
+    * @param word
+    * @return
+    */
+    private static char extractLastChar(String word) {
         return word.charAt(word.length() - 2);
     }
 
