@@ -39,7 +39,6 @@ public class AttributeFilter {
 					}
 				}
 			}
-			System.out.println(attributeList);
 
 		} catch (FileNotFoundException fnfe) {
 			System.out.println("File not found.");
