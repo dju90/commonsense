@@ -9,7 +9,7 @@ import com.mongodb.DBCollection;
 import com.mongodb.MongoClient;
 
 public class DatabaseBuilder {
-	private static String dbName = "mydb"; // TODO get better name for database name
+	private static String dbName = "commonsense";
 	
 	/**
 	 * Takes in a HashMap<String, HashMap<String, HashSet<Pair<String, String>>>> to add into a NoSQL key value store

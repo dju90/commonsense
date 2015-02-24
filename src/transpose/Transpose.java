@@ -3,24 +3,36 @@ package transpose;
 import java.io.*;
 import java.util.*;
 
-
+/**
+ * Examines a directory and determines if the first column contains colons, but
+ * the other columns do not then it should be transposed so that all the column 
+ * headings will be in the first row. Used to read in web tables converted into
+ * a comma separated values (csv) file
+ */
 public class Transpose {
+	
+	public static String transposeDirectory = "../transposeTables";
 	/**
 	 * Takes in a directory, scans through all the files to transpose the file to the same format
-	 * @param args
-	 * @throws IOException
+	 * @param args Reads in a single directory to transpose all files within
+	 * @throws IOException if there is a problem with the directory
 	 */
-    public static void main(String[] args) throws IOException {
-        File[] fileDir = new File(args[0]).listFiles();
-        for (File f : fileDir) {
-            scanFile(f);
-        }
+    public static void main(String[] args) {
+    	if (args.length == 1) {
+    		File[] fileDir = new File(args[0]).listFiles();
+			for (File f : fileDir) {
+				scanFile(f);
+			}
+    	} else {
+    		System.err.println("Usage: java Transpose <directory name>");
+    		System.exit(0);
+    	}
     }
 
 
     /**
      * Scans a file and searches to check if the first column ends with colons, but the next column does not
-     * @param file
+     * @param file the file to scan to check if it needs to be transposed
      */
     private static void scanFile(File file) {
         Scanner fileScan  = null;
@@ -37,15 +49,13 @@ public class Transpose {
                     char secondWordColon = extractLastChar(lineArr[1]);
                     if (firstWordColon == ':' && secondWordColon != ':') {
                         count++;
-                    } else {
-                        break;
                     }
                 }
             }
             if (count > 0) {
                 prepareTranspose(file);
             } else {
-                writeToDir("../transposeTables", file);
+                writeToDir(transposeDirectory, file);
             }
             fileScan.close();
         } catch (Exception e) {
@@ -55,7 +65,7 @@ public class Transpose {
 
     /**
      * Read in the entire file to be transposed
-     * @param file
+     * @param file that will be fully read in as a string[][]
      */
     private static void prepareTranspose(File file) {
         String[][] fullFile;
@@ -84,8 +94,8 @@ public class Transpose {
 
     /**
      * Transposes the file and writes back to file
-     * @param matrix
-     * @param file
+     * @param matrix the file in matrix form to the transposed
+     * @param file the filename to write back to that file
      */
     private static void transpose(String[][] matrix, File file) {
         try {
@@ -103,12 +113,12 @@ public class Transpose {
 
    /**
     * Takes the transposed matrix to back to the file
-    * @param matrix
-    * @param file
+    * @param matrix take entire matrix to write to the file
+    * @param file the file to be written
     */
     private static void writeToFile(String[][] matrix, File file) {
-        // false to overwrite
         try {
+        	// false to overwrite
             FileWriter fileWriter = new FileWriter(file, false);
             for (int i = 0; i < matrix.length; i++) {
                 for (int j = 0; j < matrix[0].length; j++) {
@@ -120,7 +130,7 @@ public class Transpose {
                 }
                 fileWriter.write("\n");
             }
-            writeToDir("../transposeTables", file);
+            writeToDir(transposeDirectory, file);
             fileWriter.close();
         } catch (IOException e) {
             logError(file, e);
@@ -128,9 +138,9 @@ public class Transpose {
     }
 
     /**
-     * Takes that file and writes to a different directory
-     * @param dir
-     * @param file
+     * Takes that file and writes to a different directory, will create if does not exist
+     * @param dir the directory to copy the file to
+     * @param file the file that should be copied to the directory
      */
     private static void writeToDir(String dir, File file) {
         try {
@@ -147,8 +157,8 @@ public class Transpose {
 
     /**
      * Copies a file from source to destination
-     * @param source
-     * @param dest
+     * @param source file from starting location
+     * @param dest file to the ending location
      */
     private static void copyFile(File source, File dest) {
         InputStream input = null;
@@ -170,8 +180,8 @@ public class Transpose {
 
     /**
      * Write a failed operation and its error to an error log
-     * @param file
-     * @param e
+     * @param file the file that failed or triggered an exception
+     * @param e the exception that occurred
      */
     private static void logError(File file, Exception e) {
         try {
@@ -185,11 +195,10 @@ public class Transpose {
 
    /**
     * Extracts the last char of a word
-    * @param word
-    * @return
+    * @param word the string to find the last character (given the string is surrounded by quotes)
+    * @return the last char of the word
     */
     private static char extractLastChar(String word) {
         return word.charAt(word.length() - 2);
     }
-
 }
