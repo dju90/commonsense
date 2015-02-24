@@ -44,8 +44,7 @@ public class DatabaseBuilder {
 	 * @param db
 	 */
 	private static void buildDB(HashMap<String, HashMap<String, HashSet<Pair<String, String>>>> attMap, DB db) {
-		// TODO if we have entity with its type, do we need entity table
-		// TODO create a running average here or wait until all data has been added?
+		// Create the collection here since this assumes these collections have not been created before
 		DBCollection relationColl = db.createCollection("relations", new BasicDBObject());
 		DBCollection entityColl = db.createCollection("entities", new BasicDBObject());
 		for (String superEntity: attMap.keySet() ) {
@@ -63,12 +62,15 @@ public class DatabaseBuilder {
 				relationColl.insert(relation);
 			}
 		}
+		// Create an index over entities
+		relationColl.createIndex(new BasicDBObject("entity", "text"));
+		entityColl.createIndex(new BasicDBObject("entity", "text"));
 	}
 	
 	/**
-	 * Foreach superentity take the averages of the attributes for each entity add to the relations table
+	 * Foreach superentity take the medians of the attributes for each entity add to the relations table
 	 */
-	public static void determineAverages() {
+	public static void determineMedians() {
 		// TODO 
 	}
 }
