@@ -4,6 +4,8 @@ import java.util.*;
 import java.io.*;
 import java.util.HashMap;
 import java.util.Set;
+//import com.google.api-client;
+
 
 public class TableCrawler { //should we make this an object, so it can handle multiple directories?
 	private static HashMap<String, HashMap<String, HashSet<Pair<String, String>>>> attMap;
@@ -91,6 +93,8 @@ public class TableCrawler { //should we make this an object, so it can handle mu
 			System.exit(0);
 		}
 	}
+	
+	
 
 	/*
 	 * Processes a single line in a csv file.
