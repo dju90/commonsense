@@ -5,6 +5,10 @@ import java.util.HashSet;
 
 public class DatabaseBuilderTest {
 
+	/**
+	 * Single test to ensure that DatabaseBuilder correctly parses the attributeMap into Mongodb
+	 * @param args unused
+	 */
 	public static void main(String[] args) {
 		HashMap<String, HashMap<String, HashSet<Pair<String, String>>>> attMapTest = 
 				new HashMap<String, HashMap<String, HashSet<Pair<String, String>>>>();
@@ -12,8 +16,11 @@ public class DatabaseBuilderTest {
 		DatabaseBuilder.addToDB(attMapTest);
 	}
 
-	private static void addTestData(
-			HashMap<String, HashMap<String, HashSet<Pair<String, String>>>> attMapTest) {
+	/**
+	 * Adds in a few items into the attributeMap to add to the database
+	 * @param attMapTest
+	 */
+	private static void addTestData(HashMap<String, HashMap<String, HashSet<Pair<String, String>>>> attMapTest) {
 		Pair<String, String> coApple = new Pair<String, String>("stockPrice", "high");
 		Pair<String, String> otherCo = new Pair<String, String>("something", "unused");
 		Pair<String, String> fruitApple = new Pair<String, String>("calorie", "some");
