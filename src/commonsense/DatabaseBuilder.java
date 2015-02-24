@@ -66,11 +66,4 @@ public class DatabaseBuilder {
 		relationColl.createIndex(new BasicDBObject("entity", "text"));
 		entityColl.createIndex(new BasicDBObject("entity", "text"));
 	}
-	
-	/**
-	 * Foreach superentity take the medians of the attributes for each entity add to the relations table
-	 */
-	public static void determineMedians() {
-		// TODO 
-	}
 }
