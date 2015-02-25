@@ -1,10 +1,9 @@
 #!/bin/bash
 
 file="$1"
-n=0
-while [read line -a n < 25]
-do
-    name=$line
-    echo "File $n: $line"
-    ((n++))
-done < $file
+mkdir -p "attributeFiltrate"
+while IFS=',' read -ra line; do
+    s="${line[0]}"
+    mv "data/transposeTables/$s" "attributeFiltrate"
+    echo "$s"
+done < "$file"
