@@ -30,7 +30,6 @@ public class DatabaseBuilder {
 		if (mongoClient != null) {
 			mongoClient.close();	
 		}
-		
 	}
 
 	/**
