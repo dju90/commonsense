@@ -55,6 +55,7 @@ public class DatabaseBuilder {
 						allValues = new HashSet<Integer>();
 					}
 					allValues.add(relationPair.getValue());
+					medianAttributes.put(relationPair.getKey(), allValues);
 				}
 			}
 			
@@ -76,9 +77,9 @@ public class DatabaseBuilder {
 				Pair<String, Integer> pair = new Pair<String, Integer>(medianEntry.getKey(), median);
 				medianRelations.add(pair);
 			}
-			
-			medianMap.put(entityEntry.getKey(), medianRelations);
-			attMap.put(entityEntry.getKey(), medianMap);
+			HashMap<String, HashSet<Pair<String, Integer>>> values = attMap.get(entityEntry.getKey());
+			values.put(entityEntry.getKey(), medianRelations);
+			attMap.put(entityEntry.getKey(), values);			
 		}
 	}
 
@@ -111,7 +112,7 @@ public class DatabaseBuilder {
 			for (Map.Entry<String, HashSet<Pair<String, Integer>>> relationEntry: entityEntry.getValue().entrySet()) {
 				// Examine every entity
 				// Adding each pair of relations into relationColl
-				BasicDBObject relation = new BasicDBObject("superentity", entityEntry.getKey()).append("entity", entityEntry.getKey());
+				BasicDBObject relation = new BasicDBObject("superentity", entityEntry.getKey()).append("entity", relationEntry.getKey());
 				for (Pair<String, Integer> relationPair : relationEntry.getValue()) {
 					// Examine every relation
 					relation.append(relationPair.getKey(), relationPair.getValue());
@@ -120,6 +121,6 @@ public class DatabaseBuilder {
 			}
 		}
 		// Create an index over entities
-		relationColl.createIndex(new BasicDBObject("entity", "text"));
+		relationColl.createIndex(new BasicDBObject("entity", 1));
 	}
 }
