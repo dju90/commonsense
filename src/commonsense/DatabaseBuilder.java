@@ -9,9 +9,11 @@ import com.mongodb.DB;
 import com.mongodb.DBCollection;
 import com.mongodb.MongoClient;
 
+
+
 public class DatabaseBuilder {
 	private static String DBName = "commonsense";
-	
+	private static MongoClient mongoClient = null;
 	/**
 	 * Takes in a HashMap<String, HashMap<String, HashSet<Pair<String, String>>>> to add into a NoSQL key value store
 	 * @param attMap a map of superentites and its entities and its attribute pairs to be inserted into a database
@@ -20,8 +22,18 @@ public class DatabaseBuilder {
 		DB db = startDatabase();
 		//addMedians(attMap); 
 		buildDB(attMap, db);
+		endDatabase();
 	}
 	
+	// Closes the connection
+	private static void endDatabase() {
+		// TODO Auto-generated method stub
+		if (mongoClient != null) {
+			mongoClient.close();	
+		}
+		
+	}
+
 	/**
 	 * Takes the super class and finds the median attributes of its entities and adds them to the attMap as the class
 	 * @param attMap the map of superentities, is modified to include another hashmap
@@ -48,7 +60,7 @@ public class DatabaseBuilder {
 	 * @return the database connection after connecting to mongo, null if an error occurred.
 	 */
 	private static DB startDatabase() {
-		MongoClient mongoClient;
+		
 		DB db = null;
 		try {
 			mongoClient = new MongoClient();
