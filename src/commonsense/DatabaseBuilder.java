@@ -2,6 +2,7 @@ package commonsense;
 import java.net.UnknownHostException;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Map;
 
 import com.mongodb.BasicDBObject;
 import com.mongodb.DB;
@@ -17,9 +18,31 @@ public class DatabaseBuilder {
 	 */
 	public static void addToDB(HashMap<String, HashMap<String, HashSet<Pair<String, String>>>> attMap) {
 		DB db = startDatabase();
+		//addMedians(attMap); 
 		buildDB(attMap, db);
 	}
 	
+	/**
+	 * Takes the super class and finds the median attributes of its entities and adds them to the attMap as the class
+	 * @param attMap the map of superentities, is modified to include another hashmap
+	 */
+	private static void addMedians(HashMap<String, HashMap<String, HashSet<Pair<String, String>>>> attMap) {
+		for (Map.Entry<String, HashMap<String, HashSet<Pair<String, String>>>> entityEntry :  attMap.entrySet() ) {
+			// Examine every superentity
+			HashMap<String, HashSet<Pair<String, String>>> medianMap = new HashMap<String, HashSet<Pair<String, String>>>();			
+			// Adding each pair of relations into relationColl
+			for (Map.Entry<String, HashSet<Pair<String, String>>> relationEntry: entityEntry.getValue().entrySet()) {
+				// Examine every entity
+				HashSet<Pair<String, String>> medianRelations = new HashSet<Pair<String, String>>();
+				for (Pair<String, String> relationPair : relationEntry.getValue()) {
+					// Examine every relation
+				}
+				medianMap.put(entityEntry.getKey(), medianRelations);
+			}
+			attMap.put(entityEntry.getKey(), medianMap);
+		}
+	}
+
 	/**
 	 * Starts a database with mongodb with DBName and returns the db connection
 	 * @return the database connection after connecting to mongo, null if an error occurred.
@@ -44,15 +67,13 @@ public class DatabaseBuilder {
 	private static void buildDB(HashMap<String, HashMap<String, HashSet<Pair<String, String>>>> attMap, DB db) {
 		// Create the collection here since this assumes these collections have not been created before
 		DBCollection relationColl = db.createCollection("relations", new BasicDBObject());
-		for (String superEntity: attMap.keySet() ) {
+		for (Map.Entry<String, HashMap<String, HashSet<Pair<String, String>>>> entityEntry :  attMap.entrySet() ) {
 			// Examine every superentity
-			HashMap<String, HashSet<Pair<String, String>>> entityData = attMap.get(superEntity);
-			for (String entity: entityData.keySet()) {
+			for (Map.Entry<String, HashSet<Pair<String, String>>> relationEntry: entityEntry.getValue().entrySet()) {
 				// Examine every entity
-				HashSet<Pair<String, String>> relationSet = entityData.get(entity);
 				// Adding each pair of relations into relationColl
-				BasicDBObject relation = new BasicDBObject("superentity", superEntity).append("entity", entity);
-				for (Pair<String, String> relationPair : relationSet) {
+				BasicDBObject relation = new BasicDBObject("superentity", entityEntry.getKey()).append("entity", entityEntry.getKey());
+				for (Pair<String, String> relationPair : relationEntry.getValue()) {
 					// Examine every relation
 					relation.append(relationPair.getKey(), relationPair.getValue());
 				}
@@ -60,7 +81,6 @@ public class DatabaseBuilder {
 			}
 		}
 		// Create an index over entities
-		// TODO also create an index over superentity?
 		relationColl.createIndex(new BasicDBObject("entity", "text"));
 	}
 }
