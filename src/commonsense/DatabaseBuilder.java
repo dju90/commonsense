@@ -18,16 +18,15 @@ public class DatabaseBuilder {
 	 * Takes in a HashMap<String, HashMap<String, HashSet<Pair<String, String>>>> to add into a NoSQL key value store
 	 * @param attMap a map of superentites and its entities and its attribute pairs to be inserted into a database
 	 */
-	public static void addToDB(HashMap<String, HashMap<String, HashSet<Pair<String, String>>>> attMap) {
+	public static void addToDB(HashMap<String, HashMap<String, HashSet<Pair<String, Integer>>>> attMap) {
 		DB db = startDatabase();
-		//addMedians(attMap); 
+		addMedians(attMap); 
 		buildDB(attMap, db);
 		endDatabase();
 	}
 	
-	// Closes the connection
+	// Closes the connection to the database
 	private static void endDatabase() {
-		// TODO Auto-generated method stub
 		if (mongoClient != null) {
 			mongoClient.close();	
 		}
@@ -38,19 +37,47 @@ public class DatabaseBuilder {
 	 * Takes the super class and finds the median attributes of its entities and adds them to the attMap as the class
 	 * @param attMap the map of superentities, is modified to include another hashmap
 	 */
-	private static void addMedians(HashMap<String, HashMap<String, HashSet<Pair<String, String>>>> attMap) {
-		for (Map.Entry<String, HashMap<String, HashSet<Pair<String, String>>>> entityEntry :  attMap.entrySet() ) {
+	private static void addMedians(HashMap<String, HashMap<String, HashSet<Pair<String, Integer>>>> attMap) {
+		for (Map.Entry<String, HashMap<String, HashSet<Pair<String, Integer>>>> entityEntry :  attMap.entrySet() ) {
 			// Examine every superentity
-			HashMap<String, HashSet<Pair<String, String>>> medianMap = new HashMap<String, HashSet<Pair<String, String>>>();			
-			// Adding each pair of relations into relationColl
-			for (Map.Entry<String, HashSet<Pair<String, String>>> relationEntry: entityEntry.getValue().entrySet()) {
+			HashMap<String, HashSet<Pair<String, Integer>>> medianMap = new HashMap<String, HashSet<Pair<String, Integer>>>();
+			// Attribute to a set of values of that attribute
+			HashMap<String, HashSet<Integer>> medianAttributes = new HashMap<String, HashSet<Integer>>();
+			for (Map.Entry<String, HashSet<Pair<String, Integer>>> relationEntry: entityEntry.getValue().entrySet()) {
 				// Examine every entity
-				HashSet<Pair<String, String>> medianRelations = new HashSet<Pair<String, String>>();
-				for (Pair<String, String> relationPair : relationEntry.getValue()) {
+				for (Pair<String, Integer> relationPair : relationEntry.getValue()) {
 					// Examine every relation
+					// Add each of the attributes to medianAttribute
+					HashSet<Integer> allValues;
+					if (medianAttributes.containsKey(relationPair.getKey())) {
+						allValues = medianAttributes.get(relationPair.getKey());
+					} else {
+						allValues = new HashSet<Integer>();
+					}
+					allValues.add(relationPair.getValue());
 				}
-				medianMap.put(entityEntry.getKey(), medianRelations);
 			}
+			
+			HashSet<Pair<String, Integer>> medianRelations = new HashSet<Pair<String, Integer>>();
+			// Determine medians and add to medianRelations
+			for (Map.Entry<String, HashSet<Integer>> medianEntry : medianAttributes.entrySet()) {
+				Integer[] tempArray = medianEntry.getValue().toArray(new Integer[medianEntry.getValue().size()]);
+				int[] medianArray = new int[tempArray.length];
+				for (int i = 0; i < tempArray.length; i++) {
+					medianArray[i] = tempArray[i];
+				}
+				java.util.Arrays.sort(medianArray);
+				int median;
+				if (medianArray.length % 2 == 0) {
+				    median = (medianArray[medianArray.length/2] + medianArray[medianArray.length/2 - 1])/2;
+				} else {
+				    median = medianArray[medianArray.length/2];
+				}
+				Pair<String, Integer> pair = new Pair<String, Integer>(medianEntry.getKey(), median);
+				medianRelations.add(pair);
+			}
+			
+			medianMap.put(entityEntry.getKey(), medianRelations);
 			attMap.put(entityEntry.getKey(), medianMap);
 		}
 	}
@@ -76,16 +103,16 @@ public class DatabaseBuilder {
 	 * @param attMap the attribute map containing superentity, entity, and relation information
 	 * @param db the database connection to insert to the database
 	 */
-	private static void buildDB(HashMap<String, HashMap<String, HashSet<Pair<String, String>>>> attMap, DB db) {
+	private static void buildDB(HashMap<String, HashMap<String, HashSet<Pair<String, Integer>>>> attMap, DB db) {
 		// Create the collection here since this assumes these collections have not been created before
 		DBCollection relationColl = db.createCollection("relations", new BasicDBObject());
-		for (Map.Entry<String, HashMap<String, HashSet<Pair<String, String>>>> entityEntry :  attMap.entrySet() ) {
+		for (Map.Entry<String, HashMap<String, HashSet<Pair<String, Integer>>>> entityEntry :  attMap.entrySet() ) {
 			// Examine every superentity
-			for (Map.Entry<String, HashSet<Pair<String, String>>> relationEntry: entityEntry.getValue().entrySet()) {
+			for (Map.Entry<String, HashSet<Pair<String, Integer>>> relationEntry: entityEntry.getValue().entrySet()) {
 				// Examine every entity
 				// Adding each pair of relations into relationColl
 				BasicDBObject relation = new BasicDBObject("superentity", entityEntry.getKey()).append("entity", entityEntry.getKey());
-				for (Pair<String, String> relationPair : relationEntry.getValue()) {
+				for (Pair<String, Integer> relationPair : relationEntry.getValue()) {
 					// Examine every relation
 					relation.append(relationPair.getKey(), relationPair.getValue());
 				}
