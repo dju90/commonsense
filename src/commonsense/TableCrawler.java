@@ -16,7 +16,7 @@ public class TableCrawler { //should we make this an object, so it can handle mu
 	}
 
 	/*
-	 * Crawls the directory and processes csv files 
+	 * Crawls the directory and processes csv files ...APPEND UNITS TO NUMBERS
 	 * 
 	 * @param attFileName
 	 * @param dirName
@@ -26,7 +26,7 @@ public class TableCrawler { //should we make this an object, so it can handle mu
 
 		File[] fileDir = new File(dirName).listFiles();
 		for (File f : fileDir) {
-			Integer[] relevantColumns = aFilter.relevance(f);
+			Integer[] relevantColumns = aFilter.relevantColumnIndexes(f);
 			if (relevantColumns.length != 0) {
 				addToMap(f, relevantColumns);
 			}
@@ -62,16 +62,14 @@ public class TableCrawler { //should we make this an object, so it can handle mu
 						freeBaseHits = new HashSet<Set<String>>();
 
 						while (scan.hasNextLine()) {
-							tableMap.put(
-									line[entityCol],
-									processLine(line, entityCol, attributes,
-											relevantCols, freeBaseHits));
+							tableMap.put(line[entityCol],
+										 processLine(line, entityCol, attributes, 
+												 	 relevantCols, freeBaseHits));
 							line = scan.nextLine().split(",");
 						}
-						tableMap.put(
-								line[entityCol],
-								processLine(line, entityCol, attributes,
-										relevantCols, freeBaseHits));
+						tableMap.put(line[entityCol],
+									 processLine(line, entityCol, attributes,
+											 	 relevantCols, freeBaseHits));
 					}
 				}
 			}
@@ -133,7 +131,7 @@ public class TableCrawler { //should we make this an object, so it can handle mu
 	 * 
 	 * @return The column index of the first alphabetic entry
 	 */
-	private static int idEntityColumn(String[] line) {
+	protected static int idEntityColumn(String[] line) {
 		int i = 0;
 		while (i < line.length) {
 			// !contains only non-alphabetic chars

@@ -62,7 +62,29 @@ public class AttributeFilter {
 	 * 			null if invalid file name or empty file
 	 * @throws FileNotFoundException
 	 */
-	public Integer[] relevance(File f) {
+	public String[] relevantColumnHeadings(File f) {
+		try {
+			Scanner scan = new Scanner(f);
+			if( scan.hasNextLine() ) {
+				String[] attributes = scan.nextLine().split(",");
+				ArrayList<String> relevantColumns = new ArrayList<String>();
+				for (int i = 0; i < attributes.length; i++) {
+					String attribute = attributes[i].replaceAll("[^A-Za-z0-9 ]", "");
+					if (attributeList.contains(attribute)) {
+						relevantColumns.add(i + ": " + attribute);
+					}
+				}
+				scan.close();
+				return relevantColumns.toArray(new String[relevantColumns.size()]);
+			}
+			scan.close();
+			return null;
+		} catch(FileNotFoundException fe) {
+			return null;
+		}
+	}
+	
+	public Integer[] relevantColumnIndexes(File f) {
 		try {
 			Scanner scan = new Scanner(f);
 			if( scan.hasNextLine() ) {
