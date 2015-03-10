@@ -63,7 +63,7 @@ public class AttributeFilterTest {
 					} catch( NumberFormatException n ) {
 						index = -1;
 					}
-					if( index >= 0 ) {
+					if( index >= 0 && index < cols.length ) {
 						writer.print(cols[index]);					
 					}
 				}
@@ -71,7 +71,7 @@ public class AttributeFilterTest {
 				writer.println();
 			}
 		}
-		System.out.println();
+		writer.println();
 	}
 
 }
