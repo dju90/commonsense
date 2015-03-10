@@ -51,9 +51,13 @@ public class DatabaseBuilder {
 					} else {
 						allValues = new HashSet<Double>();
 					}
-					String pattern = "\\D";
-					double val = Double.parseDouble(relationPair.getValue().replaceAll(pattern, ""));
-					// TODO convert units?
+					// pattern matches not a decimal number
+					String noDecimalPattern = "[^\\d+[\\.\\d+]]";
+					String decimalPattern = "\\d+[\\.\\d+]";
+					double val = Double.parseDouble(relationPair.getValue().replaceAll(noDecimalPattern, ""));
+					// TODO convert units to standard? 
+					String units = relationPair.getValue().replaceAll(decimalPattern, "");
+					val = UnitConverter.convertUnits(val, units);
 					allValues.add(val);
 					medianAttributes.put(relationPair.getKey(), allValues);
 				}
@@ -112,7 +116,7 @@ public class DatabaseBuilder {
 			for (Map.Entry<String, HashSet<Pair<String, String>>> relationEntry: entityEntry.getValue().entrySet()) {
 				// Examine every entity
 				// Adding each pair of relations into relationColl
-				BasicDBObject relation = new BasicDBObject("superentity", entityEntry.getKey()).append("entity", relationEntry.getKey());
+				BasicDBObject relation = new BasicDBObject("type", entityEntry.getKey()).append("entity", relationEntry.getKey());
 				for (Pair<String, String> relationPair : relationEntry.getValue()) {
 					// Examine every relation
 					relation.append(relationPair.getKey(), relationPair.getValue());

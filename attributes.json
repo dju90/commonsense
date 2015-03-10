@@ -6,13 +6,11 @@
                     "length",
                     "len",
                     "distance",
-                    "d",
                     "dist",
                     "dst",
                     "height",
                     "hgt",
                     "ht",
-                    "h",
                     "altitude",
                     "alt",
                     "elevation",
@@ -23,9 +21,9 @@
                     "perimeter",
                     "circumference",
                     "radius",
-                    "r",
                     "hands",
                     "football fields",
+                    "size",
                     "yard"
                 ],
                 [
@@ -34,7 +32,6 @@
                     "meters",
                     "metres",
                     "meter",
-                    "m",
                     "centimeters",
                     "centimetres",
                     "centimeter",
@@ -101,7 +98,6 @@
                     "ft^3",
                     "qt",
                     "liters",
-                    "l",
                     "kiloliters",
                     "kl"
                 ]
@@ -161,11 +157,9 @@
                     "ton",
                     "tn",
                     "gram",
-                    "g",
                     "kilogram",
                     "kg",
-                    "oz t",
-                    "troy oz",
+                    "oz",
                     "milligram",
                     "mg"
                 ]
