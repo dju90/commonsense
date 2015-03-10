@@ -116,7 +116,12 @@ public class TableCrawler { //should we make this an object, so it can handle mu
 		String entity = line[entityCol];
 		// do a free base lookup for each entity and add resulting set to
 		// file-specific map
-		freeBaseHits.add(freeBaseLookup(entity));
+		try {
+			freeBaseHits.add(FreeBaseCaller.lookup(entity));
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 
 		HashSet<Pair<String, String>> attVals = new HashSet<Pair<String, String>>();
 		// grab all attributes from columns w/ index in relevantColumns
@@ -141,16 +146,6 @@ public class TableCrawler { //should we make this an object, so it can handle mu
 			i++;
 		}
 		return -1;
-	}
-
-	/*
-	 * Looks up the set of identities that freebase ascribes to a given entity
-	 * @TODO: free base API console is DOWN
-	 * 
-	 * @return
-	 */
-	private static Set<String> freeBaseLookup(String entity) {
-		return null;
 	}
 
 	/*
