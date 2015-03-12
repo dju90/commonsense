@@ -1,4 +1,4 @@
-package com.cybozu.labs.langdetect.util;
+package langdetector.com.cybozu.labs.langdetect.util;
 
 /**
  * {@link TagExtractor} is a class which extracts inner texts of specified tag.

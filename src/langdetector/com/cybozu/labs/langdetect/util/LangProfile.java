@@ -1,4 +1,4 @@
-package com.cybozu.labs.langdetect.util;
+package langdetector.com.cybozu.labs.langdetect.util;
 
 import java.util.HashMap;
 import java.util.Iterator;

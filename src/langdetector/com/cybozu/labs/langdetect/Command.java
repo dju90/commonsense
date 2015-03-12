@@ -1,4 +1,4 @@
-package com.cybozu.labs.langdetect;
+package langdetector.com.cybozu.labs.langdetect;
 
 import java.io.File;
 import java.io.BufferedReader;

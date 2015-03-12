@@ -7,7 +7,7 @@ import java.util.Set;
 //import com.google.api-client;
 
 
-public class TableCrawler { //should we make this an object, so it can handle multiple directories?
+public class TableCrawler { //should we make this an object, so it can handle multiple directories? No
 	private static HashMap<String, HashMap<String, HashSet<Pair<String, String>>>> attMap;
 
 	public static void main(String[] args) {
@@ -186,5 +186,4 @@ public class TableCrawler { //should we make this an object, so it can handle mu
 		}
 		return maxEntity;
 	}
-
 }
