@@ -1,4 +1,5 @@
 package commonsense;
+import java.math.BigDecimal;
 import java.net.UnknownHostException;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -39,17 +40,17 @@ public class DatabaseBuilder {
 			// Examine every superentity
 			
 			// Attribute to a set of values of that attribute
-			HashMap<String, HashSet<Double>> medianAttributes = new HashMap<String, HashSet<Double>>();
+			HashMap<String, HashSet<BigDecimal>> medianAttributes = new HashMap<String, HashSet<BigDecimal>>();
 			for (Map.Entry<String, HashSet<Pair<String, String>>> relationEntry: entityEntry.getValue().entrySet()) {
 				// Examine every entity
 				for (Pair<String, String> relationPair : relationEntry.getValue()) {
 					// Examine every relation
 					// Add each of the attributes to medianAttribute
-					HashSet<Double> allValues;
+					HashSet<BigDecimal> allValues;
 					if (medianAttributes.containsKey(relationPair.getKey())) {
 						allValues = medianAttributes.get(relationPair.getKey());
 					} else {
-						allValues = new HashSet<Double>();
+						allValues = new HashSet<BigDecimal>();
 					}
 					// pattern matches not a decimal number
 					String noDecimalPattern = "[^\\d+[\\.\\d+]]";
@@ -57,28 +58,25 @@ public class DatabaseBuilder {
 					double val = Double.parseDouble(relationPair.getValue().replaceAll(noDecimalPattern, ""));
 					// TODO convert units to standard? 
 					String units = relationPair.getValue().replaceAll(decimalPattern, "");
-					val = UnitConverter.convertUnits(val, units);
-					allValues.add(val);
+					units = units.toLowerCase();
+					BigDecimal value = UnitConverter.convertUnits(val, units);
+					allValues.add(value);
 					medianAttributes.put(relationPair.getKey(), allValues);
 				}
 			}
 			
 			HashSet<Pair<String, String>> medianRelations = new HashSet<Pair<String, String>>();
 			// Determine medians and add to medianRelations
-			for (Map.Entry<String, HashSet<Double>> medianEntry : medianAttributes.entrySet()) {
-				Double[] tempArray = medianEntry.getValue().toArray(new Double[medianEntry.getValue().size()]);
-				double[] medianArray = new double[tempArray.length];
-				for (int i = 0; i < tempArray.length; i++) {
-					medianArray[i] = tempArray[i];
-				}
+			for (Map.Entry<String, HashSet<BigDecimal>> medianEntry : medianAttributes.entrySet()) {
+				BigDecimal[] medianArray = medianEntry.getValue().toArray(new BigDecimal[medianEntry.getValue().size()]);
 				java.util.Arrays.sort(medianArray);
-				double median;
+				BigDecimal median;
 				if (medianArray.length % 2 == 0) {
-				    median = (medianArray[medianArray.length/2] + medianArray[medianArray.length/2 - 1])/2.0;
+				    median = (medianArray[medianArray.length/2].add(medianArray[medianArray.length/2 - 1])).divide(new BigDecimal(2));
 				} else {
 				    median = medianArray[medianArray.length/2];
 				}
-				Pair<String, String> pair = new Pair<String, String>(medianEntry.getKey(), Double.toString(median));
+				Pair<String, String> pair = new Pair<String, String>(medianEntry.getKey(), Double.toString(median.doubleValue()));
 				medianRelations.add(pair);
 			}
 			HashMap<String, HashSet<Pair<String, String>>> values = attMap.get(entityEntry.getKey());
