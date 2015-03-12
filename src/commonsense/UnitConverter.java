@@ -39,6 +39,7 @@ public class UnitConverter {
 	
 	public static BigDecimal convertUnits(double val, String units) {
 		// TODO Auto-generated method stub
+		// HashSet<String> allUnits = parseJSON("units.txt");
 		// if length
 		// if weight
 		// if area

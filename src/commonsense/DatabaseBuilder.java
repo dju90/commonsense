@@ -56,7 +56,6 @@ public class DatabaseBuilder {
 					String noDecimalPattern = "[^\\d+[\\.\\d+]]";
 					String decimalPattern = "\\d+[\\.\\d+]";
 					double val = Double.parseDouble(relationPair.getValue().replaceAll(noDecimalPattern, ""));
-					// TODO convert units to standard? 
 					String units = relationPair.getValue().replaceAll(decimalPattern, "");
 					units = units.toLowerCase();
 					BigDecimal value = UnitConverter.convertUnits(val, units);
