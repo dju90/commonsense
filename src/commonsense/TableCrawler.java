@@ -12,7 +12,7 @@ public class TableCrawler { //should we make this an object, so it can handle mu
 
 	public static void main(String[] args) {
 		attMap = new HashMap<String, HashMap<String, HashSet<Pair<String, String>>>>();
-		crawlDir(args[0], args[1]);
+		crawlDir(args[0], args[1], args[2]);
 	}
 
 	/*
@@ -21,9 +21,10 @@ public class TableCrawler { //should we make this an object, so it can handle mu
 	 * @param attFileName
 	 * @param dirName
 	 */
-	private static void crawlDir(String attFileName, String dirName) {
+	private static void crawlDir(String attFileName, String unitFileName, String dirName) {
 		AttributeFilter aFilter = new AttributeFilter(attFileName);
-
+		UnitFilter uFilter = new UnitFilter(unitFileName);
+		
 		File[] fileDir = new File(dirName).listFiles();
 		for (File f : fileDir) {
 			Integer[] relevantColumns = aFilter.relevantColumnIndexes(f);
