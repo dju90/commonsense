@@ -78,7 +78,13 @@ public class DatabaseBuilder {
 				Pair<String, String> pair = new Pair<String, String>(medianEntry.getKey(), Double.toString(median.doubleValue()));
 				medianRelations.add(pair);
 			}
-			HashMap<String, HashSet<Pair<String, String>>> values = attMap.get(entityEntry.getKey());
+			HashMap<String, HashSet<Pair<String, String>>> values;
+			if (attMap.containsKey("")) {
+				values = attMap.get("");		
+			} else {
+				values = new HashMap<String, HashSet<Pair<String, String>>>();
+			}
+		
 			values.put(entityEntry.getKey(), medianRelations);
 			attMap.put(entityEntry.getKey(), values);			
 		}
