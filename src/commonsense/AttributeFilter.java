@@ -33,7 +33,7 @@ public class AttributeFilter {
 				JSONArray attributes = (JSONArray) jsonObject.get(dim);
 				if (attributes != null) {
 					for (int i = 0; i < attributes.size(); i++) {
-						tempList.put((String) attributes.get(i), dim);
+						tempList.put("\\b" + (String) attributes.get(i) + "\\b", dim);
 					}
 				}
 			}
@@ -70,22 +70,15 @@ public class AttributeFilter {
 				
 				for (int i = 0; i < attributes.length && relevantColumns != null; i++) {
 					String columnCandidate = attributes[i].replaceAll("[^A-Za-z0-9 ]", "");
-					
 					for( String attributeRegex : attributeList.keySet() ) {
 						if( columnCandidate.matches(attributeRegex) ){
-							String unit = containsUnits(i, columnCandidate, scan);
-							if( unit != null && unit != "SPEC_CHAR" && unit != "TOO_FEW_LINES") {
-								System.out.println("added");
-								relevantColumns.add(i + ":" 
-											+ attributeList.get(attributeRegex) + ";" 
-											+ columnCandidate + ";"
-											+ unit);								
-							} else { // unit == "SPEC_CHAR" || unit )
-								relevantColumns = null;
-								break;
-							}
+							relevantColumns.add(i + ": " + attributeList.get(attributeRegex) + ";" + columnCandidate);
 						}
-					}
+					}/* else {
+						if (attributeList.contains(columnCandidate)) {
+							relevantColumns.add(i + ": " + columnCandidate);
+						}
+					}*/
 				}
 				return relevantColumns;
 			}
@@ -98,7 +91,7 @@ public class AttributeFilter {
 	
 	/*
 	 * 
-	 */
+	 
 	private String containsUnits(int index, String candidate, Scanner fScan) {
 		if( index > -1 ) {
 			return null;
@@ -130,7 +123,7 @@ public class AttributeFilter {
 		} else {
 			return hUnits;
 		}
-	}
+	}*/
 	
 	/**
 	 * Returns an integer array of the relevant column indices
@@ -146,7 +139,7 @@ public class AttributeFilter {
 				for (int i = 0; i < attributes.length; i++) {
 					String columnCandidate = attributes[i].replaceAll("[^A-Za-z0-9 ]", "");
 					for( String attributeRegex : attributeList.keySet() ) {
-						if( columnCandidate.matches("\\b" + attributeRegex + "\\b") ){
+						if( columnCandidate.matches(attributeRegex) ){
 							relevantColumns.add(i);
 						}
 					}

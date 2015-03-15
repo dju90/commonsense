@@ -34,12 +34,11 @@ public class RelevanceFilterMain {
 			}
 		} else {
 			System.out.println("Usage: java AttributeFilterTest directoryName "
-					+ "attributeJsonFile unitJsonFile "
-					+ "outputFileName fileNamesOnlyOutputFileName");
+					+ "attributeJsonFile unitJsonFile outputFileName");
 			System.exit(0);
 		}
 	}
-	
+
 	/*
 	 * replace &[A-Z-a-z];
 	 */
@@ -69,20 +68,18 @@ public class RelevanceFilterMain {
 	 * replace &[A-Z-a-z];
 	 */
 	private static void pruneUnitLessColumns(File[] fileDir, AttributeFilter aF, 
-										   UnitFilter uF, PrintStream writer, PrintStream fNamesWriter) 
-										  		 throws FileNotFoundException {
+										   UnitFilter uF, PrintStream writer, PrintStream fNamesWriter) throws FileNotFoundException {
 		for( int i=0; i<fileDir.length; i++) {
 			boolean specialChar = false;
-			ArrayList<String> lines;
 			File f = fileDir[i];
 			ArrayList<String> relevants = aF.relevantColumnHeadings(f);
 			if( relevants != null && relevants.size() > 0 ) {
 				// see if columns match
 				Scanner fileScan = new Scanner(f);
-				lines = new ArrayList<String>();
+				ArrayList<String> lines = new ArrayList<String>();
 				int counter = 0;
 				fileScan.nextLine();
-				while( fileScan.hasNextLine() && counter < 5 ) { //first two lines to print
+				while( fileScan.hasNextLine() && counter < 2 ) { //first two lines to print
 					lines.add(fileScan.nextLine());
 					counter++;
 				}
@@ -97,24 +94,27 @@ public class RelevanceFilterMain {
 						index = -1;
 					}
 					String[] identifiers = col[1].split(";");
-					// String dimName = identifiers[0];
+					String dimName = identifiers[0];
 					String colName = identifiers[1];
-					if( uF.headerContainsUnits(colName) == null ) {	// the attribute does not contain units
+					if( uF.headerContainsUnits(colName) ) {	// the attribute does not contain units
 						// the column does
 						try {//if( lines.size() > 1 ) {
 							String[] columns1 = lines.get(0).split(",");
 							String[] columns2 = lines.get(1).split(",");
 							
-							if( index > -1 && uF.cellContainsUnits(columns1[index]) == null && 
-									uF.cellContainsUnits(columns2[index]) == null )  {
+							if( index > -1 && !uF.cellContainsUnits(columns1[index]) && 
+									!uF.cellContainsUnits(columns2[index]) )  {
 								relevants.remove(j);
-							} else
+							} else {
 								j++;
-						} catch( ArrayIndexOutOfBoundsException a ) {
-							specialChar = true;
+							}
+						} catch( ArrayIndexOutOfBoundsException e) {
+							specialChar = false;
 							j++;
 						}
 					} else {
+
+
 						
 						j++;
 					}
@@ -130,16 +130,12 @@ public class RelevanceFilterMain {
 		}
 	}
 	
-	/*
-	 * prints the relevant columns' lines in the csv file
-	 */
 	private static void printLines(ArrayList<String> lines, ArrayList<String> relevants, PrintStream writer) {
 		for( String line : lines ) {
-			line = line.replaceAll("&[A-Za-z]+;", "");
 			String[] cols = line.split(",");
 			int entityColumn = TableCrawler.idEntityColumn(cols);
 			if( entityColumn >= 0 ) {
-				writer.print(cols[entityColumn].replaceAll(" {2,}", " ") + ": "); //take out excess whitespace
+				writer.print(cols[entityColumn].replaceAll(" {2,}", " ") + ": ");
 				for(int i = 0; i < relevants.size(); i++) {
 					int index;
 					try {
