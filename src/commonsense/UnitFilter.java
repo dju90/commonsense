@@ -54,17 +54,19 @@ public class UnitFilter {
 	 * @param candidate
 	 * @return
 	 */
-	public boolean cellContainsUnits(String candidate) {
+	public String cellContainsUnits(String candidate) {
 		if( candidate.matches("(.*)[0-9]+(.*)")) {
 			if( candidate.contains("min") || candidate.toLowerCase().contains("null")) {
-				return false;
+				return null;
 			}
 			String unitsOnly = candidate.replaceAll("[^A-Za-z]", "").toLowerCase();
+			
 			if ( unitList.contains(unitsOnly) ) {
-				return true;
+				System.out.println(unitsOnly);
+				return unitsOnly;
 			}
 		}
-		return false;
+		return null;
 	}
 	
 	/**
@@ -72,13 +74,14 @@ public class UnitFilter {
 	 * @param candidate
 	 * @return
 	 */
-	public boolean headerContainsUnits(String candidate) {
+	public String headerContainsUnits(String candidate) {
 		for( String unit : unitList ) {
 			if( candidate.matches("\\b" + unit + "\\b") ) {
-				return true;
+				System.out.println(unit);
+				return unit;
 			}
 		}
-		return false; 
+		return null; 
 	}
 }
 

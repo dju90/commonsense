@@ -14,7 +14,7 @@ public class RelevanceFilterMain {
 	public static void main(String[] args) {
 		if( args.length == 5) {
 			String dirName = args[0];
-			AttributeFilter aF = new AttributeFilter(args[1]);
+			AttributeFilter aF = new AttributeFilter(args[1], args[2]);
 			UnitFilter uF = new UnitFilter(args[2]);
 			PrintStream writer;
 			PrintStream fNamesWriter;
@@ -26,10 +26,10 @@ public class RelevanceFilterMain {
 					System.out.println("invalid directory");
 					System.exit(0);
 				} else {
+					//output(fileDir, aF, writer, fNamesWriter);
 					pruneUnitLessColumns(fileDir, aF, uF, writer, fNamesWriter);
 				}
 			} catch (FileNotFoundException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		} else {
@@ -42,7 +42,31 @@ public class RelevanceFilterMain {
 	
 	/*
 	 * replace &[A-Z-a-z];
-	 * 
+	 */
+	private static void output(File[] fileDir, AttributeFilter aF, PrintStream writer, PrintStream fNamesWriter) 
+										  		 throws FileNotFoundException {
+		for( int i=0; i<fileDir.length; i++) {
+			File f = fileDir[i];
+			ArrayList<String> relevants = aF.relevantColumnHeadings(f);
+			if( relevants != null && relevants.size() > 0 ) {
+				String fName = f.getName();
+				writer.println(fName + ": " + relevants);
+				fNamesWriter.println(fName + ": " + relevants);
+				ArrayList<String> lines = new ArrayList<String>();
+				Scanner fScan = new Scanner(f);
+				int counter = 0;
+				while( fScan.hasNextLine() && counter < 5) {
+					lines.add(fScan.nextLine());
+					counter++;
+				}
+				// TODO: got to fill the lines with lines
+				printLines(lines, relevants, writer);
+			}
+		}
+	}
+	
+	/*
+	 * replace &[A-Z-a-z];
 	 */
 	private static void pruneUnitLessColumns(File[] fileDir, AttributeFilter aF, 
 										   UnitFilter uF, PrintStream writer, PrintStream fNamesWriter) 
@@ -64,6 +88,7 @@ public class RelevanceFilterMain {
 				}
 				int j = 0;
 				while( j < relevants.size() ) {
+					String unit = "";
 					String[] col = relevants.get(j).split(":");
 					int index;
 					try {
@@ -74,14 +99,14 @@ public class RelevanceFilterMain {
 					String[] identifiers = col[1].split(";");
 					// String dimName = identifiers[0];
 					String colName = identifiers[1];
-					if( !uF.headerContainsUnits(colName) ) {	// the attribute does not contain units
+					if( uF.headerContainsUnits(colName) == null ) {	// the attribute does not contain units
 						// the column does
 						try {//if( lines.size() > 1 ) {
 							String[] columns1 = lines.get(0).split(",");
 							String[] columns2 = lines.get(1).split(",");
 							
-							if( index > -1 && !uF.cellContainsUnits(columns1[index]) && 
-									!uF.cellContainsUnits(columns2[index]) )  {
+							if( index > -1 && uF.cellContainsUnits(columns1[index]) == null && 
+									uF.cellContainsUnits(columns2[index]) == null )  {
 								relevants.remove(j);
 							} else
 								j++;
@@ -89,15 +114,18 @@ public class RelevanceFilterMain {
 							specialChar = true;
 							j++;
 						}
-					} else
+					} else {
+						
 						j++;
+					}
 				}
 				if( relevants.size() > 0 && lines.size() > 1 && !specialChar) {
 					String fName = f.getName();
 					writer.println(fName + ": " + relevants);
-					fNamesWriter.println(fName);
+					fNamesWriter.println(fName + ": " + relevants);
 					printLines(lines, relevants, writer);
 				}
+				fileScan.close();
 			}
 		}
 	}

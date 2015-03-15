@@ -10,10 +10,11 @@ import org.json.simple.parser.ParseException;
 
 public class AttributeFilter {
 	private HashMap<String, String> attributeList;
+	private UnitFilter uF;
 
-	public AttributeFilter(String attributeFilePath) {
+	public AttributeFilter(String attributeFilePath, String unitFilePath) {
 		attributeList = parseJson(attributeFilePath);
-
+		uF = new UnitFilter(unitFilePath);
 	}
 
 	private HashMap<String, String> parseJson(String filePath) {
@@ -63,17 +64,29 @@ public class AttributeFilter {
 		try {
 			Scanner scan = new Scanner(f);
 			if( scan.hasNextLine() ) {
+				// top line
 				String[] attributes = scan.nextLine().split(",");
 				ArrayList<String> relevantColumns = new ArrayList<String>();
-				for (int i = 0; i < attributes.length; i++) {
+				
+				for (int i = 0; i < attributes.length && relevantColumns != null; i++) {
 					String columnCandidate = attributes[i].replaceAll("[^A-Za-z0-9 ]", "");
+					
 					for( String attributeRegex : attributeList.keySet() ) {
 						if( columnCandidate.matches(attributeRegex) ){
-							relevantColumns.add(i + ": " + attributeList.get(attributeRegex) + ";" + columnCandidate);
+							String unit = containsUnits(i, columnCandidate, scan);
+							if( unit != null && unit != "SPEC_CHAR" && unit != "TOO_FEW_LINES") {
+								System.out.println("added");
+								relevantColumns.add(i + ":" 
+											+ attributeList.get(attributeRegex) + ";" 
+											+ columnCandidate + ";"
+											+ unit);								
+							} else { // unit == "SPEC_CHAR" || unit )
+								relevantColumns = null;
+								break;
+							}
 						}
 					}
 				}
-				scan.close();
 				return relevantColumns;
 			}
 			scan.close();
@@ -83,6 +96,47 @@ public class AttributeFilter {
 		}
 	}
 	
+	/*
+	 * 
+	 */
+	private String containsUnits(int index, String candidate, Scanner fScan) {
+		if( index > -1 ) {
+			return null;
+		}
+		ArrayList<String> lines = new ArrayList<String>();
+		int counter = 0;
+		while( fScan.hasNextLine() && counter < 5 ) { //first five lines to print
+			lines.add(fScan.nextLine());
+			counter++;
+		}
+		String hUnits = uF.headerContainsUnits(candidate);
+		if( hUnits == null ) {	// the attribute does not contain units
+			// the column does
+			try {//if( lines.size() > 1 ) {
+				String[] columns1 = lines.get(0).split(",");
+				String[] columns2 = lines.get(1).split(",");
+				String col1Unit = uF.cellContainsUnits(columns1[index]); 
+				String col2Unit = uF.cellContainsUnits(columns2[index]);
+				if( col1Unit == null && col2Unit == null )  {
+					return null;
+				} else {
+					return col1Unit != null ? col1Unit : col2Unit;
+				}
+			} catch( ArrayIndexOutOfBoundsException a ) {
+				return "SPEC_CHAR";
+			} catch( IndexOutOfBoundsException i ) {
+				return "TOO_FEW_LINES";
+			}
+		} else {
+			return hUnits;
+		}
+	}
+	
+	/**
+	 * Returns an integer array of the relevant column indices
+	 * @param f
+	 * @return
+	 */
 	public Integer[] relevantColumnIndexes(File f) {
 		try {
 			Scanner scan = new Scanner(f);
