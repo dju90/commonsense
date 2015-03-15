@@ -65,6 +65,7 @@ public class RelevanceFilterMain {
 	}
 	
 	/*
+	 * entity column = attribute column
 	 * replace &[A-Z-a-z];
 	 */
 	private static void pruneUnitLessColumns(File[] fileDir, AttributeFilter aF, 
@@ -96,7 +97,7 @@ public class RelevanceFilterMain {
 					String[] identifiers = col[1].split(";");
 					String dimName = identifiers[0];
 					String colName = identifiers[1];
-					if( uF.headerContainsUnits(colName) ) {	// the attribute does not contain units
+					if( !uF.headerContainsUnits(colName) ) {	// the attribute does not contain units
 						// the column does
 						try {//if( lines.size() > 1 ) {
 							String[] columns1 = lines.get(0).split(",");
@@ -108,14 +109,11 @@ public class RelevanceFilterMain {
 							} else {
 								j++;
 							}
-						} catch( ArrayIndexOutOfBoundsException e) {
+						} catch( IndexOutOfBoundsException e) {
 							specialChar = false;
 							j++;
 						}
 					} else {
-
-
-						
 						j++;
 					}
 				}
