@@ -9,14 +9,17 @@ import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
 public class AttributeFilter {
-	private HashSet<String> attributeList;
+	private HashMap<String, String> attributeList;
+	private boolean wordBoundary;
 
-	public AttributeFilter(String attributeFilePath) {
+	public AttributeFilter(String attributeFilePath, boolean wordBoundary) {
+		this.wordBoundary = wordBoundary;
 		attributeList = parseJson(attributeFilePath);
+
 	}
 
-	private HashSet<String> parseJson(String filePath) {
-		attributeList = new HashSet<String>();
+	private HashMap<String, String> parseJson(String filePath) {
+		HashMap<String, String> tempList = new HashMap<String, String>();
 		try {
 			JSONParser parser = new JSONParser();
 			JSONObject jsonObject = (JSONObject) parser.parse(new FileReader(
@@ -26,15 +29,15 @@ public class AttributeFilter {
 			jsonObject = (JSONObject) ((JSONObject) jsonObject.get("attribute"))
 					.get("size");
 			Set<?> dimensions = jsonObject.keySet();
-			for (Object dim : dimensions) {
-				JSONArray subtypes = (JSONArray) jsonObject.get(dim);
-				if (subtypes != null) {
-					for (int i = 0; i < subtypes.size(); i++) {
-						JSONArray innerArray = (JSONArray) subtypes.get(i);
-						if (innerArray != null) {
-							for (int j = 0; j < innerArray.size(); j++) {
-								attributeList.add((String) innerArray.get(j));
-							}
+			for (Object dimension : dimensions) {
+				String dim = "" + dimension;				
+				JSONArray attributes = (JSONArray) jsonObject.get(dim);
+				if (attributes != null) {
+					for (int i = 0; i < attributes.size(); i++) {
+						if( wordBoundary ) {
+							tempList.put("\\b" + (String) attributes.get(i) + "\\b", dim);
+						} else {
+							tempList.put((String) attributes.get(i), dim);									
 						}
 					}
 				}
@@ -50,7 +53,7 @@ public class AttributeFilter {
 			System.out.println("Parse error.");
 			pe.printStackTrace();
 		}
-		return attributeList;
+		return tempList;
 	}
 
 	/**
@@ -62,20 +65,28 @@ public class AttributeFilter {
 	 * 			null if invalid file name or empty file
 	 * @throws FileNotFoundException
 	 */
-	public String[] relevantColumnHeadings(File f) {
+	public ArrayList<String> relevantColumnHeadings(File f) {
 		try {
 			Scanner scan = new Scanner(f);
 			if( scan.hasNextLine() ) {
 				String[] attributes = scan.nextLine().split(",");
 				ArrayList<String> relevantColumns = new ArrayList<String>();
 				for (int i = 0; i < attributes.length; i++) {
-					String attribute = attributes[i].replaceAll("[^A-Za-z0-9 ]", "");
-					if (attributeList.contains(attribute)) {
-						relevantColumns.add(i + ": " + attribute);
-					}
+					String columnCandidate = attributes[i].replaceAll("[^A-Za-z0-9 ]", "");
+					if( wordBoundary ) {
+						for( String attributeRegex : attributeList.keySet() ) {
+							if( columnCandidate.matches(attributeRegex) ){
+								relevantColumns.add(i + ": " + attributeList.get(attributeRegex) + ";" + columnCandidate);
+							}
+						}
+					}/* else {
+						if (attributeList.contains(columnCandidate)) {
+							relevantColumns.add(i + ": " + columnCandidate);
+						}
+					}*/
 				}
 				scan.close();
-				return relevantColumns.toArray(new String[relevantColumns.size()]);
+				return relevantColumns;
 			}
 			scan.close();
 			return null;
@@ -91,9 +102,13 @@ public class AttributeFilter {
 				String[] attributes = scan.nextLine().split(",");
 				ArrayList<Integer> relevantColumns = new ArrayList<Integer>();
 				for (int i = 0; i < attributes.length; i++) {
-					String attribute = attributes[i].replaceAll("[^A-Za-z0-9 ]", "");
-					if (attributeList.contains(attribute)) {
-						relevantColumns.add(i);
+					String columnCandidate = attributes[i].replaceAll("[^A-Za-z0-9 ]", "");
+					if( wordBoundary ) {
+						for( String attributeRegex : attributeList.keySet() ) {
+							if( columnCandidate.matches(attributeRegex) ){
+								relevantColumns.add(i);
+							}
+						}
 					}
 				}
 				scan.close();

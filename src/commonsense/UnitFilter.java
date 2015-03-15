@@ -26,19 +26,12 @@ public class UnitFilter {
 					filePath));
 
 			// ultra-specific to our unitList file :/
-			jsonObject = (JSONObject) ((JSONObject) jsonObject.get("attribute"))
-					.get("size");
 			Set<?> dimensions = jsonObject.keySet();
 			for (Object dim : dimensions) {
-				JSONArray subtypes = (JSONArray) jsonObject.get(dim);
-				if (subtypes != null) {
-					for (int i = 0; i < subtypes.size(); i++) {
-						JSONArray innerArray = (JSONArray) subtypes.get(i);
-						if (innerArray != null) {
-							for (int j = 0; j < innerArray.size(); j++) {
-								unitList.add((String) innerArray.get(j));
-							}
-						}
+				JSONArray units = (JSONArray) jsonObject.get(dim);
+				if (units != null) {
+					for (int i = 0; i < units.size(); i++) {
+						unitList.add((String) units.get(i));
 					}
 				}
 			}
@@ -54,6 +47,15 @@ public class UnitFilter {
 			pe.printStackTrace();
 		}
 		return unitList;
+	}
+	
+	public boolean containsUnits(String candidate) {
+//		for( String unit : unitList ) {
+//			if( candidate.matches("\\b" + unit + "\\b") || candidate.matches(unit))
+//				return true;
+//		}
+		//return false;
+		return unitList.contains(candidate);
 	}
 }
 

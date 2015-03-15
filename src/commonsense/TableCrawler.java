@@ -22,7 +22,7 @@ public class TableCrawler { //should we make this an object, so it can handle mu
 	 * @param dirName
 	 */
 	private static void crawlDir(String attFileName, String unitFileName, String dirName) {
-		AttributeFilter aFilter = new AttributeFilter(attFileName);
+		AttributeFilter aFilter = new AttributeFilter(attFileName, true);
 		UnitFilter uFilter = new UnitFilter(unitFileName);
 		
 		File[] fileDir = new File(dirName).listFiles();
@@ -60,12 +60,13 @@ public class TableCrawler { //should we make this an object, so it can handle mu
 					int entityCol = idEntityColumn(line);
 					if (entityCol != -1) { // has a non-numeric entity column
 						tableMap = new HashMap<String, HashSet<Pair<String, String>>>();
-						freeBaseHits = new HashSet<Set<String>>();
+						freeBaseHits = new HashSet<Set<String>>(); //TODO: call freebasecaller
 
 						while (scan.hasNextLine()) {
-							tableMap.put(line[entityCol],
-										 processLine(line, entityCol, attributes, 
-												 	 relevantCols, freeBaseHits));
+							HashSet<Pair<String, String>> entry = processLine(line, entityCol, attributes, 
+								 	 relevantCols, freeBaseHits);
+							if( entry != null )
+								tableMap.put(line[entityCol], entry);
 							line = scan.nextLine().split(",");
 						}
 						tableMap.put(line[entityCol],
