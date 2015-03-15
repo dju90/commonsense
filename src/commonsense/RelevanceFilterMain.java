@@ -65,8 +65,10 @@ public class RelevanceFilterMain {
 	}
 	
 	/*
-	 * entity column = attribute column
-	 * replace &[A-Z-a-z];
+	 * TODO: entity column = attribute column
+	 * try/catch index out of bounds exception...done?
+	 * TODO: replace &[A-Z-a-z];
+	 * headercontains and cellcontains diff
 	 */
 	private static void pruneUnitLessColumns(File[] fileDir, AttributeFilter aF, 
 										   UnitFilter uF, PrintStream writer, PrintStream fNamesWriter) throws FileNotFoundException {
