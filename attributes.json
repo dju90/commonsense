@@ -4,9 +4,6 @@
             "1D": [
                 "length",
                 "len",
-                "distance",
-                "dist",
-                "dst",
                 "height",
                 "hgt",
                 "ht",
@@ -20,10 +17,7 @@
                 "perimeter",
                 "circumference",
                 "radius",
-                "hands",
-                "football fields",
                 "size",
-                "yard"
             ],
             "3D": [
                 "volume",

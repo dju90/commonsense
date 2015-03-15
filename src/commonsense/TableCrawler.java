@@ -22,7 +22,7 @@ public class TableCrawler { //should we make this an object, so it can handle mu
 	 * @param dirName
 	 */
 	private static void crawlDir(String attFileName, String unitFileName, String dirName) {
-		AttributeFilter aFilter = new AttributeFilter(attFileName, true);
+		AttributeFilter aFilter = new AttributeFilter(attFileName);
 		UnitFilter uFilter = new UnitFilter(unitFileName);
 		
 		File[] fileDir = new File(dirName).listFiles();

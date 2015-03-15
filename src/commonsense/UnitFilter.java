@@ -49,13 +49,36 @@ public class UnitFilter {
 		return unitList;
 	}
 	
-	public boolean containsUnits(String candidate) {
-//		for( String unit : unitList ) {
-//			if( candidate.matches("\\b" + unit + "\\b") || candidate.matches(unit))
-//				return true;
-//		}
-		//return false;
-		return unitList.contains(candidate);
+	/**
+	 * Returns if cell String contains units
+	 * @param candidate
+	 * @return
+	 */
+	public boolean cellContainsUnits(String candidate) {
+		if( candidate.matches("(.*)[0-9]+(.*)")) {
+			if( candidate.contains("min") || candidate.toLowerCase().contains("null")) {
+				return false;
+			}
+			String unitsOnly = candidate.replaceAll("[^A-Za-z]", "").toLowerCase();
+			if ( unitList.contains(unitsOnly) ) {
+				return true;
+			}
+		}
+		return false;
+	}
+	
+	/**
+	 * Returns if the header String contains units as a token
+	 * @param candidate
+	 * @return
+	 */
+	public boolean headerContainsUnits(String candidate) {
+		for( String unit : unitList ) {
+			if( candidate.matches("\\b" + unit + "\\b") ) {
+				return true;
+			}
+		}
+		return false; 
 	}
 }
 

@@ -10,10 +10,8 @@ import org.json.simple.parser.ParseException;
 
 public class AttributeFilter {
 	private HashMap<String, String> attributeList;
-	private boolean wordBoundary;
 
-	public AttributeFilter(String attributeFilePath, boolean wordBoundary) {
-		this.wordBoundary = wordBoundary;
+	public AttributeFilter(String attributeFilePath) {
 		attributeList = parseJson(attributeFilePath);
 
 	}
@@ -34,11 +32,7 @@ public class AttributeFilter {
 				JSONArray attributes = (JSONArray) jsonObject.get(dim);
 				if (attributes != null) {
 					for (int i = 0; i < attributes.size(); i++) {
-						if( wordBoundary ) {
-							tempList.put("\\b" + (String) attributes.get(i) + "\\b", dim);
-						} else {
-							tempList.put((String) attributes.get(i), dim);									
-						}
+						tempList.put((String) attributes.get(i), dim);
 					}
 				}
 			}
@@ -73,17 +67,11 @@ public class AttributeFilter {
 				ArrayList<String> relevantColumns = new ArrayList<String>();
 				for (int i = 0; i < attributes.length; i++) {
 					String columnCandidate = attributes[i].replaceAll("[^A-Za-z0-9 ]", "");
-					if( wordBoundary ) {
-						for( String attributeRegex : attributeList.keySet() ) {
-							if( columnCandidate.matches(attributeRegex) ){
-								relevantColumns.add(i + ": " + attributeList.get(attributeRegex) + ";" + columnCandidate);
-							}
+					for( String attributeRegex : attributeList.keySet() ) {
+						if( columnCandidate.matches(attributeRegex) ){
+							relevantColumns.add(i + ": " + attributeList.get(attributeRegex) + ";" + columnCandidate);
 						}
-					}/* else {
-						if (attributeList.contains(columnCandidate)) {
-							relevantColumns.add(i + ": " + columnCandidate);
-						}
-					}*/
+					}
 				}
 				scan.close();
 				return relevantColumns;
@@ -103,11 +91,9 @@ public class AttributeFilter {
 				ArrayList<Integer> relevantColumns = new ArrayList<Integer>();
 				for (int i = 0; i < attributes.length; i++) {
 					String columnCandidate = attributes[i].replaceAll("[^A-Za-z0-9 ]", "");
-					if( wordBoundary ) {
-						for( String attributeRegex : attributeList.keySet() ) {
-							if( columnCandidate.matches(attributeRegex) ){
-								relevantColumns.add(i);
-							}
+					for( String attributeRegex : attributeList.keySet() ) {
+						if( columnCandidate.matches("\\b" + attributeRegex + "\\b") ){
+							relevantColumns.add(i);
 						}
 					}
 				}
