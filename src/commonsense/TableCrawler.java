@@ -12,7 +12,13 @@ public class TableCrawler { //should we make this an object, so it can handle mu
 
 	public static void main(String[] args) {
 		attMap = new HashMap<String, HashMap<String, HashSet<Pair<String, String>>>>();
-		crawlDir(args[0], args[1], args[2]);
+		if( args.length == 2 ) {
+			crawlDir(args[0], args[1]);
+		} else {
+			System.out.println("Run RelevanceFilterMain --> fileNameOnlyOutput.txt");
+			System.out.println("args: fileNameOnlyOutput.txt dir");
+			System.exit(0);
+		}
 	}
 
 	/*
@@ -21,24 +27,32 @@ public class TableCrawler { //should we make this an object, so it can handle mu
 	 * @param attFileName
 	 * @param dirName
 	 */
-	private static void crawlDir(String attFileName, String unitFileName, String dirName) {
-		AttributeFilter aFilter = new AttributeFilter(attFileName, true);
-		UnitFilter uFilter = new UnitFilter(unitFileName);
-		
-		File[] fileDir = new File(dirName).listFiles();
-		for (File f : fileDir) {
-			Integer[] relevantColumns = aFilter.relevantColumnIndexes(f);
-			if (relevantColumns.length != 0) {
-				addToMap(f, relevantColumns);
+	private static void crawlDir(String filtrateFileName, String dirName) {
+		try {
+			Scanner filtrateScan = new Scanner(new File(filtrateFileName));
+			while( filtrateScan.hasNextLine() ) {
+				String fileName = filtrateScan.nextLine().split(":")[0];
+				File f = new File(dirName + "/" + fileName);
+				addToMap(f, );
 			}
+			File[] fileDir = new File(dirName).listFiles();
+			for (File f : fileDir) {
+				Integer[] relevantColumns = aFilter.relevantColumnIndexes(f);
+				if (relevantColumns.length != 0) {
+					addToMap(f, relevantColumns);
+				}
+			}
+			// unit conversion? (google library) ...how does this affect double
+			// entity comparison later?
+			// database stuff! NoSQL? (ask Dan)
+			// create entity table from key bindings of attMap ...also populate
+			// attribute table?
+			// create superentity table from keyset of attMap ...also populate
+			// attribute table?
+		} catch (FileNotFoundException f ) {
+			System.out.println("Filtrate file not found.");
 		}
-		// unit conversion? (google library) ...how does this affect double
-		// entity comparison later?
-		// database stuff! NoSQL? (ask Dan)
-		// create entity table from key bindings of attMap ...also populate
-		// attribute table?
-		// create superentity table from keyset of attMap ...also populate
-		// attribute table?
+		
 	}
 
 	/*
@@ -47,7 +61,7 @@ public class TableCrawler { //should we make this an object, so it can handle mu
 	 * @param scan
 	 * @param releventColumns
 	 */
-	private static void addToMap(File f, Integer[] relevantCols) {
+	private static void addToMap(File f, String[] relevantCols) {
 		try {
 			Scanner scan = new Scanner(f);
 			HashMap<String, HashSet<Pair<String, String>>> tableMap = null;

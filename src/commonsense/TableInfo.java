@@ -123,7 +123,7 @@ public class TableInfo {
 	public String toString() {
 		String rep = "";
 		if( valid && size > 0 ) {
-			rep += file.getName() + ": {";
+			rep += file.getName() + ": "+ entityIndex + "-{";
 			rep += relevantIndexes.get(0) + ": "
 					+" ["+colDims.get(0)+";"
 					+colNames.get(0)+";"

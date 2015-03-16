@@ -59,9 +59,8 @@ public class UnitFilter {
 			if( candidate.contains("min") || candidate.toLowerCase().contains("null")) {
 				return null;
 			}
-			String unitsOnly = candidate.replaceAll("[^A-Za-z ]", "").toLowerCase();
+			String unitsOnly = candidate.replaceAll("[^A-Za-z]", "").toLowerCase();
 			if ( unitList.contains(unitsOnly) ) {
-				//System.out.println(unitsOnly);
 				return unitsOnly;
 			}
 		}
@@ -92,9 +91,8 @@ public class UnitFilter {
 			if( candidate.contains("min") || candidate.toLowerCase().contains("null")) {
 				return false;
 			}
-			String unitsOnly = candidate.replaceAll("[^A-Za-z ]", "").toLowerCase();
+			String unitsOnly = candidate.replaceAll("[^A-Za-z]", "").toLowerCase();
 			if ( unitList.contains(unitsOnly) ) {
-				//System.out.println(unitsOnly);
 				return true;
 			}
 		}
