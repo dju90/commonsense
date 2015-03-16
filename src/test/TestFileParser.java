@@ -74,11 +74,31 @@ public class TestFileParser {
 		System.out.println("naive: " + naiveValue);
 	}
 
-	private static double checkResults(Map<Pair<String, String>, String> actualMap) {
+	private static double naiveResults() {
+		int counter = 0;
+		int total = 0;
 		for (Map.Entry<Pair<String, String>, String> comparisonEntry :  testMap.entrySet() ) {
-			
+			String actual = comparisonEntry.getKey().getKey();
+			String expected = comparisonEntry.getValue();
+			if (actual.equals(expected)) {
+				counter++;
+			}
+			total++;
 		}
-		return 0;
+		return counter/(double)total;
 	}
 
+	private static double checkResults(Map<Pair<String, String>, String> actualMap) {
+		int counter = 0;
+		int total = 0;
+		for (Map.Entry<Pair<String, String>, String> comparisonEntry :  testMap.entrySet() ) {
+			String actual = actualMap.get(comparisonEntry.getKey());
+			String expected = comparisonEntry.getValue();
+			if (actual.equals(expected)) {
+				counter++;
+			}
+			total++;
+		}
+		return counter/(double) total;
+	}
 }
