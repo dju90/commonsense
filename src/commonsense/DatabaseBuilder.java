@@ -53,14 +53,28 @@ public class DatabaseBuilder {
 						allValues = new HashSet<BigDecimal>();
 					}
 					// pattern matches not a decimal number
-//					String noDecimalPattern = "[^\\d+[\\.\\d+]]";
-//					String decimalPattern = "\\d+[\\.\\d+]";
-//					double val = Double.parseDouble(relationPair.getValue().replaceAll(noDecimalPattern, ""));
-//					String units = relationPair.getValue().replaceAll(decimalPattern, "");
-//					units = units.toLowerCase();
-//					BigDecimal value = UnitConversions.convertUnits(val, units);
-//					allValues.add(value);
-//					medianAttributes.put(relationPair.getKey(), allValues);
+
+					// if (relationPair.getValue().matches(".*\\d.*")) {
+					// 	String noDecimalPattern = "[^\\d\\.-]";
+					// 	String decimalPattern = ".*\\d+[\\.\\d+].*";
+					// 	String numberRange = ".*\\d-\\d.*";
+					// 	String stringValue = relationPair.getValue().replaceAll(noDecimalPattern, "");
+					// 	double val = 0.0;
+					// 	if (stringValue.matches(numberRange)) {
+					// 		String[] nums = stringValue.split("-");
+					// 		// Assume only 2
+					// 		double v1 = Double.parseDouble(nums[0]);
+					// 		double v2 = Double.parseDouble(nums[1]);
+					// 		val = (v1 + v2) / 2.0;
+					// 	} else {
+					// 		val = Double.parseDouble(relationPair.getValue().replaceAll(noDecimalPattern, ""));
+					// 	}
+					// 	String units = relationPair.getValue().replaceAll(decimalPattern, "");
+					// 	units = units.toLowerCase();
+					// 	BigDecimal value = UnitConverter.convertUnits(val, units);
+					// 	allValues.add(value);
+					// 	medianAttributes.put(relationPair.getKey(), allValues);
+					// }
 				}
 			}
 			
@@ -78,7 +92,14 @@ public class DatabaseBuilder {
 				Pair<String, BigDecimal> pair = new Pair<String, BigDecimal>(medianEntry.getKey(), new BigDecimal(median.doubleValue()));
 				medianRelations.add(pair);
 			}
-			HashMap<String, HashSet<Pair<String, BigDecimal>>> values = attMap.get(entityEntry.getKey());
+
+			HashMap<String, HashSet<Pair<String, BigDecimal>>> values;
+			if (attMap.containsKey("")) {
+				values = attMap.get("");		
+			} else {
+				values = new HashMap<String, HashSet<Pair<String, BigDecimal>>>();
+			}
+		
 			values.put(entityEntry.getKey(), medianRelations);
 			attMap.put(entityEntry.getKey(), values);			
 		}
