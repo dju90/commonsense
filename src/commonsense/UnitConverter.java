@@ -16,7 +16,20 @@ public class UnitConverter {
 		unitTable = parseJson(fileName);
 	}
 	
-	public double convert(String dim, BigDecimal num, String unit) {
+	public BigDecimal convert(String dim, BigDecimal num, String unit) {
+		if( num != null ) {
+			Map<String, BigDecimal> possibleUnits = unitTable.get(dim);
+			if( possibleUnits != null ) {
+				BigDecimal factor = possibleUnits.get(unit);
+				if( factor != null ) {
+					return factor.multiply(num);
+				}
+			}
+		}
+		return null;
+	}
+	
+	public double calculate(String dim, BigDecimal num, String unit) {
 		Map<String, BigDecimal> possibleUnits = unitTable.get(dim);
 		if( possibleUnits != null ) {
 			BigDecimal factor = possibleUnits.get(unit);
@@ -28,7 +41,6 @@ public class UnitConverter {
 		} else {
 			return Double.NEGATIVE_INFINITY;
 		}
-		
 	}
 	
 	private Map<String, HashMap<String, BigDecimal>> parseJson(String filePath) {
