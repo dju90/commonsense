@@ -19,7 +19,7 @@ public class UnitFilter {
 	}
 	
 	private HashSet<String> parseJson(String filePath) {
-		unitList = new HashSet<String>();
+		HashSet<String> tempUnitList = new HashSet<String>();
 		try {
 			JSONParser parser = new JSONParser();
 			JSONObject jsonObject = (JSONObject) parser.parse(new FileReader(
@@ -44,7 +44,7 @@ public class UnitFilter {
 			System.out.println("Parse error.");
 			pe.printStackTrace();
 		}
-		return unitList;
+		return tempUnitList;
 	}
 	
 	/**
