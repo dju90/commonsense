@@ -10,16 +10,18 @@ import java.util.Set;
 
 
 public class TableCrawler { //should we make this an object, so it can handle multiple directories? No
-	private static HashMap<String, HashMap<String, HashSet<Pair<String, BigDecimal>>>> attMap;
+	private static EntityTree attMap;
 	private static UnitConverter converter;
 
 	public static void main(String[] args) {
-		attMap = new HashMap<String, HashMap<String, HashSet<Pair<String, BigDecimal>>>>();
-		if( args.length == 2 ) {
-			crawlDir(args[0], args[1]);
+		attMap = new EntityTree();
+		if( args.length == 3 ) {
+			converter = new UnitConverter(args[1]);
+			crawlDir(args[0], args[2]);
+			System.out.println(attMap);
 		} else {
 			System.out.println("Run RelevanceFilterMain --> fileNameOnlyOutput.txt");
-			System.out.println("args: fileNameOnlyOutput.txt dir");
+			System.out.println("args: fileNameOnlyOutput.txt unit-conversion.json dir");
 			System.exit(0);
 		}
 	}
@@ -58,7 +60,7 @@ public class TableCrawler { //should we make this an object, so it can handle mu
 		try {
 			Scanner scan = new Scanner(f);
 			TableInfo info = new TableInfo(f, data);
-			if( info.isValid() ) {
+			if( info.isValid() && info.size() > 0 ) {
 				HashMap<String, HashSet<Pair<String, BigDecimal>>> entityData = null;
 				Set<Set<String>> freeBaseHits = null;
 
@@ -72,6 +74,13 @@ public class TableCrawler { //should we make this an object, so it can handle mu
 					String[] dimensions    = info.getColDims();
 					String[] attributes    = info.getColNames();
 					String[] units         = info.getColUnits();
+//					System.out.println("relevantCols len = " + relevantCols.length);
+//					System.out.println("dimensions len = " + dimensions.length);
+//					System.out.println("attributes len = " + attributes.length);
+//					System.out.println("units len = " + units.length);
+					if( relevantCols.length != dimensions.length || dimensions.length != attributes.length || attributes.length != units.length ) {
+						System.out.println("Invariant violated!!!");
+					}
 					
 					//process each line of the file according to relevant columns
 					while (scan.hasNextLine()) {
@@ -82,7 +91,6 @@ public class TableCrawler { //should we make this an object, so it can handle mu
 						if( entry != null ) {
 							entityData.put(entity, entry);					
 						}
-						line = scan.nextLine().split(",");
 					}
 				}
 				if (entityData != null && freeBaseHits != null) {
@@ -91,8 +99,8 @@ public class TableCrawler { //should we make this an object, so it can handle mu
 						superEntities.add(findMaxIntersect(freeBaseHits));
 					}
 					for( String superEntity : superEntities ) {
-						if( attMap.containsKey(superEntity) ) { // append entity if superentity exists
-							Map<String, HashSet<Pair<String,BigDecimal>>> currentMap = attMap.get(superEntity);
+						if( attMap.tree.containsKey(superEntity) ) { // append entity if superentity exists
+							Map<String, HashSet<Pair<String,BigDecimal>>> currentMap = attMap.tree.get(superEntity);
 							for( String key : entityData.keySet() ) { 
 								if( currentMap.containsKey(key) ) { // append attributes to entity if entity exists w/in superentity 
 									Set<Pair<String,BigDecimal>> currentAtts = currentMap.get(key);
@@ -105,12 +113,15 @@ public class TableCrawler { //should we make this an object, so it can handle mu
 								}
 							}
 						} else { //create new superentity
-							attMap.put(superEntity, entityData);
+							attMap.tree.put(superEntity, entityData);
 						}
 					}
 				}
 			} else {
 				System.out.println("Parse error during processing of output line for entry " + f.getName());
+				System.out.println("output line = " + data);
+				System.out.println("TableInfo = " + info);
+				System.out.println();
 			}
 			scan.close();
 		} catch (FileNotFoundException fe) {
@@ -137,40 +148,53 @@ public class TableCrawler { //should we make this an object, so it can handle mu
 		HashSet<Pair<String, BigDecimal>> attVals = new HashSet<Pair<String, BigDecimal>>();
 		// grab all attributes from columns w/ index in relevantColumns
 		for (int i = 0; i < relevantCols.length; i++) {
-			String[] data = line[relevantCols[i]].split("-");
-			BigDecimal datum;
-			if( data.length == 1 ) { //TODO conversions
-				datum = extractData(data[0]);
-			} else {
-				BigDecimal sum = new BigDecimal(0);
-				int numData = data.length;
-				int wrongData = 0;
-				for( int j = 0; j < numData; j++ ) {
-					BigDecimal addend = extractData(data[j]);
-					if( addend != null ) {
-						sum.add(addend);
-					} else {
-						wrongData++;
+			int index = relevantCols[i];
+			if( index < line.length ) {
+				String[] data = line[index].split("-");
+				BigDecimal datum;
+				if( data.length == 1 ) { //TODO conversions
+					datum = extractData(data[0]);
+				} else {
+					BigDecimal sum = new BigDecimal(0);
+					int numData = data.length;
+					int wrongData = 0;
+					for( int j = 0; j < numData; j++ ) {
+						BigDecimal addend = extractData(data[j]);
+						if( addend != null ) {
+							sum.add(addend);
+						} else {
+							wrongData++;
+						}
 					}
+					int divisor = numData-wrongData;
+					if( divisor != 0 )
+						datum = sum.divide(new BigDecimal(numData-wrongData));
+					else
+						datum = null;
 				}
-				datum = sum.divide(new BigDecimal(numData-wrongData));
-			}
-			datum = converter.convert(dimensions[i], datum, units[i]);
-			if( datum != null ) {
-				attVals.add(new Pair<String, BigDecimal>(attributes[i], datum));				
+				datum = converter.convert(dimensions[i], datum, units[i]);
+				if( datum != null ) {
+					attVals.add(new Pair<String, BigDecimal>(attributes[i], datum));				
+				}
+			} else { // malformed file
+				return null;
 			}
 		}
-		if( attVals.size() > 0 )
+		if( attVals.size() > 0 ) {
 			return attVals;
-		else
+		} else {
 			return null;
+		}
 	}
 
 	private static BigDecimal extractData(String data) {
 		String number = data.replaceAll("[^\\d\\.]", "");
-		if( number.matches("^\\d*\\.?\\d*$")) {
+		//\d+\.?\d+
+		if( number.matches("^\\d+\\.?\\d+$")) {
 			return new BigDecimal(number);
-		} else if( number.matches("^\\d*\\.$") ) {
+		} else if( number.matches("^\\.\\d+$") ) {
+			return new BigDecimal("0"+number);
+		} else if( number.matches("^\\d+\\.$")) {
 			return new BigDecimal(number+"0");
 		} else {
 			return null;

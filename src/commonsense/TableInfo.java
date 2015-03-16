@@ -3,6 +3,7 @@ package commonsense;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class TableInfo {
@@ -54,7 +55,8 @@ public class TableInfo {
 					relevantIndexes.add(Integer.parseInt(data[0]));
 					colDims.add(data[1]);
 					colNames.add(data[2]);
-					colNames.add(data[3]);
+					colUnits.add(data[3]);
+					size++;
 				}
 			} catch (Exception e) {
 				valid = false;
