@@ -1,10 +1,12 @@
 package commonsense;
 
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class TableInfo {
-	private String fileName;
+	private File file;
 	private int entityIndex;
 	private ArrayList<Integer> relevantIndexes;
 	private ArrayList<String> colDims;
@@ -14,17 +16,35 @@ public class TableInfo {
 	private boolean valid;
 	private int size;
 	
-	public TableInfo(String fileName) {
-		this.fileName = fileName;
+	public TableInfo(File f) {
+		file = f;
 		entityIndex = -1;
-		relevantIndexes = new ArrayList<Integer>();
-		colDims = new ArrayList<String>(); 
-		colNames = new ArrayList<String>(); 
-		colUnits = new ArrayList<String>();
-		firstLines = new ArrayList<String>();
 		valid = true;
+		relevantIndexes = new ArrayList<Integer>();
+		colDims         = new ArrayList<String>(); 
+		colNames        = new ArrayList<String>(); 
+		colUnits        = new ArrayList<String>();
+		firstLines      = new ArrayList<String>();
 	}
 	
+	public String[] fillSample(int sampleLines) {
+		try {
+			Scanner scan = new Scanner(file);
+			if( scan.hasNextLine() ) {
+				String[] colHeadings = scan.nextLine().split(",");// top line
+				for( int i = 0; i < sampleLines && scan.hasNextLine(); i++ ) { //first five lines to print
+					firstLines.add(scan.nextLine());
+				}
+				scan.close();
+				return colHeadings;
+			} else {
+				scan.close();
+				return null;
+			}
+		} catch( FileNotFoundException f ) {
+			return null;
+		}
+	}
 	public int size() {
 		return size;
 	}
@@ -80,10 +100,6 @@ public class TableInfo {
 		return -1;
 	}
 	
-	public void addLine(String line) {
-		firstLines.add(line);
-	}
-	
 	public int getEntityIndex() {
 		return entityIndex;
 	}
@@ -107,7 +123,7 @@ public class TableInfo {
 	public String toString() {
 		String rep = "";
 		if( valid && size > 0 ) {
-			rep += fileName + ": {";
+			rep += file.getName() + ": {";
 			rep += relevantIndexes.get(0) + ": "
 					+" ["+colDims.get(0)+";"
 					+colNames.get(0)+";"

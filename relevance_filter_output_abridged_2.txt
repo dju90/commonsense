@@ -54,6 +54,12 @@
 "meyn circular knives": "170mm"
 "meyn circular knives": "175mm"
 
+16817491_0_1578293579381983336.csv: {1:  [1D;diameter;mm]}
+"14": "(356mm)"
+"16": "(406mm)"
+"18": "(457mm)"
+"segment height": "segment height"
+
 16825050_0_7405938457644025125.csv: {4:  [1D;distance;m]}
 "bridget o'halloran": "25m"
 "joanne runciman": "50m"

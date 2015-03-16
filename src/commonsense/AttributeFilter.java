@@ -50,30 +50,23 @@ public class AttributeFilter {
 	}
 	
 	/**
-	 * 
+	 * Returns a TableInfo object with all the relevant column information.
+	 * @param f
+	 * @return
 	 */
 	public TableInfo relevance(File f) {
-		System.out.println("relevance called");
-		try {
-			TableInfo info = new TableInfo(f.getName());
-			Scanner scan = new Scanner(f);
-			if( scan.hasNextLine() ) {
-				String[] colHeadings = scan.nextLine().split(",");// top line
-				for( int i = 0; i < 5 && scan.hasNextLine(); i++ ) { //first five lines to print
-					info.addLine(scan.nextLine());
-				}
-				if( info.setEntityCol() ) { // valid entity column			
-					System.out.println("entity column found, colHeadings.length = " + colHeadings.length + ", info = " + info.isValid() );
-					for (int i = 0; i < colHeadings.length && info.isValid(); i++) { // each col heading
-						System.out.print("***");
+		TableInfo info = new TableInfo(f);
+		String[] colHeadings = info.fillSample(5);
+		if( colHeadings != null ) {
+			if( info.setEntityCol() ) { // valid entity column	
+				int entityI = info.getEntityIndex();
+				for (int i = 0; i < colHeadings.length && info.isValid(); i++) { // each col heading
+					if( i != entityI ) { //entity col != attribute col
 						String columnCandidate = colHeadings[i].replaceAll("[^A-Za-z0-9 ]", "");
-						System.out.print(columnCandidate);
 						for( String attribute : attributeList.keySet() ) { //check for regex match on possible atts
 							if( columnCandidate.matches("\\b" + attribute + "\\b") ){ // attribute token
-								System.out.println("attribute match");
 								String unit = containsUnits(i, columnCandidate, info);
 								if( unit != null && unit != "BAD_TABLE") {
-									System.out.println("added");
 									info.addRelevantColumn(i, attributeList.get(attribute), columnCandidate, unit);							
 								} else { // unit == "BAD_TABLE" || unit )
 									info.nullify(); // bad table format
@@ -82,57 +75,18 @@ public class AttributeFilter {
 							} // no match, go to the next possible attribute
 						}
 					}
-					scan.close();
-					return info;
-				} else { // no entity column
-					scan.close();
-					return null;
 				}
-			} // empty table
-			scan.close();
-			return null;
-		} catch(FileNotFoundException fe) {
-			return null;
-		}
-	}
-
-	/**
-	 * Returns the indices of relevant columns within a csv table file
-	 * 
-	 * @param scan
-	 *            Scanner with file pre-loaded
-	 * @return An ArrayList containing the indices of the relevant columns
-	 * 			null if invalid file name or empty file
-	 * @throws FileNotFoundException
-	 */
-	public ArrayList<String> relevantColumnHeadings(File f) {
-		try {
-			Scanner scan = new Scanner(f);
-			if( scan.hasNextLine() ) {
-				// top line
-				String[] attributes = scan.nextLine().split(",");
-				ArrayList<String> relevantColumns = new ArrayList<String>();
-				
-				for (int i = 0; i < attributes.length && relevantColumns != null; i++) {
-					String columnCandidate = attributes[i].replaceAll("[^A-Za-z0-9 ]", "");
-					for( String attributeRegex : attributeList.keySet() ) {
-						if( columnCandidate.matches(attributeRegex) ){
-							relevantColumns.add(i + ": " + attributeList.get(attributeRegex) + ";" + columnCandidate);
-						}
-					}
-				}
-				scan.close();
-				return relevantColumns;
+				return info;
+			} else { // no entity column
+				return null;
 			}
-			scan.close();
-			return null;
-		} catch(FileNotFoundException fe) {
+		} else { // empty table
 			return null;
 		}
 	}
 	
 	/*
-	 * 
+	 * Returns if a column contains units either in the header or cells
 	 */
 	private String containsUnits(int index, String candidate, TableInfo info) {
 		String hUnits = uF.headerUnits(candidate);
@@ -154,35 +108,5 @@ public class AttributeFilter {
 		} else {
 			return hUnits;
 		}
-	}
-	
-	/**
-	 * Returns an integer array of the relevant column indices
-	 * @param f
-	 * @return
-	 */
-	public Integer[] relevantColumnIndexes(File f) {
-		try {
-			Scanner scan = new Scanner(f);
-			if( scan.hasNextLine() ) {
-				String[] attributes = scan.nextLine().split(",");
-				ArrayList<Integer> relevantColumns = new ArrayList<Integer>();
-				for (int i = 0; i < attributes.length; i++) {
-					String columnCandidate = attributes[i].replaceAll("[^A-Za-z0-9 ]", "");
-					for( String attributeRegex : attributeList.keySet() ) {
-						if( columnCandidate.matches(attributeRegex) ){
-							relevantColumns.add(i);
-						}
-					}
-				}
-				scan.close();
-				return relevantColumns.toArray(new Integer[relevantColumns.size()]);
-			}
-			scan.close();
-			return null;
-		} catch(FileNotFoundException fe) {
-			return null;
-		}
-		
 	}
 }
