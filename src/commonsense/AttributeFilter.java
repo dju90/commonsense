@@ -56,30 +56,26 @@ public class AttributeFilter {
 	 */
 	public TableInfo relevance(File f) {
 		TableInfo info = new TableInfo(f);
-		String[] colHeadings = info.fillSample(5);
+		String[] colHeadings = info.ready(5);
 		if( colHeadings != null ) {
-			if( info.setEntityCol() ) { // valid entity column	
-				int entityI = info.getEntityIndex();
-				for (int i = 0; i < colHeadings.length && info.isValid(); i++) { // each col heading
-					if( i != entityI ) { //entity col != attribute col
-						String columnCandidate = colHeadings[i].replaceAll("[^A-Za-z0-9 ]", "");
-						for( String attribute : attributeList.keySet() ) { //check for regex match on possible atts
-							if( columnCandidate.matches("\\b" + attribute + "\\b") ){ // attribute token
-								String unit = containsUnits(i, columnCandidate, info);
-								if( unit != null && unit != "BAD_TABLE") {
-									info.addRelevantColumn(i, attributeList.get(attribute), columnCandidate, unit);							
-								} else { // unit == "BAD_TABLE" || unit )
-									info.nullify(); // bad table format
-									break;
-								}
-							} // no match, go to the next possible attribute
-						}
+			int entityI = info.getEntityIndex();
+			for (int i = 0; i < colHeadings.length && info.isValid(); i++) { // each col heading
+				if( i != entityI ) { //entity col != attribute col
+					String columnCandidate = colHeadings[i].replaceAll("[^A-Za-z0-9 ]", "");
+					for( String attribute : attributeList.keySet() ) { //check for regex match on possible atts
+						if( columnCandidate.matches("\\b" + attribute + "\\b") ){ // attribute token
+							String unit = containsUnits(i, columnCandidate, info);
+							if( unit != null && unit != "BAD_TABLE") {
+								info.addRelevantColumn(i, attributeList.get(attribute), columnCandidate, unit);							
+							} else { // unit == "BAD_TABLE" || unit )
+								info.nullify(); // bad table format
+								break;
+							}
+						} // no match, go to the next possible attribute
 					}
 				}
-				return info;
-			} else { // no entity column
-				return null;
 			}
+			return info;
 		} else { // empty table
 			return null;
 		}

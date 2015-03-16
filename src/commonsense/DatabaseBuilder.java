@@ -14,10 +14,10 @@ public class DatabaseBuilder {
 	private static String DBName = "commonsense";
 	private static MongoClient mongoClient = null;
 	/**
-	 * Takes in a HashMap<String, HashMap<String, HashSet<Pair<String, String>>>> to add into a NoSQL key value store
+	 * Takes in a HashMap<String, HashMap<String, HashSet<Pair<String, BigDecimal>>>> to add into a NoSQL key value store
 	 * @param attMap a map of superentites and its entities and its attribute pairs to be inserted into a database
 	 */
-	public static void addToDB(HashMap<String, HashMap<String, HashSet<Pair<String, String>>>> attMap) {
+	public static void addToDB(HashMap<String, HashMap<String, HashSet<Pair<String, BigDecimal>>>> attMap) {
 		DB db = startDatabase();
 		addMedians(attMap); 
 		buildDB(attMap, db);
@@ -35,15 +35,15 @@ public class DatabaseBuilder {
 	 * Takes the super class and finds the median attributes of its entities and adds them to the attMap as the class
 	 * @param attMap the map of superentities, is modified to include another hashmap
 	 */
-	private static void addMedians(HashMap<String, HashMap<String, HashSet<Pair<String, String>>>> attMap) {
-		for (Map.Entry<String, HashMap<String, HashSet<Pair<String, String>>>> entityEntry :  attMap.entrySet() ) {
+	private static void addMedians(HashMap<String, HashMap<String, HashSet<Pair<String, BigDecimal>>>> attMap) {
+		for (Map.Entry<String, HashMap<String, HashSet<Pair<String, BigDecimal>>>> entityEntry :  attMap.entrySet() ) {
 			// Examine every superentity
 			
 			// Attribute to a set of values of that attribute
 			HashMap<String, HashSet<BigDecimal>> medianAttributes = new HashMap<String, HashSet<BigDecimal>>();
-			for (Map.Entry<String, HashSet<Pair<String, String>>> relationEntry: entityEntry.getValue().entrySet()) {
+			for (Map.Entry<String, HashSet<Pair<String, BigDecimal>>> relationEntry: entityEntry.getValue().entrySet()) {
 				// Examine every entity
-				for (Pair<String, String> relationPair : relationEntry.getValue()) {
+				for (Pair<String, BigDecimal> relationPair : relationEntry.getValue()) {
 					// Examine every relation
 					// Add each of the attributes to medianAttribute
 					HashSet<BigDecimal> allValues;
@@ -53,18 +53,18 @@ public class DatabaseBuilder {
 						allValues = new HashSet<BigDecimal>();
 					}
 					// pattern matches not a decimal number
-					String noDecimalPattern = "[^\\d+[\\.\\d+]]";
-					String decimalPattern = "\\d+[\\.\\d+]";
-					double val = Double.parseDouble(relationPair.getValue().replaceAll(noDecimalPattern, ""));
-					String units = relationPair.getValue().replaceAll(decimalPattern, "");
-					units = units.toLowerCase();
-					BigDecimal value = UnitConverter.convertUnits(val, units);
-					allValues.add(value);
-					medianAttributes.put(relationPair.getKey(), allValues);
+//					String noDecimalPattern = "[^\\d+[\\.\\d+]]";
+//					String decimalPattern = "\\d+[\\.\\d+]";
+//					double val = Double.parseDouble(relationPair.getValue().replaceAll(noDecimalPattern, ""));
+//					String units = relationPair.getValue().replaceAll(decimalPattern, "");
+//					units = units.toLowerCase();
+//					BigDecimal value = UnitConversions.convertUnits(val, units);
+//					allValues.add(value);
+//					medianAttributes.put(relationPair.getKey(), allValues);
 				}
 			}
 			
-			HashSet<Pair<String, String>> medianRelations = new HashSet<Pair<String, String>>();
+			HashSet<Pair<String, BigDecimal>> medianRelations = new HashSet<Pair<String, BigDecimal>>();
 			// Determine medians and add to medianRelations
 			for (Map.Entry<String, HashSet<BigDecimal>> medianEntry : medianAttributes.entrySet()) {
 				BigDecimal[] medianArray = medianEntry.getValue().toArray(new BigDecimal[medianEntry.getValue().size()]);
@@ -75,10 +75,10 @@ public class DatabaseBuilder {
 				} else {
 				    median = medianArray[medianArray.length/2];
 				}
-				Pair<String, String> pair = new Pair<String, String>(medianEntry.getKey(), Double.toString(median.doubleValue()));
+				Pair<String, BigDecimal> pair = new Pair<String, BigDecimal>(medianEntry.getKey(), new BigDecimal(median.doubleValue()));
 				medianRelations.add(pair);
 			}
-			HashMap<String, HashSet<Pair<String, String>>> values = attMap.get(entityEntry.getKey());
+			HashMap<String, HashSet<Pair<String, BigDecimal>>> values = attMap.get(entityEntry.getKey());
 			values.put(entityEntry.getKey(), medianRelations);
 			attMap.put(entityEntry.getKey(), values);			
 		}
@@ -105,16 +105,16 @@ public class DatabaseBuilder {
 	 * @param attMap the attribute map containing superentity, entity, and relation information
 	 * @param db the database connection to insert to the database
 	 */
-	private static void buildDB(HashMap<String, HashMap<String, HashSet<Pair<String, String>>>> attMap, DB db) {
+	private static void buildDB(HashMap<String, HashMap<String, HashSet<Pair<String, BigDecimal>>>> attMap, DB db) {
 		// Create the collection here since this assumes these collections have not been created before
 		DBCollection relationColl = db.createCollection("relations", new BasicDBObject());
-		for (Map.Entry<String, HashMap<String, HashSet<Pair<String, String>>>> entityEntry :  attMap.entrySet() ) {
+		for (Map.Entry<String, HashMap<String, HashSet<Pair<String, BigDecimal>>>> entityEntry :  attMap.entrySet() ) {
 			// Examine every superentity
-			for (Map.Entry<String, HashSet<Pair<String, String>>> relationEntry: entityEntry.getValue().entrySet()) {
+			for (Map.Entry<String, HashSet<Pair<String, BigDecimal>>> relationEntry: entityEntry.getValue().entrySet()) {
 				// Examine every entity
 				// Adding each pair of relations into relationColl
 				BasicDBObject relation = new BasicDBObject("type", entityEntry.getKey()).append("entity", relationEntry.getKey());
-				for (Pair<String, String> relationPair : relationEntry.getValue()) {
+				for (Pair<String, BigDecimal> relationPair : relationEntry.getValue()) {
 					// Examine every relation
 					relation.append(relationPair.getKey(), relationPair.getValue());
 				}

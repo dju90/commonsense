@@ -1,727 +1,759 @@
-10064847_0_780753075600979173.csv:0|7;weight;weight;lbs}
+10064847_0_780753075600979173.csv:0|7;weight;weight;lbs
 "6200d-hd": "95 lbs"
 "6200-hd": "90 lbs"
 
-10124501_2_4328925499273869553.csv:0|5;3D;capacity;gal}
+10124501_0_8105654822222390910.csv:0|5;3D;capacity;yd
+"rear loader": "10yd"
+"rear loader": "20yd"
+
+10124501_1_1699641272750043510.csv:0|4;3D;capacity;yd
+"self-contained": "34cy"
+"vertical packer": "8yd"
+
+10124501_2_4328925499273869553.csv:0|5;3D;capacity;gal
 "jetter": "700gal"
 "sewer camera": "--"
 "sewer camera": "-----"
 
-1026561_0_8529622539496852671.csv:0|4;weight;weight;lbs}
+1026561_0_8529622539496852671.csv:0|4;weight;weight;lbs
 "xxs": "under 3 lbs"
 "xs": "3 - 6 lbs"
 "s": "6 - 10 lbs"
 "m": "10 - 15 lbs"
 "l": "15 - 20 lbs"
 
-10880966_0_6297146112601804535.csv:0|5;1D;length;mm}
+10880966_0_6297146112601804535.csv:0|5;1D;length;mm
 "lww-5-12p": "500mm"
 "lww-5-18p": "600mm"
 "lww-5-24p": "1000mm"
 "lww-5-36p": "1200mm"
 
-11309896_0_3073053634677102315.csv:0|1;1D;height;in,1;1D;height;in}
+11309896_0_3073053634677102315.csv:0|1;1D;height;in,1;1D;height;in
 "newborn": "18-24 in.""6-13 lbs."
 "3-6mo": "24-28 in.""12-17 lbs."
 "0-6mo": "20-26 in.""7-16 lbs."
 "6-12mo": "26-30 in.""16-23 lbs."
 "12-18mo": "29-32 in.""20-26 lbs."
 
-12149025_0_3630683266019076762.csv:0|1;3D;capacity;lb}
+11968304_1_4847915422710197886.csv:0|2;1D;length;yd
+"championship": "NULL"
+"forward": "2738 yd."
+"middle": "2902 yd."
+"other": "NULL"
+
+12090919_1_2051267509314002314.csv:0|2;1D;length;yd
+"championship": "6568 yd."
+"forward": "5688 yd."
+"middle": "6274 yd."
+"other": "NULL"
+
+12149025_0_3630683266019076762.csv:0|1;3D;capacity;lb
 "xbl30r-xid": "60 lb"
 "xbl60r-xid": "150 lb"
 "xbl60l-xid": "150 lb"
 "xbl150l-xid": "300 lb"
 "xbl300l-xid": "600 lb"
 
-12243528_0_5776391790566199324.csv:0|2;1D;distance;miles}
+12243528_0_5776391790566199324.csv:0|2;1D;distance;miles
 "macdonald randolph hotel (2 night offer 1st night dinner)": "0.00 miles"
 "macdonald randolph hotel (2 night bb offer)": "0.00 miles"
 "malmaison oxford": "0.22 miles"
 "mercure eastgate hotel": "0.49 miles"
 "oxford spires four pillars hotel (2 night offer 1st night dinner)": "1.03 miles"
 
-12483982_0_2424722435922233462.csv:0|2;1D;distance;miles}
+12483982_0_2424722435922233462.csv:0|2;1D;distance;miles
 "aston hotel dumfries": "1.48 miles"
 "craigdarroch arms hotel": "15.24 miles"
 "days inn gretna green": "21.16 miles"
 "gretna hall hotel": "21.85 miles"
 "hallmark hotel carlisle": "29.38 miles"
 
-12544873_0_4917017294946072524.csv:0|2;1D;distance;miles}
+12544873_0_4917017294946072524.csv:0|2;1D;distance;miles
 "NULL": "0.01 miles"
 "NULL": "0.04 miles"
 "NULL": "0.04 miles"
 "NULL": "0.21 miles"
 "NULL": "0.23 miles"
 
-12567908_0_6503522304973807546.csv:1|3;weight;wgt;lb}
+12567908_0_6503522304973807546.csv:1|3;weight;wgt;lb
 "1/4-0.18hp-kw 3425rpm d63c frame": "12 lb."
 "1/4-0.18hp-kw 1700rpm d63c frame": "13 lb."
 "1/4-0.18hp-kw 1100rpm d71c frame": "14 lb."
 "1/3-0.25hp-kw 3425rpm d63c frame": "13 lb."
 "1/3-0.25hp-kw 1700rpm d71c frame": "13 lb."
 
-12618128_0_4319640877049989745.csv:2|4;1D;distance;km}
+12618128_0_4319640877049989745.csv:2|4;1D;distance;km
 "course � pied (route ultra)": "69 km"
 "course � pied (trail ultra)": "11 km"
 
-12703338_0_2931478208255473.csv:0|2;1D;distance;mi}
+12703338_0_2931478208255473.csv:0|2;1D;distance;mi
 "open male": "50 mi"
 "open female": "50 mi"
 "masters male": "50 mi"
 "masters female": "50 mi"
 
-13486102_0_6407627447719584231.csv:0|10;weight;weight;g}
+13486102_0_6407627447719584231.csv:0|10;weight;weight;g
 "1p320": "890 g"
 "1p320-kd": "890 g"
 "1p321": "940 g"
 "1p321-kd": "940 g"
 
-13722189_0_2265068252523214129.csv:0|1;1D;length;mm,1;1D;length;mm,1;1D;length;mm}
+13722189_0_2265068252523214129.csv:0|1;1D;length;mm,1;1D;length;mm,1;1D;length;mm
 "624cast": "6.25""1.75""16.24 lbs"
 "624cast": "159 mm""45 mm""7.4 kg"
 "1216cast": "12.25""1.75""20.54 lbs"
 "1216cast": "311 mm""45 mm""9.3 kg"
 "1224cast": "16.25""1.75""32.2 lbs"
 
-13742595_0_6543908257807729971.csv:0|4;1D;height;cm,4;1D;height;cm}
+13742595_0_6543908257807729971.csv:0|4;1D;height;cm,4;1D;height;cm
 "alexia": "170cm""61-65 kg"
 "john": "180cm""81-85 kg"
 
-14138484_0_8385908979519854797.csv:1|2;3D;volume;ml}
+14138484_0_8385908979519854797.csv:1|2;3D;volume;ml
 "cloudy bay pinot noir": "750 ml"
 "cloudy bay sau. blanc": "750 ml"
 
-14142740_0_3701161794574235891.csv:0|5;1D;length;mm}
+14142740_0_3701161794574235891.csv:0|5;1D;length;mm
 "lww-5-12p": "500mm"
 "lww-5-18p": "600mm"
 "lww-5-24p": "1000mm"
 "lww-5-36p": "1200mm"
 
-14562141_0_1812576644408086147.csv:0|3;weight;weight;kg}
+14562141_0_1812576644408086147.csv:0|3;weight;weight;kg
 "NULL": "465 kg"
 "NULL": "55 kg"
 
-14562141_1_389150312207089506.csv:0|3;weight;weight;kg}
+14562141_1_389150312207089506.csv:0|3;weight;weight;kg
 "NULL": "595 kg"
 "NULL": "72 kg"
 
-14562141_2_5298504678640484063.csv:0|3;weight;weight;kg}
+14562141_2_5298504678640484063.csv:0|3;weight;weight;kg
 "NULL": "545 kg"
 "NULL": "65 kg"
 
-14562141_3_6836728133472956892.csv:0|3;weight;weight;kg}
+14562141_3_6836728133472956892.csv:0|3;weight;weight;kg
 "NULL": "685 kg"
 "NULL": "83 kg"
 
-15000020_0_3240847427364593983.csv:0|1;weight;weight;lbs}
+15000020_0_3240847427364593983.csv:0|1;weight;weight;lbs
 "nannies": ""
 "kids": "45-60 lbs."
 "billies": "100-200 lbs."
 
-15161053_0_7132473208922725728.csv:1|4;1D;dist;km}
+15161053_0_7132473208922725728.csv:1|4;1D;dist;km
 "c.s. green house": "3.6 km"
 "oasi club": "5 km"
 "s.c. eur la quercia": "8.5 km"
 "c.s. dribbling": "10 km"
 "c.s. stella azzurra": "11.9 km"
 
-154089_0_167705072885538002.csv:0|3;weight;weight;lbs}
+154089_0_167705072885538002.csv:0|3;weight;weight;lbs
 "a baby bassinet - boy (no champagne)": "8 lbs"
 "a baby bassinet - girl (no champagne)": "8 lbs"
 "a baby bassinet - boy": "9 lbs"
 "a baby bassinet - girl (shown)": "9 lbs"
 "a baby bassinet - boy (large)": "11 lbs"
 
-15553077_0_8435692866513868843.csv:0|3;1D;length;ft}
+15553077_0_8435692866513868843.csv:0|3;1D;length;ft
 "5050ant": "2 ft."
 "5050a": "2 ft."
 "5050mbx-150": "9.2 ft."
 "db224": "20 ft."
 "db230": "3.5 ft."
 
-15692239_0_5499413422322812535.csv:0|2;1D;distance;miles}
+15692239_0_5499413422322812535.csv:0|2;1D;distance;miles
 "markus sittikus": "0.25 miles"
 "atel hotel lasserhof": "0.33 miles"
 "neutor salzburg hotel": "0.59 miles"
 "renaissance congress center salzburg hotel": "0.71 miles"
 "holiday inn munich": "70.25 miles"
 
-15709006_0_5332906772016654522.csv:0|2;1D;distance;miles}
+15709006_0_5332906772016654522.csv:0|2;1D;distance;miles
 "holiday inn express london victoria": "0.03 miles"
 "best western corona hotel": "0.03 miles"
 "central house hotel": "0.07 miles"
 "sidney hotel london-victoria": "0.08 miles"
 "dolphin house apartments": "0.20 miles"
 
-15870104_0_38203563150807558.csv:1|4;1D;dist;km}
+15870104_0_38203563150807558.csv:1|4;1D;dist;km
 "torreverde sporting club": "8.4 km"
 "anzolavino calcio": "13.6 km"
 
-15921830_0_1075522393656532333.csv:0|6;1D;distance;mi}
+15921830_0_1075522393656532333.csv:0|6;1D;distance;mi
 "": "0.35 mi"
 "": "0.57 mi"
 "": "0.97 mi"
 "": "0.98 mi"
 "": "1.00 mi"
 
-16024914_0_2294018515066909219.csv:0|2;3D;capacity;lbs}
+16024914_0_2294018515066909219.csv:0|2;3D;capacity;lbs
 "6x8gw13": "1800 lbs."
 "6x8gw2kpt": "1700 lbs."
 
-16392517_0_6117707795361553245.csv:0|2;1D;distance;miles}
+16392517_0_6117707795361553245.csv:0|2;1D;distance;miles
 "men 1/2/3": "60     miles"
 "men 3/4": "50     miles"
 "men 4/5": "40     miles"
 "women 1/2/3": "50     miles"
 "women 3/4": "40     miles"
 
-16511071_0_4643167655083852631.csv:0|2;1D;distance;miles}
+16511071_0_4643167655083852631.csv:0|2;1D;distance;miles
 "menzies welcombe hotel (2 night offer 1 dinner)": "0.00 miles"
 "best western grosvenor hotel": "1.17 miles"
 "holiday inn stratford-upon-avon": "1.24 miles"
 "holiday inn stratford upon avon (2 night offer 1st night dinner)": "1.24 miles"
 "4* mystery non refundable hotel": "1.24 miles"
 
-16633068_0_557824665772574127.csv:0|1;1D;diameter;mm}
+16633068_0_557824665772574127.csv:0|1;1D;diameter;mm
 "stork circular knives": "60mm"
 "stork circular knives": "80mm"
 "stork circular knives": "80mm"
 "stork circular knives": "100mm"
 "stork circular knives": "100mm"
 
-16633068_1_3424503184596932180.csv:0|1;1D;diameter;mm}
+16633068_1_3424503184596932180.csv:0|1;1D;diameter;mm
 "linco circular knives": "130mm"
 "linco circular knives": "200mm"
 "linco circular knives": "240mm"
 "linco circular knives": "270mm"
 "linco circular knives": "270mm"
 
-16633068_2_8811009207550588870.csv:0|1;1D;diameter;mm}
+16633068_2_8811009207550588870.csv:0|1;1D;diameter;mm
 "systemate circular knives": "100mm"
 "systemate circular knives": "125mm"
 "systemate circular knives": "125mm"
 "systemate circular knives": "150mm"
 "systemate circular knives": "150mm"
 
-16633068_3_6610086989013025284.csv:0|1;1D;diameter;mm}
+16633068_3_6610086989013025284.csv:0|1;1D;diameter;mm
 "linco circular knives": "130mm"
 "linco circular knives": "200mm"
 "linco circular knives": "240mm"
 "linco circular knives": "270mm"
 "linco circular knives": "270mm"
 
-16633068_4_5817761266833041013.csv:0|1;1D;diameter;mm}
+16633068_4_5817761266833041013.csv:0|1;1D;diameter;mm
 "meyn circular knives": "80mm"
 "meyn circular knives": "115mm"
 "meyn circular knives": "150mm"
 "meyn circular knives": "170mm"
 "meyn circular knives": "175mm"
 
-16817491_0_1578293579381983336.csv:0|1;1D;diameter;mm}
+16817491_0_1578293579381983336.csv:0|1;1D;diameter;mm
 "14": "(356mm)"
 "16": "(406mm)"
 "18": "(457mm)"
 "segment height": "segment height"
 
-16825050_0_7405938457644025125.csv:0|4;1D;distance;m}
+16825050_0_7405938457644025125.csv:0|4;1D;distance;m
 "bridget o'halloran": "25m"
 "joanne runciman": "50m"
 "joanne runciman": "100m"
 "bridget o'halloran": "200m"
 "ofa pene": "25m"
 
-17280004_0_2987658067862064924.csv:0|2;1D;length;cm}
+17280004_0_2987658067862064924.csv:0|2;1D;length;cm
 "small single": "190 cm"
 "single": "190 cm"
 "small double": "190 cm"
 "double": "190 cm"
 "kingsize": "200 cm"
 
-17396624_0_8384112886998475677.csv:0|3;1D;distance;miles}
+17396624_0_8384112886998475677.csv:0|3;1D;distance;miles
 "north beach hotel": "0 miles"
 "parkstone hotel": "0 miles"
 "prestwick old course hotel": "0 miles"
 "the hollies": "0 miles"
 "eglinton guest house": "2 miles"
 
-17862947_0_4248284092833123122.csv:0|4;1D;distance;km}
+17862947_0_4248284092833123122.csv:0|4;1D;distance;km
 "raceworx 9 hills training": "0km"
 "north berkeley hills with views and a workout": "0km"
 "syd-melb": "0km"
 "tuncurry": "0km"
 "summer hill to cbd": "0km"
 
-1787385_0_3243904277678883505.csv:0|2;1D;distance;miles}
+1787385_0_3243904277678883505.csv:0|2;1D;distance;miles
 "holiday inn washington (2 night offer 1st night dinner)": "0.00 miles"
 "3* mystery non refundable hotel": "0.00 miles"
 "campanile washington": "0.09 miles"
 "travelodge washington a1 m southbound": "0.20 miles"
 "lumley castle hotel": "2.31 miles"
 
-18115216_0_7284608585858951406.csv:0|4;1D;altitude;m}
+18007736_1_3256135150431654963.csv:0|2;1D;length;yd
+"championship": "6231 yd."
+"forward": "4807 yd."
+"middle": "5928 yd."
+"other": "5670 yd."
+
+18115216_0_7284608585858951406.csv:0|4;1D;altitude;m
 "le paradis": "11 m"
 "carrefour b9 le norme": "26 m"
 "la gaulette": "17 m"
 "case noyale": "27 m"
 "petite rivière noire": "7 m"
 
-18129880_0_4112640220811799807.csv:0|2;1D;distance;miles}
+18129880_0_4112640220811799807.csv:0|2;1D;distance;miles
 "crowne plaza estepona": "1.01 miles"
 "colina del paraiso": "5.80 miles"
 "diana park hotel": "6.79 miles"
 "atalaya park": "6.94 miles"
 "4* mystery hotel": "7.45 miles"
 
-18145645_0_3830298320845945365.csv:1|2;1D;length;cm,2;1D;length;cm}
+18145645_0_3830298320845945365.csv:1|2;1D;length;cm,2;1D;length;cm
 "gunki hi s-h": "240 cm""172 g"
 "gunki hi s-xh": "220 cm""177 g"
 
-18280892_0_3355614020723487223.csv:0|2;1D;distance;miles}
+18280892_0_3355614020723487223.csv:0|2;1D;distance;miles
 "red lion hotel": "0.61 miles"
 "holiday inn basingstoke": "0.73 miles"
 "3* mystery non refundable hotel": "0.73 miles"
 "holiday inn basingstoke (2 night offer 1st night dinner)": "0.73 miles"
 "audleys wood - a hand picked hotel": "1.31 miles"
 
-18377541_0_1630823297335185945.csv:0|1;1D;height;in,1;1D;height;in}
+18377541_0_1630823297335185945.csv:0|1;1D;height;in,1;1D;height;in
 "newborn": "18-24 in.""6-13 lbs."
 "3-6mo": "24-28 in.""12-17 lbs."
 "0-6mo": "20-26 in.""7-16 lbs."
 "6-12mo": "26-30 in.""16-23 lbs."
 "12-18mo": "29-32 in.""20-26 lbs."
 
-18383306_0_9092471520767579796.csv:0|3;3D;capacity;g}
+18383306_0_9092471520767579796.csv:0|3;3D;capacity;g
 "NULL": "120g"
 "NULL": "250g"
 "NULL": "500g"
 
-18404968_1_7278409751142311512.csv:0|4;1D;distance;miles}
+18403965_1_3810966670541857576.csv:0|2;1D;length;yd
+"championship": "2943 yd."
+"forward": "2215 yd."
+"middle": "2823 yd."
+"other": "NULL"
+
+18404968_1_7278409751142311512.csv:0|4;1D;distance;miles
 "NULL": "1.09 miles"
 "NULL": "3.58 miles"
 "NULL": "13.95 miles"
 "NULL": "13.98 miles"
 "NULL": "20.19 miles"
 
-18615397_0_7688902644046392757.csv:0|4;1D;distance;km}
+18615397_0_7688902644046392757.csv:0|4;1D;distance;km
 "dijon": "133.1km"
 "vers dijon": "145.5km"
 "nordouest": "112.2km"
 "maatz - bourbonne - maatz (2)": "129.8km"
 "trainingsrondje": "42.4km"
 
-18660540_0_6497309830742337187.csv:0|4;1D;distance;km}
+18660540_0_6497309830742337187.csv:0|4;1D;distance;km
 "2010 driedaagse dag 1": "205.1km"
 "2010 driedaagse dag 2": "193.7km"
 "2010 driedaagse dag 3": "154.3km"
 "auberive 15-10-2008": "103.4km"
 "bourbonne-les-bains": "88.9km"
 
-1868263_0_7121643943976873122.csv:0|2;1D;distance;miles}
+1868263_0_7121643943976873122.csv:0|2;1D;distance;miles
 "hampton by hilton derby city centre hi-life diners card": "0.00 miles"
 "holiday inn derby riverlights (2 night offer 1st night dinner)": "0.02 miles"
 "holiday inn derby riverlights": "0.02 miles"
 "jurys inn derby": "0.46 miles"
 "jurys inn derby (half board offer)": "0.46 miles"
 
-18853494_0_242247014490776761.csv:0|2;1D;distance;miles}
+18853494_0_242247014490776761.csv:0|2;1D;distance;miles
 "14th april 02": "7.2 miles"
 "21st april 02": "7.2 miles"
 "5th may 02": "17 miles"
 a flat": 
 "12th may 02": "17 miles"
 
-18853494_1_3340496505292057787.csv:0|2;1D;distance;miles}
+18853494_1_3340496505292057787.csv:0|2;1D;distance;miles
 "10th april 02": "6 miles"
 "23rd april 02": "6 miles"
 "25th april 02": "6 miles"
 "7th may 02": "6 miles"
 "28th may 02": "6 miles"
 
-19304283_1_6362843253443796153.csv:0|3;1D;distance;miles}
+19304283_1_6362843253443796153.csv:0|3;1D;distance;miles
 "express by holiday inn newport": "3 miles"
 "park hotel": "15 miles"
 "the beaufort hotel": "21 miles"
 "best western aberavon beach hotel": "42 miles"
 "bluebell hotel": "47 miles"
 
-19320659_0_8470506495249184754.csv:0|2;1D;distance;miles}
+19320659_0_8470506495249184754.csv:0|2;1D;distance;miles
 "holiday inn gatwick airport (2 night offer 1st night dinner)": "0.00 miles"
 "4* mystery non refundable hotel": "0.00 miles"
 "4* mystery non refundable hotel and 8 days parking": "0.00 miles"
 "4* mystery non refundable hotel and 15 days parking": "0.00 miles"
 "holiday inn gatwick airport": "0.00 miles"
 
-19456260_0_1767746587505649643.csv:0|3;1D;diameter;mm}
+19456260_0_1767746587505649643.csv:0|3;1D;diameter;mm
 "dw0260": "0.20mm"
 "dw0261": "0.24mm"
 "dw0262": "0.260mm"
 "dw0263": "0.310mm"
 "dw0264": "0.330mm"
 
-19610450_6_2461029267506513218.csv:1|3;weight;weight;lbs}
+19610450_6_2461029267506513218.csv:1|3;weight;weight;lbs
 "leroy ranstrom / john peifer": "27.16 lbs"
 "ted capra / dean capra": "26.04 lbs"
 "duane bersie / randy aagard": "25.74 lbs"
 "brad cline / jeff bosshardt": "25.54 lbs"
 "ron nelson / jack searl": "25.26 lbs"
 
-19830315_0_7625157746177154062.csv:0|1;1D;distance;mi}
+19830315_0_7625157746177154062.csv:0|1;1D;distance;mi
 "1. montreal": "1 mi"
 "2. laval": "4 mi"
 "3. longueuil": "4 mi"
 "4. mont-tremblant": "64 mi"
 "5. brossard": "7 mi"
 
-20294644_0_4721147666604977474.csv:0|4;1D;distance;km}
+20294644_0_4721147666604977474.csv:0|4;1D;distance;km
 "raceworx 9 hills training": "0km"
 "north berkeley hills with views and a workout": "0km"
 "syd-melb": "0km"
 "tuncurry": "0km"
 "summer hill to cbd": "0km"
 
-20369187_0_2052564748593777561.csv:0|1;1D;height;in,1;1D;height;in}
+20369187_0_2052564748593777561.csv:0|1;1D;height;in,1;1D;height;in
 "newborn": "18-24 in.""6-13 lbs."
 "3-6mo": "24-28 in.""12-17 lbs."
 "0-6mo": "20-26 in.""7-16 lbs."
 "6-12mo": "26-30 in.""16-23 lbs."
 "12-18mo": "29-32 in.""20-26 lbs."
 
-20383653_0_4844463464747900994.csv:0|4;1D;distance;miles}
+20383653_0_4844463464747900994.csv:0|4;1D;distance;miles
 "victoria settlementlocated off hwy. 855 near smoky lakeedmonton abt6g2p8": "1.29  miles"
 "fort george buckingham houselocated 13 km southeast of elk pointedmonton abt6g2p8": "1.29  miles"
 "stephansson houselocated 30 minutes southwest of red deeredmonton abt6g2p8": "1.29  miles"
 "historic dunveganlocated 26 km south of fairviewedmonton abt6g2p8": "1.29  miles"
 "father lacombe chapelst. abertst. albert abt6g2p8": "2.3  miles"
 
-20662011_0_7210478043130167874.csv:0|2;weight;weight;g}
+20662011_0_7210478043130167874.csv:0|2;weight;weight;g
 "hpi dirt bonz tire s compound ": "155g"
 "i-mex baja": "202g"
 "i-mex claw dawg": "248g"
 "i-mex dirt dawg": "267g"
 "i-mex jumbo kong": "588g"
 
-21300266_0_2579102622753781229.csv:0|4;1D;distance;km}
+21300266_0_2579102622753781229.csv:0|4;1D;distance;km
 "wien - hennersdorf": "43km"
 "andiheimfahrt": "14.3km"
 
-21412966_0_3547298424316168612.csv:0|2;1D;distance;miles}
+21412966_0_3547298424316168612.csv:0|2;1D;distance;miles
 "NULL": "0.02 miles"
 "NULL": "0.04 miles"
 "NULL": "0.07 miles"
 "NULL": "0.40 miles"
 "NULL": "0.41 miles"
 
-21712441_0_2547889068896280415.csv:0|4;1D;distance;km}
+21712441_0_2547889068896280415.csv:0|4;1D;distance;km
 "trip to the beach": "16.8km"
 "boca raton. fl": "20.1km"
 "patch reef trail": "15.6km"
 
-21730576_0_5624397053206976849.csv:0|2;1D;distance;miles}
+21730576_0_5624397053206976849.csv:0|2;1D;distance;miles
 "NULL": "0.00 miles"
 "NULL": "0.04 miles"
 "NULL": "0.06 miles"
 "NULL": "0.10 miles"
 "NULL": "0.13 miles"
 
-21838002_0_1623781082678171571.csv:0|1;1D;distance;km}
+21838002_0_1623781082678171571.csv:0|1;1D;distance;km
 "p1": "4 km"
 "p2": "4 km"
 "p3": "3 km"
 "p4": "3 km"
 "p5": "35 km"
 
-21957928_0_5510104642602376153.csv:0|5;1D;length;mm}
+21957928_0_5510104642602376153.csv:0|5;1D;length;mm
 "lww-5-12p": "500mm"
 "lww-5-18p": "600mm"
 "lww-5-24p": "1000mm"
 "lww-5-36p": "1200mm"
 
-2230409_1_8535642044773282849.csv:0|3;1D;distance;miles}
+2230409_1_8535642044773282849.csv:0|3;1D;distance;miles
 "carlton hotel mumbles": "5 miles"
 "carlton hotel mumbles": "5 miles"
 "tides reach guest house": "5 miles"
 "bluebell hotel": "15 miles"
 "best western aberavon beach hotel": "16 miles"
 
-22555678_0_2326267049724159059.csv:0|1;1D;distance;m}
+22555678_0_2326267049724159059.csv:0|1;1D;distance;m
 "stride avenue park": "743 m"
 "ernie winch park": "783 m"
 "taylor park": "926 m"
 "willard park": "1.3 km"
 "mary avenue park": "1.6 km"
 
-22555678_1_8042083369266806653.csv:0|1;1D;distance;m}
+22555678_1_8042083369266806653.csv:0|1;1D;distance;m
 "lord tweedsmuir elementary": "~ 458 m"
 "connaught heights elementary": "~ 655 m"
 "our lady of mercy": "~   1.2 km"
 "st. thomas more collegiate": "~   1.2 km"
 "lord kelvin elementary": "~   1.4 km"
 
-22555678_2_482996505092280632.csv:0|1;1D;distance;km}
+22555678_2_482996505092280632.csv:0|1;1D;distance;km
 "boston pizza restaurants": "~   1.7 km"
 "scruffy mcquire's pub & grill": "~   2.7 km"
 "the met bar & grill": "~   3.1 km"
 "brooklyn tap & grill": "~   3.3 km"
 "boston pizza restaurants": "~   4.5 km"
 
-22802084_1_1837552252352791036.csv:0|1;1D;height;cm}
+22802084_1_1837552252352791036.csv:0|1;1D;height;cm
 "xs": "155 cm"
 "s": "160 cm"
 "m": "165 cm"
 "l": "170 cm"
 "xl": "175 cm"
 
-23056187_1_3520237029507232204.csv:0|3;1D;distance;mi}
+23056187_1_3520237029507232204.csv:0|3;1D;distance;mi
 "sonshine christian academy": "0.26mi"
 "buckingham exceptional student center": "1.58mi"
 "riverdale high school": "1.65mi"
 "judah christian academy": "2.64mi"
 "oak hammock middle school": "3.6mi"
 
-23056187_2_6053851200441452297.csv:0|3;1D;distance;mi}
+23056187_2_6053851200441452297.csv:0|3;1D;distance;mi
 "sonshine christian academy": "0.26mi"
 "buckingham exceptional student center": "1.58mi"
 "riverdale high school": "1.65mi"
 "judah christian academy": "2.64mi"
 
-23308767_4_3092244407342178489.csv:0|1;1D;distance;mi}
+23308767_4_3092244407342178489.csv:0|1;1D;distance;mi
 "ferguson middle school": "0.77mi"
 "wydown middle school": "7.30mi"
 "brentwood middle school": "9.13mi"
 "rogers middle school": "12.97mi"
 "bayless junior high school": "13.64mi"
 
-23359603_0_4719918933984710047.csv:0|4;1D;height;cm,4;1D;height;cm}
+23359603_0_4719918933984710047.csv:0|4;1D;height;cm,4;1D;height;cm
 "sandy": "175cm""56-60 kg"
 "stan": "175cm""56-60 kg"
 
-23683174_0_7099630247953531567.csv:0|2;1D;distance;miles}
+23683174_0_7099630247953531567.csv:0|2;1D;distance;miles
 "": "0.3 miles"
 "": "0.4 miles"
 "": "0.4 miles"
 "": "0.5 miles"
 "": "0.5 miles"
 
-24019584_0_5397945294485739014.csv:0|4;1D;height;cm,4;1D;height;cm}
+24019584_0_5397945294485739014.csv:0|4;1D;height;cm,4;1D;height;cm
 "elena": "165cm""61-65 kg"
 "dan": "170cm""71-75 kg"
 
-24023681_0_8455179969589700441.csv:0|4;1D;distance;km}
+24023681_0_8455179969589700441.csv:0|4;1D;distance;km
 "surrey 4": "102.9km"
 "surrey 2": "109.4km"
 "legs of steel 09": "82.9km"
 "putney - shere - leith hill - box hill": "113.3km"
 
-24096617_0_8828417305293792165.csv:0|2;1D;distance;mi}
+24096617_0_8828417305293792165.csv:0|2;1D;distance;mi
 "westminster hotel": "7.12 mi"
 "marriott hanover": "9.77 mi"
 "hamilton park hotel- destination hotels resorts": "10.8 mi"
 "hilton short hills": "10.83 mi"
 "westin governor morris": "11.39 mi"
 
-24321304_0_2861091992723154308.csv:0|4;1D;distance;km}
+24321304_0_2861091992723154308.csv:0|4;1D;distance;km
 "raceworx 9 hills training": "0km"
 "north berkeley hills with views and a workout": "0km"
 "syd-melb": "0km"
 "tuncurry": "0km"
 "summer hill to cbd": "0km"
 
-24691630_0_3035619615011100881.csv:0|4;1D;length;m}
+24691630_0_3035619615011100881.csv:0|4;1D;length;m
 "yellow (men)": "6003 m"
 "red (women)": "5156 m"
 
-24768236_0_6618942765109714137.csv:0|4;1D;length;m}
+24768236_0_6618942765109714137.csv:0|4;1D;length;m
 "white (men)": "6310 m"
 "yellow (men)": "6105 m"
 "black (women)": "6105 m"
 "red (women)": "5373 m"
 
-24814176_0_787000297429078033.csv:0|4;1D;diameter;mm}
+24814176_0_787000297429078033.csv:0|4;1D;diameter;mm
 "eyeglass loupe 3x": "24.0 mm"
 "eyeglass loupe 4x": "24.0 mm"
 "eyeglass loupe 5x": "24.0 mm"
 "eyeglass loupe 7x": "24.0 mm"
 "eyeglass loupe 4x-7x": 
 
-24884907_2_2366406220086335523.csv:0|2;3D;volume;m}
+24884907_2_2366406220086335523.csv:0|2;3D;volume;m
 "runa do fogo": "7731m"
 "frasco": "6625m"
 "lenha de bordo": "6564m"
 "fragmentos espirituais": "4736m"
 
-24925836_0_4257580445201511181.csv:0|4;1D;distance;km}
+24925836_0_4257580445201511181.csv:0|4;1D;distance;km
 "raceworx 9 hills training": "0km"
 "north berkeley hills with views and a workout": "0km"
 "syd-melb": "0km"
 "tuncurry": "0km"
 "summer hill to cbd": "0km"
 
-24969392_0_2161341028488918198.csv:0|2;1D;distance;miles}
+24969392_0_2161341028488918198.csv:0|2;1D;distance;miles
 "mercure altrincham bowdon hotel 8 days parking": "0.00 miles"
 "mercure altrincham bowdon hotel 15 days parking": "0.00 miles"
 "britannia ashley hotel hale (room only)": "0.34 miles"
 "britannia ashley hotel hale and 15 days parking": "0.34 miles"
 "britannia ashley hotel hale and 8 days parking": "0.34 miles"
 
-25376865_1_8032420523792625618.csv:0|4;1D;distance;miles}
+25376865_1_8032420523792625618.csv:0|4;1D;distance;miles
 "NULL": "3.02 miles"
 "NULL": "3.94 miles"
 "NULL": "4.95 miles"
 "NULL": "6.58 miles"
 "NULL": "8.93 miles"
 
-25401410_0_6677238962968633604.csv:0|2;1D;distance;miles}
+25401410_0_6677238962968633604.csv:0|2;1D;distance;miles
 "best western gatwick moat house": "0.00 miles"
 "best western gatwick moat house and 15 days parking": "0.00 miles"
 "best western gatwick moat house": "0.00 miles"
 "travelodge gatwick airport central": "0.06 miles"
 "holiday inn gatwick airport": "0.16 miles"
 
-25408216_0_6423305179139752603.csv:0|4;1D;height;cm,4;1D;height;cm}
+25408216_0_6423305179139752603.csv:0|4;1D;height;cm,4;1D;height;cm
 "jessica": "155cm""45-50 kg"
 "homer": "170cm""56-60 kg"
 
-25425853_0_4448345627540418433.csv:0|2;1D;distance;miles}
+25425853_0_4448345627540418433.csv:0|2;1D;distance;miles
 "york marriott hotel": "0.13 miles"
 "york marriott hotel (2 night offer 1st night dinner)": "0.13 miles"
 "holiday inn york (2 night offer 1st night dinner)": "0.36 miles"
 "holiday inn york": "0.36 miles"
 "4* mystery non refundable hotel": "0.36 miles"
 
-2574766_0_4049949567420927197.csv:0|2;1D;distance;miles}
+2574766_0_4049949567420927197.csv:0|2;1D;distance;miles
 "hilton dublin hi-life diners card": "0.00 miles"
 "conrad dublin hi-life diners card": "0.18 miles"
 "camden court hotel": "0.29 miles"
 "russell court hotel": "0.38 miles"
 "the burlington hotel": "0.44 miles"
 
-25987143_0_6443827021862085930.csv:0|2;weight;weight;lbs}
+25987143_0_6443827021862085930.csv:0|2;weight;weight;lbs
 "clean side": "35 lbs."
 "": "45 lbs."
 "": "60 lbs."
 "": "70 lbs."
 "": "85 lbs."
 
-26121581_0_455286532515409682.csv:0|2;3D;capacity;lbs,2;3D;capacity;lbs}
+26121581_0_455286532515409682.csv:0|2;3D;capacity;lbs,2;3D;capacity;lbs
 "rh80048rcr": "1000                               lbs""2450                               lbs."
 "dh80096rcr": "1000                               lbs""2450                               lbs."
 "dh800108rcr": "1000                               lbs""2450                               lbs."
 
-26220959_0_4725928108870391560.csv:0|3;1D;length;ft}
+26220959_0_4725928108870391560.csv:0|3;1D;length;ft
 "NULL": "23 ft"
 "NULL": "23 ft"
 
-2627725_0_7448940473325716121.csv:0|2;1D;distance;miles}
+2627725_0_7448940473325716121.csv:0|2;1D;distance;miles
 "": "0.4 miles"
 "": "0.4 miles"
 "": "0.4 miles"
 "": "0.5 miles"
 "": "0.6 miles"
 
-26372141_0_3475763847759796187.csv:0|1;1D;distance;mi}
+26372141_0_3475763847759796187.csv:0|1;1D;distance;mi
 "1. montreal": "1 mi"
 "2. laval": "9 mi"
 "3. brossard": "3 mi"
 "4. pointe-claire": "11 mi"
 "5. dorval": "10 mi"
 
-26621189_0_5015433419219883897.csv:0|1;weight;weight;oz}
+26621189_0_5015433419219883897.csv:0|1;weight;weight;oz
 "fishrainbow troutfilletraw5 oz": "32 lbs"
 "cooking spraynonstick": "2 oz"
 "buttermelted": "1-2/3 lbs"
 "pepperblackground": "1/8 oz"
 "juicelemon": "1-3/8 lbs"
 
-26814078_0_2843720552285871606.csv:0|5;1D;length;mm}
+26814078_0_2843720552285871606.csv:0|5;1D;length;mm
 "lww-5-12p": "500mm"
 "lww-5-18p": "600mm"
 "lww-5-24p": "1000mm"
 "lww-5-36p": "1200mm"
 
-26927960_4_7057802234327486704.csv:0|1;1D;distance;mi}
+26927960_4_7057802234327486704.csv:0|1;1D;distance;mi
 "wydown middle school": "4.09mi"
 "bayless junior high school": "4.34mi"
 "brentwood middle school": "4.52mi"
 "rogers middle school": "4.91mi"
 "hancock place middle school": "5.36mi"
 
-2693265_0_7464950576978918843.csv:0|4;1D;height;cm,4;1D;height;cm}
+2693265_0_7464950576978918843.csv:0|4;1D;height;cm,4;1D;height;cm
 "gianna": "175cm""56-60 kg"
 "jose": "180cm""71-75 kg"
 
-27345291_0_7297642740120199522.csv:0|2;1D;distance;miles}
+27345291_0_7297642740120199522.csv:0|2;1D;distance;miles
 "": "1 miles"
 "": "1.1 miles"
 "": "1.1 miles"
 "": "1.1 miles"
 "": "1.3 miles"
 
-27685026_1_1234824061180250872.csv:0|4;1D;distance;miles}
+27685026_1_1234824061180250872.csv:0|4;1D;distance;miles
 "NULL": "4.02 miles"
 "NULL": "4.16 miles"
 "NULL": "4.28 miles"
 "NULL": "4.69 miles"
 "NULL": "7.89 miles"
 
-27819523_0_8613800391714192962.csv:0|2;1D;distance;miles}
+27819523_0_8613800391714192962.csv:0|2;1D;distance;miles
 "depart middlesbrough on the": "2 miles"
 "turn left onto": "26 miles"
 "turn onto": "8 miles"
 "turn onto": "47 miles"
 "remain on the": "8 miles"
 
-27917171_0_7932771336588436703.csv:0|4;1D;length;m}
+27917171_0_7932771336588436703.csv:0|4;1D;length;m
 "white (men)": "6375 m"
 "yellow (men)": "5970 m"
 "yellow (women)": "5970 m"
 "blue (men)": "5504 m"
 "blue (women)": "5504 m"
 
-27917171_1_6044424632555260520.csv:0|4;1D;length;m}
+27917171_1_6044424632555260520.csv:0|4;1D;length;m
 "white (men)": "6406 m"
 "yellow (men)": "5977 m"
 "yellow (women)": "5977 m"
 "blue (men)": "5540 m"
 "blue (women)": "5540 m"
 
-27937943_5_1357990581593884050.csv:0|2;3D;capacity;ml}
+27937943_5_1357990581593884050.csv:0|2;3D;capacity;ml
 "3542.a": "12 - 2 ml"
 "3542.y": "12 - 2 ml"
 "3543.a": "12 - 2 ml"
 "3544.a": "up to5 ml"
 "3544.b": "up to5 ml"
 
-27961038_0_1535675886228110635.csv:0|2;1D;altitude;m,2;1D;altitude;m}
+27961038_0_1535675886228110635.csv:0|2;1D;altitude;m,2;1D;altitude;m
 "day 01": "1.400m""1.563m"
 "day 02": "1.563m""1.951m"
 "day 03": "1.951m""1.952m"
 "day 04": "1.952m""2.377m"
 "day 05": "2.377m""3.000m"
 
-27965051_0_935373769228730992.csv:0|2;1D;distance;miles}
+27965051_0_935373769228730992.csv:0|2;1D;distance;miles
 "": "0.3 miles"
 "": "0.5 miles"
 "": "0.6 miles"
 "": "0.7 miles"
 "": "0.7 miles"
 
-28064400_0_3742135194993958863.csv:0|1;3D;capacity;kg}
+28064400_0_3742135194993958863.csv:0|1;3D;capacity;kg
 "w140": "500 kg"
 "w140se": "500 kg"
 "w141": "1.000 kg"
 "w141se": "1.000 kg"
 "w142": "1.500 kg"
 
-28224689_4_7445434374487198662.csv:0|1;weight;weight;lbs}
+28224689_4_7445434374487198662.csv:0|1;weight;weight;lbs
 "1x3": "5.50 lbs"
 "2x2 (tabletop)": "7.00 lbs"
 "2x3": "9.50 lbs"
 "3x3": "12.50 lbs"
 "4x3": "17.00 lbs"
 
-28574995_0_4608404850566970160.csv:0|4;1D;length;m}
+28574995_0_4608404850566970160.csv:0|4;1D;length;m
 "white (men)": "5771 m"
 "white (women)": "5771 m"
 "yellow (men)": "5620 m"

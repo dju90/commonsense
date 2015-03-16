@@ -30,7 +30,7 @@ public class UnitFilter {
 				JSONArray units = (JSONArray) jsonObject.get(dim);
 				if (units != null) {
 					for (int i = 0; i < units.size(); i++) {
-						unitList.add((String) units.get(i));
+						tempUnitList.add((String) units.get(i));
 					}
 				}
 			}

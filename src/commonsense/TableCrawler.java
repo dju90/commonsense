@@ -2,16 +2,17 @@ package commonsense;
 
 import java.util.*;
 import java.io.*;
+import java.math.BigDecimal;
 import java.util.HashMap;
 import java.util.Set;
 //import com.google.api-client;
 
 
 public class TableCrawler { //should we make this an object, so it can handle multiple directories? No
-	private static HashMap<String, HashMap<String, HashSet<Pair<String, String>>>> attMap;
+	private static HashMap<String, HashMap<String, HashSet<Pair<String, BigDecimal>>>> attMap;
 
 	public static void main(String[] args) {
-		attMap = new HashMap<String, HashMap<String, HashSet<Pair<String, String>>>>();
+		attMap = new HashMap<String, HashMap<String, HashSet<Pair<String, BigDecimal>>>>();
 		if( args.length == 2 ) {
 			crawlDir(args[0], args[1]);
 		} else {
@@ -36,13 +37,9 @@ public class TableCrawler { //should we make this an object, so it can handle mu
 				File f = new File(dirName + "/" + fileName);
 				addToMap(f, line);
 			}
-			// unit conversion? (google library) ...how does this affect double
-			// entity comparison later?
-			// database stuff! NoSQL? (ask Dan)
-			// create entity table from key bindings of attMap ...also populate
-			// attribute table?
-			// create superentity table from keyset of attMap ...also populate
-			// attribute table?
+			// create entity table from key bindings of attMap ...also populate attribute table?
+			// create superentity table from keyset of attMap ...also populate attribute table?
+			filtrateScan.close();
 		} catch (FileNotFoundException f ) {
 			System.out.println("Filtrate file not found.");
 		}
@@ -55,47 +52,44 @@ public class TableCrawler { //should we make this an object, so it can handle mu
 	 * @param scan
 	 * @param releventColumns
 	 */
-	private static void addToMap(File f, String[] relevantCols) {
+	private static void addToMap(File f, String data) {
 		try {
 			Scanner scan = new Scanner(f);
-			HashMap<String, HashSet<Pair<String, String>>> tableMap = null;
-			Set<Set<String>> freeBaseHits = null;
-			if (scan.hasNextLine()) {
-				String[] attributes = scan.nextLine().split(",");
-				if (scan.hasNextLine()) {
-					String[] line = scan.nextLine().split(",");
-					// check if first columns contains entities (alphabetic chars)
-					int entityCol = idEntityColumn(line);
-					if (entityCol != -1) { // has a non-numeric entity column
-						tableMap = new HashMap<String, HashSet<Pair<String, String>>>();
-						freeBaseHits = new HashSet<Set<String>>(); //TODO: call freebasecaller
+			TableInfo info = new TableInfo(f, data);
+			if( info.isValid() ) {
+				HashMap<String, HashSet<Pair<String, BigDecimal>>> entityData = null;
+				Set<Set<String>> freeBaseHits = null;
 
-						while (scan.hasNextLine()) {
-							HashSet<Pair<String, String>> entry = processLine(line, entityCol, attributes, 
-								 	 relevantCols, freeBaseHits);
-							if( entry != null )
-								tableMap.put(line[entityCol], entry);
-							line = scan.nextLine().split(",");
+				if( scan.hasNextLine() ) {
+					scan.nextLine();
+					entityData = new HashMap<String, HashSet<Pair<String, BigDecimal>>>();
+					freeBaseHits = new HashSet<Set<String>>(); //TODO: call freebasecaller
+					String entity = "";
+					while (scan.hasNextLine()) {
+						String[] line = scan.nextLine().split(",");
+						HashSet<Pair<String, BigDecimal>> entry = processLine(line, info, freeBaseHits);
+						if( entry != null ) {
+							entityData.put(entity, entry);					
 						}
-						tableMap.put(line[entityCol],
-									 processLine(line, entityCol, attributes,
-											 	 relevantCols, freeBaseHits));
+						line = scan.nextLine().split(",");
 					}
 				}
-			}
-			if (tableMap != null && freeBaseHits != null) {
-				String superEntity = findMaxIntersect(freeBaseHits);
-				if( attMap.containsKey(superEntity) ) { //append if contains
-					Map<String, HashSet<Pair<String,String>>> currentMap = attMap.get(superEntity);
-					for( String key : tableMap.keySet() ) {
-						currentMap.put(key, tableMap.get(key));
+				//TODO:
+				if (entityData != null && freeBaseHits != null) {
+					String superEntity = findMaxIntersect(freeBaseHits);
+					if( attMap.containsKey(superEntity) ) { //append if contains
+						Map<String, HashSet<Pair<String,BigDecimal>>> currentMap = attMap.get(superEntity);
+						for( String key : entityData.keySet() ) {
+							currentMap.put(key, entityData.get(key));
+						}
+					} else { //create new superentity
+						attMap.put(superEntity, entityData);
 					}
-				} else { //create new superentity
-					attMap.put(superEntity, tableMap);
 				}
+			} else {
+				System.out.println("Parse error during processing of output line for entry " + f.getName());
 			}
 			scan.close();
-
 		} catch (FileNotFoundException fe) {
 			fe.printStackTrace();
 			System.exit(0);
@@ -119,24 +113,38 @@ public class TableCrawler { //should we make this an object, so it can handle mu
 	 *            Pointer to collection of possible superentities.
 	 * @return The HashSet from the entity to its collection of attributes.
 	 */
-	private static HashSet<Pair<String, String>> processLine(String[] line,
-			int entityCol, String[] attributes, Integer[] relevantCols,
-			Set<Set<String>> freeBaseHits) {
+	private static HashSet<Pair<String, BigDecimal>> processLine(String[] line, TableInfo info, Set<Set<String>> freeBaseHits) {
 
-		String entity = line[entityCol];
+		String entity = line[info.getEntityIndex()];
 		// do a free base lookup for each entity and add resulting set to
 		// file-specific map
-		try {
-			freeBaseHits.add(FreeBaseCaller.lookup(entity));
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+		Set<String> possibleSuperEntities = FreeBaseCaller.lookup(entity);
+		if( possibleSuperEntities != null ) {
+			freeBaseHits.add(possibleSuperEntities);
 		}
-
-		HashSet<Pair<String, String>> attVals = new HashSet<Pair<String, String>>();
+		HashSet<Pair<String, BigDecimal>> attVals = new HashSet<Pair<String, BigDecimal>>();
 		// grab all attributes from columns w/ index in relevantColumns
+		Integer[] relevantCols = info.getRelevantIndexes();
+		String[] dimensions    = info.getColDims();
+		String[] attributes    = info.getColNames();
+		String[] units         = info.getColUnits();
 		for (int i = 0; i < relevantCols.length; i++) {
-			attVals.add(new Pair<String, String>(attributes[i], line[relevantCols[i]]));
+			String[] data = line[relevantCols[i]].split("-");
+			BigDecimal datum;
+			if( data.length == 1 ) { //TODO conversions
+				datum = new BigDecimal(data[0].replaceAll("[^\\d]\\.[^\\d]", ""));
+			} else {
+				double sum = 0;
+				for( int j = 0; j < data.length; j++ ) {
+					try {
+						sum += Double.parseDouble(data[j].replaceAll("[^0-9\\.]", ""));
+					} catch (NumberFormatException n ) {
+						
+					}
+				}
+				datum = new BigDecimal(sum/data.length);
+			}
+			attVals.add(new Pair<String, BigDecimal>(attributes[i], datum));
 		}
 		return attVals;
 	}
