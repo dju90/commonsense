@@ -123,16 +123,16 @@ public class TableInfo {
 	public String toString() {
 		String rep = "";
 		if( valid && size > 0 ) {
-			rep += file.getName() + ": "+ entityIndex + "-{";
-			rep += relevantIndexes.get(0) + ": "
-					+" ["+colDims.get(0)+";"
-					+colNames.get(0)+";"
-					+colUnits.get(0)+"]";
+			rep += file.getName() + ":"+ entityIndex + "|"
+					+ relevantIndexes.get(0) + ";"
+					+ colDims.get(0)+";"
+					+ colNames.get(0)+";"
+					+ colUnits.get(0)+"";
 			for( int i = 1; i < size; i++ ) {
-				rep += ", " + relevantIndexes.get(0) + ": "
-								+ "[" + colDims.get(0) + ";" 
+				rep += "," + relevantIndexes.get(0) + ";"
+								+ colDims.get(0) + ";" 
 								+ colNames.get(0) + ";"
-								+ colUnits.get(0) + "]";
+								+ colUnits.get(0);
 			}
 			rep+="}";
 			return rep;

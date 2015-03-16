@@ -24,7 +24,6 @@ public class UnitFilter {
 			JSONParser parser = new JSONParser();
 			JSONObject jsonObject = (JSONObject) parser.parse(new FileReader(
 					filePath));
-
 			// ultra-specific to our unitList file :/
 			Set<?> dimensions = jsonObject.keySet();
 			for (Object dim : dimensions) {
@@ -35,7 +34,6 @@ public class UnitFilter {
 					}
 				}
 			}
-
 		} catch (FileNotFoundException fnfe) {
 			System.out.println("File not found.");
 			fnfe.printStackTrace();
@@ -79,38 +77,6 @@ public class UnitFilter {
 			}
 		}
 		return null; 
-	}
-
-	/**
-	 * Returns if cell String contains units
-	 * @param candidate
-	 * @return
-	 */
-	public boolean cellContainsUnits(String candidate) {
-		if( candidate.matches("(.*)[0-9]+(.*)")) {
-			if( candidate.contains("min") || candidate.toLowerCase().contains("null")) {
-				return false;
-			}
-			String unitsOnly = candidate.replaceAll("[^A-Za-z]", "").toLowerCase();
-			if ( unitList.contains(unitsOnly) ) {
-				return true;
-			}
-		}
-		return false;
-	}
-	
-	/**
-	 * Returns if the header String contains units as a token
-	 * @param candidate
-	 * @return
-	 */
-	public boolean headerContainsUnits(String candidate) {
-		for( String unit : unitList ) {
-			if( candidate.matches("\\b" + unit + "\\b") ) {
-				return true;
-			}
-		}
-		return false; 
 	}
 }
 

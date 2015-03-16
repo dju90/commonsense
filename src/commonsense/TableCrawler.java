@@ -31,16 +31,10 @@ public class TableCrawler { //should we make this an object, so it can handle mu
 		try {
 			Scanner filtrateScan = new Scanner(new File(filtrateFileName));
 			while( filtrateScan.hasNextLine() ) {
-				String fileName = filtrateScan.nextLine().split(":")[0];
+				String line = filtrateScan.nextLine();
+				String fileName = line.split(":")[0];
 				File f = new File(dirName + "/" + fileName);
-				addToMap(f, );
-			}
-			File[] fileDir = new File(dirName).listFiles();
-			for (File f : fileDir) {
-				Integer[] relevantColumns = aFilter.relevantColumnIndexes(f);
-				if (relevantColumns.length != 0) {
-					addToMap(f, relevantColumns);
-				}
+				addToMap(f, line);
 			}
 			// unit conversion? (google library) ...how does this affect double
 			// entity comparison later?
