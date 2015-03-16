@@ -36,9 +36,9 @@ public class DatabaseBuilder {
 	 * @param attMap the map of superentities, is modified to include another hashmap
 	 */
 	private static void addMedians(HashMap<String, HashMap<String, HashSet<Pair<String, BigDecimal>>>> attMap) {
+		HashMap<String, HashSet<Pair<String, BigDecimal>>> values = new HashMap<String, HashSet<Pair<String, BigDecimal>>>();
 		for (Map.Entry<String, HashMap<String, HashSet<Pair<String, BigDecimal>>>> entityEntry :  attMap.entrySet() ) {
 			// Examine every superentity
-			
 			// Attribute to a set of values of that attribute
 			HashMap<String, HashSet<BigDecimal>> medianAttributes = new HashMap<String, HashSet<BigDecimal>>();
 			for (Map.Entry<String, HashSet<Pair<String, BigDecimal>>> relationEntry: entityEntry.getValue().entrySet()) {
@@ -52,29 +52,9 @@ public class DatabaseBuilder {
 					} else {
 						allValues = new HashSet<BigDecimal>();
 					}
-					// pattern matches not a decimal number
-
-					// if (relationPair.getValue().matches(".*\\d.*")) {
-					// 	String noDecimalPattern = "[^\\d\\.-]";
-					// 	String decimalPattern = ".*\\d+[\\.\\d+].*";
-					// 	String numberRange = ".*\\d-\\d.*";
-					// 	String stringValue = relationPair.getValue().replaceAll(noDecimalPattern, "");
-					// 	double val = 0.0;
-					// 	if (stringValue.matches(numberRange)) {
-					// 		String[] nums = stringValue.split("-");
-					// 		// Assume only 2
-					// 		double v1 = Double.parseDouble(nums[0]);
-					// 		double v2 = Double.parseDouble(nums[1]);
-					// 		val = (v1 + v2) / 2.0;
-					// 	} else {
-					// 		val = Double.parseDouble(relationPair.getValue().replaceAll(noDecimalPattern, ""));
-					// 	}
-					// 	String units = relationPair.getValue().replaceAll(decimalPattern, "");
-					// 	units = units.toLowerCase();
-					// 	BigDecimal value = UnitConverter.convertUnits(val, units);
-					// 	allValues.add(value);
-					// 	medianAttributes.put(relationPair.getKey(), allValues);
-					// }
+					allValues.add(relationPair.getValue());
+					medianAttributes.put(relationPair.getKey(), allValues);
+					
 				}
 			}
 			
@@ -92,17 +72,9 @@ public class DatabaseBuilder {
 				Pair<String, BigDecimal> pair = new Pair<String, BigDecimal>(medianEntry.getKey(), new BigDecimal(median.doubleValue()));
 				medianRelations.add(pair);
 			}
-
-			HashMap<String, HashSet<Pair<String, BigDecimal>>> values;
-			if (attMap.containsKey("")) {
-				values = attMap.get("");		
-			} else {
-				values = new HashMap<String, HashSet<Pair<String, BigDecimal>>>();
-			}
-		
 			values.put(entityEntry.getKey(), medianRelations);
-			attMap.put(entityEntry.getKey(), values);			
 		}
+		attMap.put("type", values);
 	}
 
 	/**
@@ -137,7 +109,7 @@ public class DatabaseBuilder {
 				BasicDBObject relation = new BasicDBObject("type", entityEntry.getKey()).append("entity", relationEntry.getKey());
 				for (Pair<String, BigDecimal> relationPair : relationEntry.getValue()) {
 					// Examine every relation
-					relation.append(relationPair.getKey(), relationPair.getValue());
+					relation.append(relationPair.getKey(), relationPair.getValue().doubleValue());
 				}
 				relationColl.insert(relation);
 			}
