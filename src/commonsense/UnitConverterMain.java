@@ -21,7 +21,7 @@ public class UnitConverterMain {
 					String dim = input[0];
 					BigDecimal num = new BigDecimal(input[1]);
 					String unit = input[2];
-					double result = converter.convert(dim.toUpperCase(), num, unit);
+					double result = converter.calculate(dim.toUpperCase(), num, unit);
 					if( result == Double.POSITIVE_INFINITY ) {
 						System.out.println();
 						System.out.println("Not a valid unit");

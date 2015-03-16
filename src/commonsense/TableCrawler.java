@@ -4,12 +4,14 @@ import java.util.*;
 import java.io.*;
 import java.math.BigDecimal;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.Set;
 //import com.google.api-client;
 
 
 public class TableCrawler { //should we make this an object, so it can handle multiple directories? No
 	private static HashMap<String, HashMap<String, HashSet<Pair<String, BigDecimal>>>> attMap;
+	private static UnitConverter converter;
 
 	public static void main(String[] args) {
 		attMap = new HashMap<String, HashMap<String, HashSet<Pair<String, BigDecimal>>>>();
@@ -64,26 +66,47 @@ public class TableCrawler { //should we make this an object, so it can handle mu
 					scan.nextLine();
 					entityData = new HashMap<String, HashSet<Pair<String, BigDecimal>>>();
 					freeBaseHits = new HashSet<Set<String>>(); //TODO: call freebasecaller
-					String entity = "";
+					
+					// unpack tableInfo
+					Integer[] relevantCols = info.getRelevantIndexes();
+					String[] dimensions    = info.getColDims();
+					String[] attributes    = info.getColNames();
+					String[] units         = info.getColUnits();
+					
+					//process each line of the file according to relevant columns
 					while (scan.hasNextLine()) {
 						String[] line = scan.nextLine().split(",");
-						HashSet<Pair<String, BigDecimal>> entry = processLine(line, info, freeBaseHits);
+						String entity = line[info.getEntityIndex()];
+						HashSet<Pair<String, BigDecimal>> entry = processLine(line, entity, relevantCols, dimensions, 
+																																	attributes, units, freeBaseHits);
 						if( entry != null ) {
 							entityData.put(entity, entry);					
 						}
 						line = scan.nextLine().split(",");
 					}
 				}
-				//TODO:
 				if (entityData != null && freeBaseHits != null) {
-					String superEntity = findMaxIntersect(freeBaseHits);
-					if( attMap.containsKey(superEntity) ) { //append if contains
-						Map<String, HashSet<Pair<String,BigDecimal>>> currentMap = attMap.get(superEntity);
-						for( String key : entityData.keySet() ) {
-							currentMap.put(key, entityData.get(key));
+					Set<String> superEntities = intersect(freeBaseHits);
+					if( superEntities.size() == 0 ) {
+						superEntities.add(findMaxIntersect(freeBaseHits));
+					}
+					for( String superEntity : superEntities ) {
+						if( attMap.containsKey(superEntity) ) { // append entity if superentity exists
+							Map<String, HashSet<Pair<String,BigDecimal>>> currentMap = attMap.get(superEntity);
+							for( String key : entityData.keySet() ) { 
+								if( currentMap.containsKey(key) ) { // append attributes to entity if entity exists w/in superentity 
+									Set<Pair<String,BigDecimal>> currentAtts = currentMap.get(key);
+									Set<Pair<String,BigDecimal>> appendAtts  = entityData.get(key);
+									for( Pair<String,BigDecimal> att : appendAtts ) {
+										currentAtts.add(att);
+									}
+								} else { // append entity to superentity mapping
+									currentMap.put(key, entityData.get(key));									
+								}
+							}
+						} else { //create new superentity
+							attMap.put(superEntity, entityData);
 						}
-					} else { //create new superentity
-						attMap.put(superEntity, entityData);
 					}
 				}
 			} else {
@@ -96,60 +119,91 @@ public class TableCrawler { //should we make this an object, so it can handle mu
 		}
 	}
 	
-	
-
-	/*
+	/*TODO: steer  calves == no hits, steer calf = cattle...Stanford parser?
 	 * Processes a single line in a csv file.
-	 * 
-	 * @param line
-	 *            The line from the file as a String array.
-	 * @param entityCol
-	 *            The index of the column in which entity names reside.
-	 * @param attributes
-	 *            A String array of the relevant attributes in the table.
-	 * @param relevantCols
-	 *            An integer array of the relevant column indices.
-	 * @param freeBaseHits
-	 *            Pointer to collection of possible superentities.
 	 * @return The HashSet from the entity to its collection of attributes.
 	 */
-	private static HashSet<Pair<String, BigDecimal>> processLine(String[] line, TableInfo info, Set<Set<String>> freeBaseHits) {
-
-		String entity = line[info.getEntityIndex()];
-		// do a free base lookup for each entity and add resulting set to
-		// file-specific map
+	private static HashSet<Pair<String, BigDecimal>> processLine(String[] line, String entity, 
+																															 Integer[] relevantCols, String[] dimensions, 
+																															 String[] attributes, String[] units, 
+																															 Set<Set<String>> freeBaseHits) {
+		
+		// do a free base lookup for each entity and add resulting set to file-specific map
 		Set<String> possibleSuperEntities = FreeBaseCaller.lookup(entity);
 		if( possibleSuperEntities != null ) {
 			freeBaseHits.add(possibleSuperEntities);
 		}
+		
 		HashSet<Pair<String, BigDecimal>> attVals = new HashSet<Pair<String, BigDecimal>>();
 		// grab all attributes from columns w/ index in relevantColumns
-		Integer[] relevantCols = info.getRelevantIndexes();
-		String[] dimensions    = info.getColDims();
-		String[] attributes    = info.getColNames();
-		String[] units         = info.getColUnits();
 		for (int i = 0; i < relevantCols.length; i++) {
 			String[] data = line[relevantCols[i]].split("-");
 			BigDecimal datum;
 			if( data.length == 1 ) { //TODO conversions
-				datum = new BigDecimal(data[0].replaceAll("[^\\d]\\.[^\\d]", ""));
+				datum = extractData(data[0]);
 			} else {
-				double sum = 0;
-				for( int j = 0; j < data.length; j++ ) {
-					try {
-						sum += Double.parseDouble(data[j].replaceAll("[^0-9\\.]", ""));
-					} catch (NumberFormatException n ) {
-						
+				BigDecimal sum = new BigDecimal(0);
+				int numData = data.length;
+				int wrongData = 0;
+				for( int j = 0; j < numData; j++ ) {
+					BigDecimal addend = extractData(data[j]);
+					if( addend != null ) {
+						sum.add(addend);
+					} else {
+						wrongData++;
 					}
 				}
-				datum = new BigDecimal(sum/data.length);
+				datum = sum.divide(new BigDecimal(numData-wrongData));
 			}
-			attVals.add(new Pair<String, BigDecimal>(attributes[i], datum));
+			datum = converter.convert(dimensions[i], datum, units[i]);
+			if( datum != null ) {
+				attVals.add(new Pair<String, BigDecimal>(attributes[i], datum));				
+			}
 		}
-		return attVals;
+		if( attVals.size() > 0 )
+			return attVals;
+		else
+			return null;
 	}
 
-
+	private static BigDecimal extractData(String data) {
+		String number = data.replaceAll("[^\\d\\.]", "");
+		if( number.matches("^\\d*\\.?\\d*$")) {
+			return new BigDecimal(number);
+		} else if( number.matches("^\\d*\\.$") ) {
+			return new BigDecimal(number+"0");
+		} else {
+			return null;
+		}
+	}
+	
+	/*
+	 * Returns the intersect of a set of sets
+	 */
+	private static Set<String> intersect(Set<Set<String>> freeBaseHits) {
+		Set<String> intersect = new HashSet<String>();
+		int size = freeBaseHits.size();
+		if( size == 0 ) {
+			return intersect;
+		} else {
+			Iterator<Set<String>> iter = freeBaseHits.iterator();
+			if( size == 1 ) {
+				return iter.next();
+			} else {
+				Set<String> set0 = iter.next();
+				for( String s : set0 ) {
+					intersect.add(s);
+				}
+				while( iter.hasNext() ) {
+					intersect.retainAll(iter.next());
+					if( intersect.size() == 0 ) {
+						return intersect;
+					}
+				}
+				return intersect;
+			}
+		}
+	}
 
 	/*
 	 * Finds the maximum intersection between all sets
