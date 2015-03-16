@@ -133,22 +133,7 @@ public class TableCrawler { //should we make this an object, so it can handle mu
 		return attVals;
 	}
 
-	/*
-	 * Finds the first column with useful (alphabetic) entity names
-	 * 
-	 * @return The column index of the first alphabetic entry
-	 */
-	protected static int idEntityColumn(String[] line) {
-		int i = 0;
-		while (i < line.length) {
-			// !contains only non-alphabetic chars
-			if (!line[i].matches("[^a-zA-Z]+")) { 
-				return i;
-			}
-			i++;
-		}
-		return -1;
-	}
+
 
 	/*
 	 * Finds the maximum intersection between all sets

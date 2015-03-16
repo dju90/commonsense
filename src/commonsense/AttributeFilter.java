@@ -23,7 +23,6 @@ public class AttributeFilter {
 			JSONParser parser = new JSONParser();
 			JSONObject jsonObject = (JSONObject) parser.parse(new FileReader(
 					filePath));
-
 			// ultra-specific to our attributeList file :/
 			jsonObject = (JSONObject) ((JSONObject) jsonObject.get("attribute"))
 					.get("size");
@@ -33,11 +32,10 @@ public class AttributeFilter {
 				JSONArray attributes = (JSONArray) jsonObject.get(dim);
 				if (attributes != null) {
 					for (int i = 0; i < attributes.size(); i++) {
-						tempList.put("\\b" + (String) attributes.get(i) + "\\b", dim);
+						tempList.put((String) attributes.get(i), dim);
 					}
 				}
 			}
-
 		} catch (FileNotFoundException fnfe) {
 			System.out.println("File not found.");
 			fnfe.printStackTrace();
@@ -49,6 +47,53 @@ public class AttributeFilter {
 			pe.printStackTrace();
 		}
 		return tempList;
+	}
+	
+	/**
+	 * 
+	 */
+	public TableInfo relevance(File f) {
+		System.out.println("relevance called");
+		try {
+			TableInfo info = new TableInfo(f.getName());
+			Scanner scan = new Scanner(f);
+			if( scan.hasNextLine() ) {
+				String[] colHeadings = scan.nextLine().split(",");// top line
+				for( int i = 0; i < 5 && scan.hasNextLine(); i++ ) { //first five lines to print
+					info.addLine(scan.nextLine());
+				}
+				if( info.setEntityCol() ) { // valid entity column			
+					System.out.println("entity column found, colHeadings.length = " + colHeadings.length + ", info = " + info.isValid() );
+					for (int i = 0; i < colHeadings.length && info.isValid(); i++) { // each col heading
+						System.out.print("***");
+						String columnCandidate = colHeadings[i].replaceAll("[^A-Za-z0-9 ]", "");
+						System.out.print(columnCandidate);
+						for( String attribute : attributeList.keySet() ) { //check for regex match on possible atts
+							if( columnCandidate.matches("\\b" + attribute + "\\b") ){ // attribute token
+								System.out.println("attribute match");
+								String unit = containsUnits(i, columnCandidate, info);
+								if( unit != null && unit != "BAD_TABLE") {
+									System.out.println("added");
+									info.addRelevantColumn(i, attributeList.get(attribute), columnCandidate, unit);							
+								} else { // unit == "BAD_TABLE" || unit )
+									info.nullify(); // bad table format
+									break;
+								}
+							} // no match, go to the next possible attribute
+						}
+					}
+					scan.close();
+					return info;
+				} else { // no entity column
+					scan.close();
+					return null;
+				}
+			} // empty table
+			scan.close();
+			return null;
+		} catch(FileNotFoundException fe) {
+			return null;
+		}
 	}
 
 	/**
@@ -74,12 +119,9 @@ public class AttributeFilter {
 						if( columnCandidate.matches(attributeRegex) ){
 							relevantColumns.add(i + ": " + attributeList.get(attributeRegex) + ";" + columnCandidate);
 						}
-					}/* else {
-						if (attributeList.contains(columnCandidate)) {
-							relevantColumns.add(i + ": " + columnCandidate);
-						}
-					}*/
+					}
 				}
+				scan.close();
 				return relevantColumns;
 			}
 			scan.close();
@@ -91,39 +133,28 @@ public class AttributeFilter {
 	
 	/*
 	 * 
-	 
-	private String containsUnits(int index, String candidate, Scanner fScan) {
-		if( index > -1 ) {
-			return null;
-		}
-		ArrayList<String> lines = new ArrayList<String>();
-		int counter = 0;
-		while( fScan.hasNextLine() && counter < 5 ) { //first five lines to print
-			lines.add(fScan.nextLine());
-			counter++;
-		}
-		String hUnits = uF.headerContainsUnits(candidate);
+	 */
+	private String containsUnits(int index, String candidate, TableInfo info) {
+		String hUnits = uF.headerUnits(candidate);
 		if( hUnits == null ) {	// the attribute does not contain units
-			// the column does
-			try {//if( lines.size() > 1 ) {
-				String[] columns1 = lines.get(0).split(",");
-				String[] columns2 = lines.get(1).split(",");
-				String col1Unit = uF.cellContainsUnits(columns1[index]); 
-				String col2Unit = uF.cellContainsUnits(columns2[index]);
+			try {
+				String[] columns1 = info.getLine(0).replaceAll(" {2,}", " ").split(",");
+				String[] columns2 = info.getLine(1).replaceAll(" {2,}", " ").split(",");
+				String col1Unit = uF.cellUnits(columns1[index]); 
+				String col2Unit = uF.cellUnits(columns2[index]);
 				if( col1Unit == null && col2Unit == null )  {
 					return null;
 				} else {
-					return col1Unit != null ? col1Unit : col2Unit;
+					String retUnit = col2Unit == null ? col1Unit : col2Unit;
+					return retUnit;
 				}
-			} catch( ArrayIndexOutOfBoundsException a ) {
-				return "SPEC_CHAR";
 			} catch( IndexOutOfBoundsException i ) {
-				return "TOO_FEW_LINES";
+				return "BAD_TABLE";
 			}
 		} else {
 			return hUnits;
 		}
-	}*/
+	}
 	
 	/**
 	 * Returns an integer array of the relevant column indices

@@ -46,20 +46,13 @@ public class RelevanceFilterMain {
 										  		 throws FileNotFoundException {
 		for( int i=0; i<fileDir.length; i++) {
 			File f = fileDir[i];
-			ArrayList<String> relevants = aF.relevantColumnHeadings(f);
-			if( relevants != null && relevants.size() > 0 ) {
-				String fName = f.getName();
-				writer.println(fName + ": " + relevants);
-				fNamesWriter.println(fName + ": " + relevants);
-				ArrayList<String> lines = new ArrayList<String>();
-				Scanner fScan = new Scanner(f);
-				int counter = 0;
-				while( fScan.hasNextLine() && counter < 5) {
-					lines.add(fScan.nextLine());
-					counter++;
-				}
+			TableInfo info = aF.relevance(f);
+			if( info != null && info.isValid() && info.size() > 0 ) {
+				System.out.println("valid table info");
+				fNamesWriter.println(info);
+				writer.println(info);
 				// TODO: got to fill the lines with lines
-				printLines(lines, relevants, writer);
+				printTableSample(info, writer);
 			}
 		}
 	}
@@ -67,7 +60,7 @@ public class RelevanceFilterMain {
 	/*
 	 * TODO: entity column = attribute column
 	 * try/catch index out of bounds exception...done?
-	 * TODO: replace &[A-Z-a-z];
+	 * DONE: replace &[A-Z-a-z];
 	 * headercontains and cellcontains diff
 	 */
 	private static void pruneUnitLessColumns(File[] fileDir, AttributeFilter aF, 
@@ -130,12 +123,33 @@ public class RelevanceFilterMain {
 		}
 	}
 	
+	private static void printTableSample(TableInfo info, PrintStream writer) {
+		int eI = info.getEntityIndex();
+		if( eI >= 0 ) {
+			for( String line : info.firstLines ) {
+				line = line.replaceAll("&[A-Za-z]+;", "");
+				String[] cols = line.split(",");
+				writer.print(cols[eI].replaceAll(" {2,}", " ") + ": "); //print entity name
+				Integer[] rIndexes = info.getRelevantIndexes();
+				for(int i = 0; i < rIndexes.length; i++) {
+					int index = rIndexes[i];
+					if( index >= 0 && index < cols.length ) {
+						writer.print(cols[index]);					
+					}
+				}
+				writer.println();
+			}
+			writer.println();
+		} //no entity
+	}
+	
 	private static void printLines(ArrayList<String> lines, ArrayList<String> relevants, PrintStream writer) {
 		for( String line : lines ) {
+			line = line.replaceAll("&[A-Za-z]+;", "");
 			String[] cols = line.split(",");
-			int entityColumn = TableCrawler.idEntityColumn(cols);
+			int entityColumn  = TableInfo.idEntityColumn(cols);
 			if( entityColumn >= 0 ) {
-				writer.print(cols[entityColumn].replaceAll(" {2,}", " ") + ": ");
+				writer.print(cols[entityColumn].replaceAll(" {2,}", " ") + ": "); //take out excess whitespace
 				for(int i = 0; i < relevants.size(); i++) {
 					int index;
 					try {
