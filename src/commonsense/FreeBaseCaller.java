@@ -16,7 +16,7 @@ import com.google.api.client.http.HttpRequestFactory;
 import com.google.api.client.http.HttpResponse;
 import com.google.api.client.http.HttpTransport;
 import com.google.api.client.http.javanet.NetHttpTransport;
-//import com.jayway.jsonpath.JsonPath;
+import com.jayway.jsonpath.JsonPath;
 import java.io.FileInputStream;
 import java.util.Properties;
 import org.json.simple.JSONArray;
@@ -27,14 +27,13 @@ import org.json.simple.parser.JSONParser;
 import javax.net.ssl.HttpsURLConnection;
 
 public class FreeBaseCaller {
-	private static final int API_KEY = -1;
 	public static Properties properties = new Properties();
 	
 	public static void main(String[] args) {
-		query("apple");
+		apiQuery("apple");
 	}
 	
-	public static Set<String> query(String entity) {
+	public static Set<String> apiQuery(String entity) {
 		try {
       properties.load(new FileInputStream("freebase.properties"));
       HttpTransport httpTransport = new NetHttpTransport();
@@ -46,13 +45,17 @@ public class FreeBaseCaller {
       url.put("limit", "10");
       url.put("indent", "true");
       url.put("key", properties.get("API_KEY"));
+      //url.put("userIp", "205.175.97.245");
       HttpRequest request = requestFactory.buildGetRequest(url);
       HttpResponse httpResponse = request.execute();
       JSONObject response = (JSONObject)parser.parse(httpResponse.parseAsString());
       JSONArray results = (JSONArray)response.get("result");
+      Set<String> founds = new HashSet<String>();
       for (Object result : results) {
-        //System.out.println(JsonPath.read(result,"$.name").toString());
+      	founds.add(JsonPath.read(result,"$.name").toString());
       }
+      System.out.println(founds);
+      return founds;
     } catch (Exception ex) {
       ex.printStackTrace();
     }

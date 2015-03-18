@@ -1,0 +1,515 @@
+mumble: {
+	"on557d"= [
+		weight, 0.100
+	]
+	"fls310"= [
+		size, 3.04800
+		size, 3.04800
+	]
+	"wido"= [
+		weight, 0.29483480
+	]
+	"ch34395-1"= [
+		volume, 0.453113577
+	]
+	"fls312"= [
+		size, 3.65760
+		size, 3.65760
+	]
+	"wibo"= [
+		weight, 0.79378600
+	]
+	"r01501-00"= [
+		size, 0.0010
+	]
+	"fls308"= [
+		size, 2.43840
+		size, 2.43840
+	]
+	"r01505-00"= [
+		size, 0.0032
+	]
+	"fls314"= [
+		size, 4.26720
+		size, 4.26720
+	]
+	"fls304"= [
+		size, 1.21920
+		size, 1.21920
+	]
+	"fls316"= [
+		size, 4.87680
+		size, 4.87680
+	]
+	"fls306"= [
+		size, 1.82880
+		size, 1.82880
+	]
+	"r01507-00"= [
+		size, 0.0048
+	]
+	"wiec"= [
+		weight, 2.26796000
+	]
+	"wgng"= [
+		weight, 0.54431040
+	]
+	"r01500-00"= [
+		size, 0.0007
+	]
+	"wgni"= [
+		weight, 3.53801760
+	]
+	"ch30839-1"= [
+		volume, 0.074951118
+	]
+	"wibv"= [
+		weight, 2.99370720
+	]
+	"ch31054-1"= [
+		volume, 0.328195047
+	]
+	"r01504-00"= [
+		size, 0.0027
+	]
+	"r01508-00"= [
+		size, 0.0050
+	]
+	"wibn"= [
+		weight, 0.27215520
+	]
+	"widp"= [
+		weight, 2.26796000
+	]
+	"ch30853-1"= [
+		volume, 0.111669595
+	]
+	"on557c"= [
+		weight, 0.025
+	]
+	"on557a"= [
+		weight, 0.0005
+	]
+	"27.30 cm."= [
+		length, 1.38
+		length, 1.38
+	]
+	"r01503-00"= [
+		size, 0.0020
+	]
+	"on557e"= [
+		weight, 0.500
+	]
+	"fls305"= [
+		size, 1.52400
+		size, 1.52400
+	]
+	"ch34394-1"= [
+		volume, 0.227124600
+	]
+	"r01509-00"= [
+		size, 0.0064
+	]
+	"r01502-00"= [
+		size, 0.0013
+	]
+	"ch30865-1"= [
+		volume, 0.152552023
+	]
+	"wieb"= [
+		weight, 0.24947560
+	]
+	"ch30834-1"= [
+		volume, 0.054888445
+	]
+	"r01506-00"= [
+		size, 0.0040
+	]
+}
+bar: {
+	"cimg0097.jpg"= [
+		size, 0.9
+	]
+	"cimg0152.jpg"= [
+		size, 1.0
+	]
+	"cimg0183.jpg"= [
+		size, 1.0
+	]
+	"cimg0105.jpg"= [
+		size, 0.9
+	]
+	"ro2000"= [
+		volume, 0.07570820
+	]
+	"section1.mp3"= [
+		size, 21.9
+	]
+	"block a"= [
+		size, 702
+	]
+	"cimg0191.avi"= [
+		size, 4.7
+	]
+	"cimg0122.jpg"= [
+		size, 1.0
+	]
+	"lww-5-24p"= [
+		length, 1.000
+	]
+	"cimg0170.jpg"= [
+		size, 0.9
+	]
+	"cimg0106.jpg"= [
+		size, 0.9
+	]
+	"cimg0179.jpg"= [
+		size, 0.9
+	]
+	"newborn"= [
+		weight, 0.000000
+	]
+	"cimg0140.jpg"= [
+		size, 0.9
+	]
+	"cimg0175.avi"= [
+		size, 20.2
+	]
+	"senator post lantern in black"= [
+		weight, 7.257472
+	]
+	"cimg0110.avi"= [
+		size, 2.4
+	]
+	"cimg0099.jpg"= [
+		size, 0.9
+	]
+	"cimg0154.jpg"= [
+		size, 1.0
+	]
+	"cimg0124.avi"= [
+		size, 5.3
+	]
+	"cimg0168.jpg"= [
+		size, 1.0
+	]
+	"cimg0184.jpg"= [
+		size, 1.0
+	]
+	"cimg0149.jpg"= [
+		size, 0.9
+	]
+	"cimg0204.jpg"= [
+		size, 1.0
+	]
+	"cimg0181.jpg"= [
+		size, 0.9
+	]
+	"lww-5-12p"= [
+		length, 0.500
+	]
+	"corsetpack-tsk.zip"= [
+		size, 3.8
+	]
+	"site_url.txt"= [
+		size, 0.1
+	]
+	"cimg0094.jpg"= [
+		size, 0.9
+	]
+	"6 month"= [
+		weight, 0.000000
+	]
+	"cimg0102.jpg"= [
+		size, 0.9
+	]
+	"french_windows_set.zip"= [
+		size, 1.0
+	]
+	"cimg0163.jpg"= [
+		size, 1.0
+	]
+	"cimg0108.jpg"= [
+		size, 1.0
+	]
+	"cimg0077.jpg"= [
+		size, 0.9
+	]
+	"cimg0178.jpg"= [
+		size, 0.9
+	]
+	"cimg0123.avi"= [
+		size, 22.6
+	]
+	"cimg0129.avi"= [
+		size, 3.6
+	]
+	"cimg0147.jpg"= [
+		size, 1.0
+	]
+	"cimg0078.jpg"= [
+		size, 0.9
+	]
+	"3 month"= [
+		weight, 0.000000
+	]
+	"cimg0141.jpg"= [
+		size, 1.0
+	]
+	"cimg0206.jpg"= [
+		size, 0.9
+	]
+	"lww-5-36p"= [
+		length, 1.200
+	]
+	"cimg0139.avi"= [
+		size, 16.0
+	]
+	"tmk"= [
+		size, 4.20624
+	]
+	"cimg0159.jpg"= [
+		size, 0.9
+	]
+	"cimg0156.jpg"= [
+		size, 1.0
+	]
+	"cimg0200.jpg"= [
+		size, 0.9
+	]
+	"cimg0153.jpg"= [
+		size, 1.0
+	]
+	"cts"= [
+		size, 1.70688
+	]
+	"cimg0188.jpg"= [
+		size, 1.0
+	]
+	"12 month"= [
+		weight, 0.000000
+	]
+	"cimg0150.jpg"= [
+		size, 0.9
+	]
+	"french_outdoor_set.zip"= [
+		size, 905.0
+	]
+	"cimg0118.jpg"= [
+		size, 0.9
+	]
+	"section1.mov"= [
+		size, 206.2
+	]
+	"lamp post mount"= [
+		weight, 1.8143680
+	]
+	"cimg0084.jpg"= [
+		size, 0.9
+	]
+	"cimg0174.avi"= [
+		size, 7.3
+	]
+	"cimg0112.jpg"= [
+		size, 0.9
+	]
+	"cimg0113.jpg"= [
+		size, 0.9
+	]
+	"cimg0158.jpg"= [
+		size, 1.0
+	]
+	"section1.flv"= [
+		size, 210.9
+	]
+	"the_simskey_niche_set.zip"= [
+		size, 600.3
+	]
+	"ro122p"= [
+		volume, 0.009463525
+	]
+	"block e"= [
+		size, 702
+	]
+	"basilicaset.zip"= [
+		size, 4.9
+	]
+	"pidgin-2.4.0.exe"= [
+		size, 12.4
+	]
+	"cimg0114.jpg"= [
+		size, 0.9
+	]
+	"cimg0075.jpg"= [
+		size, 0.9
+	]
+	"cimg0189.jpg"= [
+		size, 1.0
+	]
+	"cimg0160.jpg"= [
+		size, 0.9
+	]
+	"cpe"= [
+		size, 1.88976
+	]
+	"cimg0109.jpg"= [
+		size, 1.0
+	]
+	"lww-5-18p"= [
+		length, 0.600
+	]
+	"cimg0093.jpg"= [
+		size, 0.9
+	]
+	"cimg0100.jpg"= [
+		size, 0.9
+	]
+	"block d"= [
+		size, 702
+	]
+	"cimg0111.jpg"= [
+		size, 0.9
+	]
+	"rcd_297.iso.md5sum"= [
+		size, 0.1
+	]
+	"24 month"= [
+		weight, 0.000000
+	]
+	"sabrine"= [
+		height, 1.75
+		height, 1.75
+	]
+	"cimg0143.jpg"= [
+		size, 0.9
+	]
+	"cimg0146.jpg"= [
+		size, 1.0
+	]
+	"cimg0192.jpg"= [
+		size, 0.9
+	]
+	"lpb"= [
+		size, 1.49352
+	]
+	"hnb"= [
+		size, 0.39624
+	]
+	"cimg0157.jpg"= [
+		size, 1.0
+	]
+	"cimg0155.jpg"= [
+		size, 1.0
+	]
+	"cimg0180.jpg"= [
+		size, 0.9
+	]
+	"rcdmod"= [
+		size, 5.0
+	]
+	"cimg0132.avi"= [
+		size, 15.7
+	]
+	"ro1070"= [
+		volume, 0.05299574
+	]
+	"ghb"= [
+		size, 1.40208
+	]
+	"block c"= [
+		size, 702
+	]
+	"cimg0208.jpg"= [
+		size, 1.0
+	]
+	"cimg0177.jpg"= [
+		size, 1.0
+	]
+	"cimg0164.jpg"= [
+		size, 1.0
+	]
+	"cimg0176.avi"= [
+		size, 11.0
+	]
+	"luke"= [
+		height, 1.80
+		height, 1.80
+	]
+	"cimg0131.avi"= [
+		size, 19.4
+	]
+	"cimg0117.jpg"= [
+		size, 1.0
+	]
+	"cimg0202.jpg"= [
+		size, 0.9
+	]
+	"9 month"= [
+		weight, 0.000000
+	]
+	"cimg0086.jpg"= [
+		size, 0.9
+	]
+	"crb"= [
+		size, 2.19456
+	]
+	"pidgin-2.4.0.tar.gz"= [
+		size, 12.8
+	]
+	"cimg0125.avi"= [
+		size, 9.2
+	]
+	"cimg0128.avi"= [
+		size, 18.3
+	]
+	"cimg0142.jpg"= [
+		size, 0.9
+	]
+	"cimg0079.jpg"= [
+		size, 0.9
+	]
+	"cimg0211.jpg"= [
+		size, 0.9
+	]
+	"18 month"= [
+		weight, 0.000000
+	]
+	"cimg0190.jpg"= [
+		size, 1.0
+	]
+	"rotp35"= [
+		volume, 0.034825772
+	]
+	"block b"= [
+		size, 702
+	]
+	"cimg0145.jpg"= [
+		size, 1.0
+	]
+	"cimg0193.jpg"= [
+		size, 0.9
+	]
+	"cimg0104.jpg"= [
+		size, 1.0
+	]
+	"cimg0161.jpg"= [
+		size, 1.0
+	]
+	"cimg0107.jpg"= [
+		size, 1.0
+	]
+	"rcd_297.iso"= [
+		size, 128.4
+	]
+	"cimg0095.jpg"= [
+		size, 0.9
+	]
+	"ro152"= [
+		volume, 0.020819755
+	]
+}
+foo: {
+}
+baz: {
+}
+

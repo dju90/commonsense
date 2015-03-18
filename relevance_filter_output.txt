@@ -1,0 +1,282 @@
+1053406_0_6627089224993456252.csv:0|6;1D;size;mm
+"r01500-00": "0.7mm"
+"r01501-00": "1.0mm"
+"r01502-00": "1.3mm"
+"r01503-00": "2.0mm"
+"r01504-00": "2.7mm"
+
+12676498_1_8894062226541436866.csv:0|2;1D;size;m
+"block a": "70m2"
+"block a": "70m2"
+"block a": "70m2"
+"block a": "70m2"
+"block b": "70m2"
+
+12877298_0_6144754946259632949.csv:2|3;1D;size;lb
+"all time favorite chocolate assortment": "1 lb"
+"all time favorite chocolate assortment": "2 lb"
+"all time favorite chocolate assortment": "3 lb"
+
+13031221_0_2435380071915935721.csv:1|3;1D;size;ml
+"2008 bourgogne": "750ml"
+"2009 chassagne montrachet caillerets": "750ml"
+"2009 puligny montrachet demoiselles": "750ml"
+"2009 st. aubin remilly": "750ml"
+
+13031221_10_4878635407915414678.csv:1|3;1D;size;ml
+"2009 chablis": "750ml"
+"2005 chablis bougros": "750ml"
+"2005 chablis bougros cote de bougerots": "750ml"
+"2009 chablis bougros cote de bougerots": "750ml"
+"2009 chablis clos": "750ml"
+
+13031221_11_4450549746774975450.csv:1|3;1D;size;ml
+"2010 bourgogne aligote": "750ml"
+"2010 bourgogne blanc": "750ml"
+
+13031221_12_8651147440363398803.csv:1|3;1D;size;ml
+"2009 bourgogne": "750ml"
+"2010 meursault charmes": "750ml"
+"2010 meursault genevrieres": "750ml"
+
+13031221_13_3850180715728862839.csv:1|3;1D;size;ml
+"2007 bourgogne": "750ml"
+"2007 meursault charmes": "750ml"
+"2008 meursault charmes": "750ml"
+"2007 meursault genevrieres": "750ml"
+"2008 meursault genevrieres": "750ml"
+
+13031221_14_3660246962752790555.csv:1|3;1D;size;ml
+"2009 macon bussieres": "750ml"
+"2009 macon clos de la crochette": "750ml"
+"2008 macon milly lamartine": "750ml"
+"2009 macon milly lamartine": "750ml"
+"2008 macon uchizy les maranches": "750ml"
+
+13031221_15_778938387883969685.csv:1|3;1D;size;ml
+"2009 meursault charmes": "750ml"
+"2009 meursault chevalieres": "750ml"
+"2009 meursault limozin": "750ml"
+"2008 puligny montrachet": "750ml"
+"2009 puligny montrachet folatieres": "750ml"
+
+13031221_16_4509883725294232135.csv:1|3;1D;size;ml
+"2009 chassagne montrachet vergers": "750ml"
+"2009 chassagne montrachet virondot": "750ml"
+
+13031221_17_320062636767863594.csv:1|3;1D;size;ml
+"2008 bourgogne": "750ml"
+"2008 chassagne montrachet morgeot": "750ml"
+
+13031221_18_9018639890486428929.csv:1|3;1D;size;ml
+"2007 bourgogne": "750ml"
+"2009 bourgogne": "750ml"
+"2007 puligny montrachet": "750ml"
+
+13031221_19_1444788394156466855.csv:1|3;1D;size;ml
+"2010 chassagne montrachet grandes ruchottes": "750ml"
+"2010 chassagne montrachet romanee": "750ml"
+
+13031221_1_3447478602615051819.csv:1|3;1D;size;ml
+"2009 montagny 1er cru": "750ml"
+"2008 puligny montrachet combettes": "750ml"
+"2008 puligny montrachet truffieres": "750ml"
+"2009 rully 1er cru meix cadot": "750ml"
+
+13031221_20_7087443660304381561.csv:1|3;1D;size;ml
+"2008 chassagne montrachet": "750ml"
+"2009 chevalier montrachet": "750ml"
+"2006 montrachet": "750ml"
+"2008 puligny montrachet": "750ml"
+"2008 puligny montrachet truffiere": "750ml"
+
+13031221_21_5880160220834284355.csv:1|3;1D;size;ml
+"2008 bourgogne clous": "750ml"
+"2009 bourgogne aligote bouzeron": "750ml"
+
+13031221_2_8699314332949125042.csv:1|3;1D;size;ml
+"2008 bourgogne": "750ml"
+"2005 meursault limozin": "750ml"
+"2008 meursault perrieres": "750ml"
+"2008 puligny montrachet cailleret": "750ml"
+"2008 meursault charmes dessus": "750ml"
+
+13031221_3_4143192884907845069.csv:1|3;1D;size;ml
+"2008 chablis bourgos": "750ml"
+"2008 chablis clos": "750ml"
+"2009 chablis domaine ste. claire": "750ml"
+"2007 chablis preuses": "1.5l"
+"2008 chablis preuses": "750ml"
+
+13031221_4_6211720309820306511.csv:1|3;1D;size;ml
+"2009 bourgogne aligote": "750ml"
+"2010 bourgogne aligote": "750ml"
+
+13031221_5_8826657727469094577.csv:1|3;1D;size;ml
+"2009 chassagne montrachet caillerets": "750ml"
+"2009 st. aubin remilly": "750ml"
+
+13031221_6_2545667719693426846.csv:1|3;1D;size;ml
+"2010 chassagne montrachet baudines": "750ml"
+"2009 chassagne montrachet caillerets": "750ml"
+"2010 chassagne montrachet caillerets": "750ml"
+"2009 chassagne montrachet remilly": "750ml"
+"2010 chassagne montrachet remilly": "750ml"
+
+13031221_7_2889641021017555804.csv:1|3;1D;size;ml
+"2010 chablis": "750ml"
+"2010 chablis vaillons": "750ml"
+
+13031221_8_9182219606252370414.csv:1|3;1D;size;ml
+"2009 meursault": "750ml"
+"2010 bourgogne laforet": "750ml"
+"2009 chablis vaudon": "750ml"
+"2010 macon villages": "750ml"
+"2010 st. veran": "750ml"
+
+13031221_9_6035643245231615855.csv:1|3;1D;size;ml
+"2009 bourgogne": "750ml"
+"2009 montagny": "750ml"
+"2010 puligny montrachet les folatieres": "750ml"
+
+1500945_0_4715447235347070906.csv:0|2;1D;size;m
+"parent directory/": "- "
+"cimg0075.jpg": "0.9m"
+"cimg0077.jpg": "0.9m"
+"cimg0078.jpg": "0.9m"
+"cimg0079.jpg": "0.9m"
+
+17277672_0_9125155900618709008.csv:0|3;1D;size;gal
+"alsophyla australis": "24 bx"
+"alsophyla australis": "25 gal"
+"alsophyla australis": "15 gal"
+"alsophyla australis": "5 gal"
+"asparagus meyeri": "5 gal"
+
+18604292_0_5699814739284207200.csv:0|2;1D;size;m
+"parent directory/": "- "
+"rcd_297.iso": "128.4m"
+"rcd_297.iso.md5sum": "0.1k"
+"rcdmod": "5.0k"
+
+19250311_0_7773072095612359120.csv:0|2;1D;size;m
+"parent directory/": "- "
+"section1.flv": "210.9m"
+"section1.mov": "206.2m"
+"section1.mp3": "21.9m"
+
+20217455_0_1095722560123682905.csv:1|3;1D;size;oz
+"pg018096": "3.3 oz."
+"pg018097": "1.7 oz."
+
+20374172_0_2035865072058168341.csv:0|2;1D;size;m
+"parent directory/": "- "
+"basilicaset.zip": "4.9m"
+"corsetpack-tsk.zip": "3.8m"
+"french_outdoor_set.zip": "905.0k"
+"french_windows_set.zip": "1.0m"
+
+2573137_0_4182832348361786126.csv:0|2;1D;size;mg
+"ptt34035": "0.5 mg"
+"ptt34149": "0.5 mg"
+"ptt34152": "0.5 mg"
+"ptt34171": "0.5 mg"
+
+25962041_0_6781519736628495134.csv:0|3;1D;size;ft
+"ghb": "4.6 ft"
+"cpe": "6.2 ft"
+"nea": "-"
+"hnb": "1.3 ft"
+"lpb": "4.9 ft"
+
+27177513_0_8920487160466138886.csv:3|4;1D;size;oz
+"amber": "2 oz."
+"amethyst": "2 oz."
+"aqua": "2 oz."
+"autumn": "2 oz."
+"berry red": "2 oz."
+
+2873051_0_6910990708315528149.csv:0|2;1D;size;m
+"parent directory/": "- "
+"pidgin-2.4.0.exe": "12.4m"
+"pidgin-2.4.0.tar.gz": "12.8m"
+
+28948899_0_2315224982516338185.csv:0|2;weight;weight;g
+"on557a": "0.5 g"
+"on557b": "5 g"
+"on557c": "25 g"
+"on557d": "100 g"
+"on557e": "500 g"
+
+29206793_0_844084846965883460.csv:0|1;1D;size;ft,1;1D;size;ft
+"fls304": "4 ft.""10 lbs."
+"fls305": "5 ft.""12 lbs."
+"fls306": "6 ft.""14 lbs."
+"fls308": "8 ft.""18 lbs."
+"fls310": "10 ft.""25 lbs."
+
+29489643_0_850515850567689301.csv:0|3;weight;weight;lbs
+"wgng": "1.20 lbs"
+"wgni": "7.80 lbs"
+"wibn": "0.60 lbs"
+"wibo": "1.75 lbs"
+"wibv": "6.60 lbs"
+
+29544023_0_8163915989303350516.csv:0|3;1D;size;ml
+"NULL": "750ml"
+"NULL": "375ml"
+"NULL": "375ml"
+"NULL": "375ml"
+"NULL": "750ml"
+
+29768661_1_4337166691779839557.csv:0|2;weight;weight;lbs
+"senator post lantern in black": "16 lbs"
+"lamp post mount in black": "5 lbs"
+"lamp post mount": "2 lbs"
+"lamp post mount": "4 lbs."
+"aluminum light post": "7 lbs"
+
+29944273_0_5886332041249158124.csv:0|4;1D;height;cm,4;1D;height;cm
+"sabrine": "175cm""56-60 kg"
+"luke": "180cm""71-75 kg"
+
+29990710_0_534918036006529457.csv:0|3;weight;weight;lb
+"newborn": "6-10 lb"
+"3 month": "8-12 lb"
+"6 month": "11-16 lb"
+"9 month": "15-19 lb"
+"12 month": "18-21 lb"
+
+30082043_0_3814916206368065033.csv:0|2;3D;volume;gallons
+"ro120": "2 gallons"
+"ro122": "3 gallons"
+"ro122p": "2.5 gallons"
+"ro132*": "4 gallons"
+"ro152": "5.5 gallons"
+
+30082043_1_4609086321653579632.csv:0|2;3D;volume;gallons
+"ch30834-1": "14.5 gallons"
+"ch30839-1": "19.8 gallons"
+"ch30853-1": "29.5 gallons"
+"ch30865-1": "40.3 gallons"
+"ch34394-1": "60.0 gallons"
+
+30113956_0_1525015644643549614.csv:0|3;3D;capacity;kg
+"NULL": "600kg"
+"NULL": "1500kg"
+"NULL": "600kg"
+"NULL": "1500kg"
+
+30181681_0_1359761733424582175.csv:1|2;1D;length;cm,2;1D;length;cm
+"luncheon / dessert spoons": "18.70 cm.""51 grams"
+"dessert / luncheon forks": "18.50 cm.""47 grams"
+"tea / coffee spoons": "14.50 cm.""27 grams"
+"sauce serving ladle": "18.50 cm.""105 grams"
+"dessert serving fork": "23.30 cm.""127 grams"
+
+30502282_0_7217670720118200519.csv:0|5;1D;length;mm
+"lww-5-12p": "500mm"
+"lww-5-18p": "600mm"
+"lww-5-24p": "1000mm"
+"lww-5-36p": "1200mm"
+

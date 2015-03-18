@@ -106,7 +106,7 @@ public class TableCrawler { //should we make this an object, so it can handle mu
 					for( String entity : entities ) {
 						if( ct % adjFreq == 1 ) { //don't do it for the first entity
 							// do a free base lookup for fraction of entities and add resulting set to file-specific map
-							Set<String> possibleSuperEntities = FreeBaseCaller.query(entity);
+							Set<String> possibleSuperEntities = FreeBaseCaller.apiQuery(entity);
 							if( possibleSuperEntities != null ) {
 								freeBaseHits.add(possibleSuperEntities);
 							}
