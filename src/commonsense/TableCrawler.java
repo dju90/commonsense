@@ -141,21 +141,23 @@ public class TableCrawler { //should we make this an object, so it can handle mu
 			superEntities.add(findMaxIntersect(freeBaseHits));
 		}
 		for( String superEntity : superEntities ) {
-			if( attMap.tree.containsKey(superEntity) ) { // append entity if superentity exists
-				Map<String, HashSet<Pair<String,BigDecimal>>> currentMap = attMap.tree.get(superEntity);
-				for( String key : entityData.keySet() ) { 
-					if( currentMap.containsKey(key) ) { // append attributes to entity if entity exists w/in superentity 
-						Set<Pair<String,BigDecimal>> currentAtts = currentMap.get(key);
-						Set<Pair<String,BigDecimal>> appendAtts  = entityData.get(key);
-						for( Pair<String,BigDecimal> att : appendAtts ) {
-							currentAtts.add(att);
+			if( superEntity != "") {
+				if( attMap.tree.containsKey(superEntity) ) { // append entity if superentity exists
+					Map<String, HashSet<Pair<String,BigDecimal>>> currentMap = attMap.tree.get(superEntity);
+					for( String key : entityData.keySet() ) { 
+						if( currentMap.containsKey(key) ) { // append attributes to entity if entity exists w/in superentity 
+							Set<Pair<String,BigDecimal>> currentAtts = currentMap.get(key);
+							Set<Pair<String,BigDecimal>> appendAtts  = entityData.get(key);
+							for( Pair<String,BigDecimal> att : appendAtts ) {
+								currentAtts.add(att);
+							}
+						} else { // append entity to superentity mapping
+							currentMap.put(key, entityData.get(key));									
 						}
-					} else { // append entity to superentity mapping
-						currentMap.put(key, entityData.get(key));									
 					}
+				} else { //create new superentity
+					attMap.tree.put(superEntity, entityData);
 				}
-			} else { //create new superentity
-				attMap.tree.put(superEntity, entityData);
 			}
 		}
 	}

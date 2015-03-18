@@ -14,20 +14,48 @@ public class EntityTree {
 	}
 	
 	public String toString() {
-		String rep = "";
-		for( String superEntity: tree.keySet() ) {
-			rep += superEntity + ": {\n";
+		String rep = "{\n";
+		Set<String> superKeys = tree.keySet();
+		int superSize = superKeys.size();
+		int outerCt = 1;
+		for( String superEntity: superKeys ) {
+			rep += "\""+superEntity + "\": {\n";
 			Map<String, HashSet<Pair<String, BigDecimal>>> entities = tree.get(superEntity);
-			for( String entity : entities.keySet() ) {
-				rep += "\t" + entity + "= [\n";
+			
+			Set<String> entityKeys = entities.keySet();
+			int entitySize = entityKeys.size();
+			int innerCt = 1;
+			for( String entity : entityKeys ) {
+				rep += "\t\"" + entity + "\": [\n";
 				Set<Pair<String,BigDecimal>> attributes = entities.get(entity);
+				
+				int attSize = attributes.size();
+				int metaCt = 1;
 				for( Pair<String,BigDecimal> attribute : attributes ) {
-					rep += "\t\t" + attribute.toString() + "\n";
+					if( metaCt < attSize ) {
+						rep += "\t\t" + attribute.toString() + ",\n";						
+					} else {
+						rep += "\t\t" + attribute.toString() + "\n";
+					}
+					metaCt++;
 				}
-				rep += "\t]\n";
+				
+				if( innerCt < entitySize ) {
+					rep += "\t],\n";
+				} else {
+					rep += "\t]\n";
+				}
+				innerCt++;
 			}
-			rep += "}\n";
+			
+			if( outerCt < superSize ) {
+				rep += "},\n";
+			} else {
+				rep += "}\n";
+			}
+			outerCt++;
 		}
+		rep += "}";
 		return rep;
 	}
 }
