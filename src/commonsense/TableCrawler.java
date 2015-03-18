@@ -102,7 +102,7 @@ public class TableCrawler { //should we make this an object, so it can handle mu
 					
 					int ct = 0;
 					int freq = (int) Math.round(Math.pow(5, Math.log10(entities.size())));
-					int adjFreq = freq - (int) Math.round(Math.log10(freq)); //lower end has to be a little smaller
+					int adjFreq = freq - (int) Math.round(Math.log10(freq))+1; //lower end has to be a little more frequent
 					for( String entity : entities ) {
 						if( ct % adjFreq == 1 ) { //don't do it for the first entity
 							// do a free base lookup for fraction of entities and add resulting set to file-specific map
