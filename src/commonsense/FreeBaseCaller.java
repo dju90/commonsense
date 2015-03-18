@@ -4,24 +4,29 @@ import java.util.HashSet;
 import java.util.Set;
 import java.io.BufferedReader;
 import java.io.DataOutputStream;
+import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
  
+
 import com.google.api.client.http.GenericUrl;
 import com.google.api.client.http.HttpRequest;
 import com.google.api.client.http.HttpRequestFactory;
 import com.google.api.client.http.HttpResponse;
 import com.google.api.client.http.HttpTransport;
 import com.google.api.client.http.javanet.NetHttpTransport;
+
 //import com.jayway.jsonpath.JsonPath;
 import java.io.FileInputStream;
 import java.util.Properties;
+
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
+
 
 
 import javax.net.ssl.HttpsURLConnection;
@@ -48,14 +53,18 @@ public class FreeBaseCaller {
       HttpRequest request = requestFactory.buildGetRequest(url);
       HttpResponse httpResponse = request.execute();
       JSONObject response = (JSONObject)parser.parse(httpResponse.parseAsString());
-      JSONArray results = (JSONArray)response.get("result");
+      JSONArray hits = (JSONArray)response.get("result");
       
       Set<String> founds = new HashSet<String>();
-      for (Object result : results) {
-      	System.out.println(result.toString());
-      	//founds.add(JsonPath.read(result,"$.name").toString());
+      for ( Object hit : hits) {
+  			JSONObject result = (JSONObject) ((JSONObject) parser.parse(hit.toString())).get("notable");
+  			if( result != null ) {
+  				String classification = (String) result.get("name");
+    			//System.out.println(classification);
+    			founds.add(classification);
+  			}
       }
-      //System.out.println(founds);
+      System.out.println(founds);
       return founds;
     } catch (Exception ex) {
       ex.printStackTrace();
