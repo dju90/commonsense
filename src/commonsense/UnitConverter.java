@@ -32,7 +32,8 @@ public class UnitConverter {
 	public double calculate(String dim, BigDecimal num, String unit) {
 		Map<String, BigDecimal> possibleUnits = unitTable.get(dim);
 		if( possibleUnits != null ) {
-			BigDecimal factor = possibleUnits.get(unit);
+			System.out.println(unit.replaceAll(" {2,}", " "));
+			BigDecimal factor = possibleUnits.get(unit.replaceAll(" {2,}", " "));
 			if( factor != null ) {
 				return factor.multiply(num).doubleValue();
 			} else {
