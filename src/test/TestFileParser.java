@@ -68,9 +68,9 @@ public class TestFileParser {
 			actualMap.put(comparisons, result);
 		}
 		
-		double actualValue = checkResults(actualMap);
+		//double actualValue = checkResults(actualMap);
 		double naiveValue = naiveResults();
-		System.out.println("actual: " + actualValue);
+		//System.out.println("actual: " + actualValue);
 		System.out.println("naive: " + naiveValue);
 	}
 

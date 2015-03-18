@@ -37,7 +37,7 @@ public class DatabaseBuilderTest {
 			fruitSet.add(fruitApple);
 			fruitSet.add(sharedData);
 			otherCoSet.add(otherCo);
-			coData.put("Apple", coSet);
+			coData.put("AppleCo", coSet);
 			coData.put("OtherCo", otherCoSet);
 			fruitData.put("Apple", fruitSet);
 			attMapTest.put("company", coData);
