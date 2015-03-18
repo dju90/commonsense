@@ -13,15 +13,17 @@ public class TableCrawler { //should we make this an object, so it can handle mu
 	private static EntityTree attMap;
 	private static UnitConverter converter;
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws FileNotFoundException {
 		attMap = new EntityTree();
-		if( args.length == 3 ) {
+		if( args.length == 4 ) {
 			converter = new UnitConverter(args[1]);
 			crawlDir(args[0], args[2]);
-			System.out.println(attMap);
+			PrintStream output = new PrintStream(new File(args[3]));
+			output.println(attMap);
+			output.close();
 		} else {
 			System.out.println("Run RelevanceFilterMain --> fileNameOnlyOutput.txt");
-			System.out.println("args: fileNameOnlyOutput.txt unit-conversion.json dir");
+			System.out.println("args: fileNameOnlyOutput.txt unit-conversion.json dir output.txt");
 			System.exit(0);
 		}
 	}
@@ -35,11 +37,16 @@ public class TableCrawler { //should we make this an object, so it can handle mu
 	private static void crawlDir(String filtrateFileName, String dirName) {
 		try {
 			Scanner filtrateScan = new Scanner(new File(filtrateFileName));
+			int counter = 0;
 			while( filtrateScan.hasNextLine() ) {
 				String line = filtrateScan.nextLine();
 				String fileName = line.split(":")[0];
 				File f = new File(dirName + "/" + fileName);
+				if( counter % 10 == 0 ) {
+					System.out.println("At file #" + counter + ": " + f.getName());
+				}
 				addToMap(f, line);
+				counter++;
 			}
 			// create entity table from key bindings of attMap ...also populate attribute table?
 			// create superentity table from keyset of attMap ...also populate attribute table?
@@ -62,11 +69,13 @@ public class TableCrawler { //should we make this an object, so it can handle mu
 			TableInfo info = new TableInfo(f, data);
 			if( info.isValid() && info.size() > 0 ) {
 				HashMap<String, HashSet<Pair<String, BigDecimal>>> entityData = null;
+				Set<String> entities = null;
 				Set<Set<String>> freeBaseHits = null;
 
 				if( scan.hasNextLine() ) {
 					scan.nextLine();
 					entityData = new HashMap<String, HashSet<Pair<String, BigDecimal>>>();
+					entities = new HashSet<String>();
 					freeBaseHits = new HashSet<Set<String>>(); //TODO: call freebasecaller
 					
 					// unpack tableInfo
@@ -74,48 +83,39 @@ public class TableCrawler { //should we make this an object, so it can handle mu
 					String[] dimensions    = info.getColDims();
 					String[] attributes    = info.getColNames();
 					String[] units         = info.getColUnits();
-//					System.out.println("relevantCols len = " + relevantCols.length);
-//					System.out.println("dimensions len = " + dimensions.length);
-//					System.out.println("attributes len = " + attributes.length);
-//					System.out.println("units len = " + units.length);
-					if( relevantCols.length != dimensions.length || dimensions.length != attributes.length || attributes.length != units.length ) {
-						System.out.println("Invariant violated!!!");
-					}
+//				if( relevantCols.length != dimensions.length || dimensions.length != attributes.length || attributes.length != units.length ) {
+//					System.out.println("TableInfo invariant violated!!!");
+//				}
 					
 					//process each line of the file according to relevant columns
 					while (scan.hasNextLine()) {
-						String[] line = scan.nextLine().split(",");
+						String[] line = scan.nextLine().replaceAll("&[A-Za-z]+;", "").replaceAll("[^A-Za-z0-9 ]", "").split(",");
 						String entity = line[info.getEntityIndex()];
+						entities.add(entity);
+						
 						HashSet<Pair<String, BigDecimal>> entry = processLine(line, entity, relevantCols, dimensions, 
-																																	attributes, units, freeBaseHits);
+																																	attributes, units);
 						if( entry != null ) {
 							entityData.put(entity, entry);					
 						}
 					}
+					
+					int ct = 0;
+					int freq = (int) Math.round(Math.pow(5, Math.log10(entities.size())));
+					int adjFreq = freq - (int) Math.round(Math.log10(freq)); //lower end has to be a little smaller
+					for( String entity : entities ) {
+						if( ct % adjFreq == 1 ) { //don't do it for the first entity
+							// do a free base lookup for fraction of entities and add resulting set to file-specific map
+							Set<String> possibleSuperEntities = FreeBaseCaller.query(entity);
+							if( possibleSuperEntities != null ) {
+								freeBaseHits.add(possibleSuperEntities);
+							}
+						}
+						ct++;
+					}
 				}
 				if (entityData != null && freeBaseHits != null) {
-					Set<String> superEntities = intersect(freeBaseHits);
-					if( superEntities.size() == 0 ) {
-						superEntities.add(findMaxIntersect(freeBaseHits));
-					}
-					for( String superEntity : superEntities ) {
-						if( attMap.tree.containsKey(superEntity) ) { // append entity if superentity exists
-							Map<String, HashSet<Pair<String,BigDecimal>>> currentMap = attMap.tree.get(superEntity);
-							for( String key : entityData.keySet() ) { 
-								if( currentMap.containsKey(key) ) { // append attributes to entity if entity exists w/in superentity 
-									Set<Pair<String,BigDecimal>> currentAtts = currentMap.get(key);
-									Set<Pair<String,BigDecimal>> appendAtts  = entityData.get(key);
-									for( Pair<String,BigDecimal> att : appendAtts ) {
-										currentAtts.add(att);
-									}
-								} else { // append entity to superentity mapping
-									currentMap.put(key, entityData.get(key));									
-								}
-							}
-						} else { //create new superentity
-							attMap.tree.put(superEntity, entityData);
-						}
-					}
+					populateTree(entityData, freeBaseHits);
 				}
 			} else {
 				System.out.println("Parse error during processing of output line for entry " + f.getName());
@@ -130,20 +130,39 @@ public class TableCrawler { //should we make this an object, so it can handle mu
 		}
 	}
 	
+	private static void populateTree(HashMap<String, HashSet<Pair<String, BigDecimal>>> entityData, 
+																	 Set<Set<String>> freeBaseHits) {
+		Set<String> superEntities = intersect(freeBaseHits);
+		if( superEntities.size() == 0 ) {
+			superEntities.add(findMaxIntersect(freeBaseHits));
+		}
+		for( String superEntity : superEntities ) {
+			if( attMap.tree.containsKey(superEntity) ) { // append entity if superentity exists
+				Map<String, HashSet<Pair<String,BigDecimal>>> currentMap = attMap.tree.get(superEntity);
+				for( String key : entityData.keySet() ) { 
+					if( currentMap.containsKey(key) ) { // append attributes to entity if entity exists w/in superentity 
+						Set<Pair<String,BigDecimal>> currentAtts = currentMap.get(key);
+						Set<Pair<String,BigDecimal>> appendAtts  = entityData.get(key);
+						for( Pair<String,BigDecimal> att : appendAtts ) {
+							currentAtts.add(att);
+						}
+					} else { // append entity to superentity mapping
+						currentMap.put(key, entityData.get(key));									
+					}
+				}
+			} else { //create new superentity
+				attMap.tree.put(superEntity, entityData);
+			}
+		}
+	}
+	
 	/*TODO: steer  calves == no hits, steer calf = cattle...Stanford parser?
 	 * Processes a single line in a csv file.
 	 * @return The HashSet from the entity to its collection of attributes.
 	 */
 	private static HashSet<Pair<String, BigDecimal>> processLine(String[] line, String entity, 
 																															 Integer[] relevantCols, String[] dimensions, 
-																															 String[] attributes, String[] units, 
-																															 Set<Set<String>> freeBaseHits) {
-		
-		// do a free base lookup for each entity and add resulting set to file-specific map
-		Set<String> possibleSuperEntities = FreeBaseCaller.lookup(entity);
-		if( possibleSuperEntities != null ) {
-			freeBaseHits.add(possibleSuperEntities);
-		}
+																															 String[] attributes, String[] units) {
 		
 		HashSet<Pair<String, BigDecimal>> attVals = new HashSet<Pair<String, BigDecimal>>();
 		// grab all attributes from columns w/ index in relevantColumns

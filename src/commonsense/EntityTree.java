@@ -19,7 +19,7 @@ public class EntityTree {
 			rep += superEntity + ": {\n";
 			Map<String, HashSet<Pair<String, BigDecimal>>> entities = tree.get(superEntity);
 			for( String entity : entities.keySet() ) {
-				rep += "\t" + superEntity + "= [\n";
+				rep += "\t" + entity + "= [\n";
 				Set<Pair<String,BigDecimal>> attributes = entities.get(entity);
 				for( Pair<String,BigDecimal> attribute : attributes ) {
 					rep += "\t\t" + attribute.toString() + "\n";
