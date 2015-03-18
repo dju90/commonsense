@@ -89,7 +89,10 @@ public class TableCrawler { //should we make this an object, so it can handle mu
 					
 					//process each line of the file according to relevant columns
 					while (scan.hasNextLine()) {
-						String[] line = scan.nextLine().replaceAll("&[A-Za-z]+;", "").replaceAll("[^A-Za-z0-9 ]", "").split(",");
+						String[] line = scan.nextLine().split(",");
+						for(int i = 0; i < line.length; i++ ) {
+							line[i] = line[i].replaceAll("&[A-Za-z]+;", "").replaceAll("[^A-Za-z0-9 ]", "");
+						}
 						String entity = line[info.getEntityIndex()];
 						entities.add(entity);
 						
@@ -114,7 +117,8 @@ public class TableCrawler { //should we make this an object, so it can handle mu
 						ct++;
 					}
 				}
-				if (entityData != null && freeBaseHits != null) {
+				if (entityData != null && entityData.size() > 0 
+						&& freeBaseHits != null && freeBaseHits.size() > 0 ) {
 					populateTree(entityData, freeBaseHits);
 				}
 			} else {

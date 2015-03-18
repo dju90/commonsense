@@ -64,7 +64,6 @@ public class FreeBaseCaller {
     			founds.add(classification);
   			}
       }
-      System.out.println(founds);
       return founds;
     } catch (Exception ex) {
       ex.printStackTrace();
