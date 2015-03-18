@@ -16,7 +16,7 @@ import com.google.api.client.http.HttpRequestFactory;
 import com.google.api.client.http.HttpResponse;
 import com.google.api.client.http.HttpTransport;
 import com.google.api.client.http.javanet.NetHttpTransport;
-import com.jayway.jsonpath.JsonPath;
+//import com.jayway.jsonpath.JsonPath;
 import java.io.FileInputStream;
 import java.util.Properties;
 import org.json.simple.JSONArray;
@@ -40,21 +40,22 @@ public class FreeBaseCaller {
       HttpRequestFactory requestFactory = httpTransport.createRequestFactory();
       JSONParser parser = new JSONParser();
       GenericUrl url = new GenericUrl("https://www.googleapis.com/freebase/v1/search");
-      url.put("query", "Cee Lo Green");
-      url.put("filter", "(all type:/music/artist created:\"The Lady Killer\")");
+      url.put("query", entity);
+      //url.put("filter", "(all type:/music/artist created:\"The Lady Killer\")");
       url.put("limit", "10");
       url.put("indent", "true");
       url.put("key", properties.get("API_KEY"));
-      //url.put("userIp", "205.175.97.245");
       HttpRequest request = requestFactory.buildGetRequest(url);
       HttpResponse httpResponse = request.execute();
       JSONObject response = (JSONObject)parser.parse(httpResponse.parseAsString());
       JSONArray results = (JSONArray)response.get("result");
+      
       Set<String> founds = new HashSet<String>();
       for (Object result : results) {
-      	founds.add(JsonPath.read(result,"$.name").toString());
+      	System.out.println(result.toString());
+      	//founds.add(JsonPath.read(result,"$.name").toString());
       }
-      System.out.println(founds);
+      //System.out.println(founds);
       return founds;
     } catch (Exception ex) {
       ex.printStackTrace();
