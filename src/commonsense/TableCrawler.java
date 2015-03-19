@@ -4,16 +4,15 @@ import java.util.*;
 import java.io.*;
 import java.math.BigDecimal;
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.Set;
 //import com.google.api-client;
 
 
 public class TableCrawler { //should we make this an object, so it can handle multiple directories? No
-	private static EntityTree attMap;
-	private static UnitConverter converter;
+	private EntityTree attMap;
+	private UnitConverter converter;
 
-	public static void main(String[] args) throws FileNotFoundException {
+	public TableCrawler(String[] args) throws FileNotFoundException {
 		attMap = new EntityTree();
 		if( args.length == 4 ) {
 			converter = new UnitConverter(args[1]);
@@ -34,7 +33,7 @@ public class TableCrawler { //should we make this an object, so it can handle mu
 	 * @param attFileName
 	 * @param dirName
 	 */
-	private static void crawlDir(String filtrateFileName, String dirName) {
+	private void crawlDir(String filtrateFileName, String dirName) {
 		try {
 			Scanner filtrateScan = new Scanner(new File(filtrateFileName));
 			int counter = 0;
@@ -63,7 +62,7 @@ public class TableCrawler { //should we make this an object, so it can handle mu
 	 * @param scan
 	 * @param releventColumns
 	 */
-	private static void addToMap(File f, String data) {
+	private void addToMap(File f, String data) {
 		try {
 			Scanner scan = new Scanner(f);
 			TableInfo info = new TableInfo(f, data);
@@ -94,7 +93,7 @@ public class TableCrawler { //should we make this an object, so it can handle mu
 							line[i] = line[i].replaceAll("&[A-Za-z]+;", "").replaceAll("[^A-Za-z0-9 ]", "");
 						}
 						int entityIndex = info.getEntityIndex();
-						if( entityIndex > 0 && entityIndex < line.length ) {
+						if( entityIndex >= 0 && entityIndex < line.length ) {
 							String entity = line[entityIndex];
 							entities.add(entity);
 							
@@ -142,12 +141,12 @@ public class TableCrawler { //should we make this an object, so it can handle mu
 		}
 	}
 	
-	private static void populateTree(HashMap<String, HashSet<Pair<String, BigDecimal>>> entityData, 
+	private void populateTree(HashMap<String, HashSet<Pair<String, BigDecimal>>> entityData, 
 																	 Set<Set<String>> freeBaseHits) {
-		Set<String> superEntities = nIntersect(5, freeBaseHits); //top five
-//		if( superEntities.size() == 0 ) {
-//			superEntities.add(findMaxIntersect(freeBaseHits));
-//		}
+		Set<String> superEntities = nIntersect(5, freeBaseHits); //(int)Math.ceil(freeBaseHits.size()/10.0)
+		if( superEntities.size() == 0 ) {
+			superEntities.add(findMaxIntersect(freeBaseHits));
+		}
 		for( String superEntity : superEntities ) {
 			if( superEntity != "") {
 				if( attMap.tree.containsKey(superEntity) ) { // append entity if superentity exists
@@ -174,7 +173,7 @@ public class TableCrawler { //should we make this an object, so it can handle mu
 	 * Processes a single line in a csv file.
 	 * @return The HashSet from the entity to its collection of attributes.
 	 */
-	private static HashSet<Pair<String, BigDecimal>> processLine(String[] line, String entity, 
+	private HashSet<Pair<String, BigDecimal>> processLine(String[] line, String entity, 
 																															 Integer[] relevantCols, String[] dimensions, 
 																															 String[] attributes, String[] units) {
 		
@@ -223,7 +222,7 @@ public class TableCrawler { //should we make this an object, so it can handle mu
 	/*
 	 * Returns a BigDecimal representation of the number data in a string
 	 */
-	private static BigDecimal extractData(String data) {
+	private BigDecimal extractData(String data) {
 		String number = data.replaceAll("[^\\d\\.]", "");
 		//\d+\.?\d+
 		if( number.matches("^\\d+\\.?\\d+$")) {
@@ -240,7 +239,7 @@ public class TableCrawler { //should we make this an object, so it can handle mu
 	/*
 	 * Finds the n most common Strings among a set of a set of strings
 	 */
-	private static Set<String> nIntersect(int topN, Set<Set<String>> freeBaseHits) {
+	private Set<String> nIntersect(int topN, Set<Set<String>> freeBaseHits) {
 		Map<String, Integer> counts = new HashMap<String, Integer>();
 		for(Set<String> set : freeBaseHits) {
 			for( String superEntity : set ) {
@@ -251,9 +250,11 @@ public class TableCrawler { //should we make this an object, so it can handle mu
 				}
 			}
 		}
-		Queue<Pair<String,Integer>> pCounts = new PriorityQueue<Pair<String,Integer>>(); 
+		Comparator<Pair<String,Integer>> comparator = new PairComparator();
+		Queue<Pair<String,Integer>> pCounts = new PriorityQueue<Pair<String,Integer>>(comparator); 
 		for( String superEntity : counts.keySet() ) {
-			pCounts.add(new Pair<String,Integer>(superEntity, counts.get(superEntity)));
+			Pair<String,Integer> insert = new Pair<String,Integer>(superEntity, counts.get(superEntity));
+			pCounts.add(insert);
 		}
 		Set<String> maxEntities = new HashSet<String>();
 		for( int i = 0; i < topN && !pCounts.isEmpty() ; i++ ) {
@@ -265,7 +266,7 @@ public class TableCrawler { //should we make this an object, so it can handle mu
 //	/*
 //	 * Returns the intersect of a set of sets
 //	 */
-//	private static Set<String> intersect(Set<Set<String>> freeBaseHits) {
+//	private Set<String> intersect(Set<Set<String>> freeBaseHits) {
 //		Set<String> intersect = new HashSet<String>();
 //		int size = freeBaseHits.size();
 //		if( size == 0 ) {
@@ -290,39 +291,48 @@ public class TableCrawler { //should we make this an object, so it can handle mu
 //		}
 //	}
 //
-//	/*
-//	 * Finds the maximum intersection between all sets
-//	 * 
-//	 * @return -1 if no alphabetic entity column
-//	 */
-//	private static String findMaxIntersect(Set<Set<String>> freeBaseHits) {
-//		Map<String, Integer> counts = new HashMap<String, Integer>();
-//		for(Set<String> set : freeBaseHits) {
-//			for( String superEntity : set ) {
-//				if( counts.keySet().contains(superEntity) ) {
-//					counts.put(superEntity, counts.get(superEntity) + 1);
-//				} else {
-//					counts.put(superEntity, 1);
-//				}
-//			}
-//		}
-//		return maxCount(counts);
-//	}
-//	
-//	/*
-//	 * Returns the string in the map with the highest count
-//	 * 
-//	 * @param counts
-//	 * @return
-//	 */
-//	private static String maxCount(Map<String, Integer> counts) {
-//		String maxEntity = "";
-//		counts.put(maxEntity, 0);
-//		for( String superEntity : counts.keySet() ) {
-//			if( counts.get(superEntity) > counts.get(maxEntity) ) {
-//				maxEntity = superEntity;
-//			}
-//		}
-//		return maxEntity;
-//	}
+	/*
+	 * Finds the maximum intersection between all sets
+	 * 
+	 * @return -1 if no alphabetic entity column
+	 */
+	private String findMaxIntersect(Set<Set<String>> freeBaseHits) {
+		Map<String, Integer> counts = new HashMap<String, Integer>();
+		for(Set<String> set : freeBaseHits) {
+			for( String superEntity : set ) {
+				if( counts.keySet().contains(superEntity) ) {
+					counts.put(superEntity, counts.get(superEntity) + 1);
+				} else {
+					counts.put(superEntity, 1);
+				}
+			}
+		}
+		return maxCount(counts);
+	}
+	
+	/*
+	 * Returns the string in the map with the highest count
+	 * 
+	 * @param counts
+	 * @return
+	 */
+	private String maxCount(Map<String, Integer> counts) {
+		String maxEntity = "";
+		counts.put(maxEntity, 0);
+		for( String superEntity : counts.keySet() ) {
+			if( counts.get(superEntity) > counts.get(maxEntity) ) {
+				maxEntity = superEntity;
+			}
+		}
+		return maxEntity;
+	}
+		
+	public class PairComparator implements Comparator<Pair<String,Integer>> {
+
+		@Override
+		public int compare(Pair<String, Integer> p1, Pair<String, Integer> p2) {
+			return p1.getValue().compareTo(p2.getValue());
+		}
+
+	}
 }

@@ -1,6 +1,6 @@
 package commonsense;
 
-public class Pair<K, V extends Comparable<V>> {
+public class Pair<K, V> {
 	K key;
 	V value;
 
@@ -28,9 +28,4 @@ public class Pair<K, V extends Comparable<V>> {
 	public void setValue(V value) {
 		this.value = value; 
 	}
-	
-	public int compareTo(Pair<K,V> other) {
-		return value.compareTo(other.getValue());
-	}
-	
 }
