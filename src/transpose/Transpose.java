@@ -18,10 +18,15 @@ public class Transpose {
 	 * @throws IOException if there is a problem with the directory
 	 */
     public static void main(String[] args) {
+    	int count = 0;
     	if (args.length == 1) {
     		File[] fileDir = new File(args[0]).listFiles();
 			for (File f : fileDir) {
 				scanFile(f);
+				count++;
+			}
+			if (count % 1000 == 0) {
+				System.out.println("File done: " + count);
 			}
     	} else {
     		System.err.println("Usage: java Transpose <directory name>");
