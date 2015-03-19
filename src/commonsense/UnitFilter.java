@@ -15,11 +15,11 @@ public class UnitFilter {
 	private HashSet<String> unitList;
 	
 	public UnitFilter(String fileName){
-		unitList = parseJson(fileName);
+		parseJson(fileName);
 	}
 	
-	private HashSet<String> parseJson(String filePath) {
-		HashSet<String> tempUnitList = new HashSet<String>();
+	private void parseJson(String filePath) {
+		unitList = new HashSet<String>();
 		try {
 			JSONParser parser = new JSONParser();
 			JSONObject jsonObject = (JSONObject) parser.parse(new FileReader(
@@ -30,7 +30,7 @@ public class UnitFilter {
 				JSONArray units = (JSONArray) jsonObject.get(dim);
 				if (units != null) {
 					for (int i = 0; i < units.size(); i++) {
-						tempUnitList.add((String) units.get(i));
+						unitList.add((String) units.get(i));
 					}
 				}
 			}
@@ -44,7 +44,6 @@ public class UnitFilter {
 			System.out.println("Parse error.");
 			pe.printStackTrace();
 		}
-		return tempUnitList;
 	}
 	
 	/**

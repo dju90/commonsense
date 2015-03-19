@@ -13,12 +13,12 @@ public class AttributeFilter {
 	private UnitFilter uF;
 
 	public AttributeFilter(String attributeFilePath, String unitFilePath) {
-		attributeList = parseJson(attributeFilePath);
+		parseJson(attributeFilePath);
 		uF = new UnitFilter(unitFilePath);
 	}
 
-	private HashMap<String, String> parseJson(String filePath) {
-		HashMap<String, String> tempList = new HashMap<String, String>();
+	private void parseJson(String filePath) {
+		attributeList = new HashMap<String, String>();
 		try {
 			JSONParser parser = new JSONParser();
 			JSONObject jsonObject = (JSONObject) parser.parse(new FileReader(
@@ -32,7 +32,7 @@ public class AttributeFilter {
 				JSONArray attributes = (JSONArray) jsonObject.get(dim);
 				if (attributes != null) {
 					for (int i = 0; i < attributes.size(); i++) {
-						tempList.put((String) attributes.get(i), dim);
+						attributeList.put((String) attributes.get(i), dim);
 					}
 				}
 			}
@@ -46,7 +46,6 @@ public class AttributeFilter {
 			System.out.println("Parse error.");
 			pe.printStackTrace();
 		}
-		return tempList;
 	}
 	
 	/**
