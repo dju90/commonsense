@@ -92,6 +92,7 @@ public class TableCrawler { //should we make this an object, so it can handle mu
 						for(int i = 0; i < line.length; i++ ) {
 							line[i] = line[i].replaceAll("&[A-Za-z]+;", "").replaceAll("[^A-Za-z0-9 ]", "");
 						}
+						// TODO: don't throw out wines...why is the attribute filter output different?!?!
 						int entityIndex = info.getEntityIndex();
 						if( entityIndex >= 0 && entityIndex < line.length ) {
 							String entity = line[entityIndex];

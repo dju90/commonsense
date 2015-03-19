@@ -191,7 +191,7 @@ public class TableInfo {
 		int i = 0;
 		while (i < line.length) {
 			// !contains only non-alphabetic chars
-			if (!line[i].matches("[^a-zA-Z]+")) {
+			if (!line[i].matches("^[^a-zA-Z]+$")) {
 				return i;
 			}
 			i++;
