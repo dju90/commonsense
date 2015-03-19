@@ -13,14 +13,15 @@ import com.mongodb.MongoClient;
 public class DatabaseBuilder {
 	private static String DBName = "commonsense";
 	private static MongoClient mongoClient = null;
+
 	/**
 	 * Takes in a HashMap<String, HashMap<String, HashSet<Pair<String, BigDecimal>>>> to add into a NoSQL key value store
 	 * @param attMap a map of superentites and its entities and its attribute pairs to be inserted into a database
 	 */
-	public static void addToDB(HashMap<String, HashMap<String, HashSet<Pair<String, BigDecimal>>>> attMap) {
+	public static void addToDB(EntityTree tree) {
 		DB db = startDatabase();
-		addMedians(attMap); 
-		buildDB(attMap, db);
+		addMedians(tree.tree); 
+		buildDB(tree.tree, db);
 		endDatabase();
 	}
 	
@@ -100,7 +101,11 @@ public class DatabaseBuilder {
 	 */
 	private static void buildDB(HashMap<String, HashMap<String, HashSet<Pair<String, BigDecimal>>>> attMap, DB db) {
 		// Create the collection here since this assumes these collections have not been created before
-		DBCollection relationColl = db.createCollection("relations", new BasicDBObject());
+		boolean collectionExists = db.collectionExists("relations");
+	    if (collectionExists == false) {
+	        db.createCollection("relations", new BasicDBObject());
+	    }
+		DBCollection relationColl = db.getCollection("relations");
 		for (Map.Entry<String, HashMap<String, HashSet<Pair<String, BigDecimal>>>> entityEntry :  attMap.entrySet() ) {
 			// Examine every superentity
 			for (Map.Entry<String, HashSet<Pair<String, BigDecimal>>> relationEntry: entityEntry.getValue().entrySet()) {

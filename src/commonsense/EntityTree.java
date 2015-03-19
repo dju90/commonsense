@@ -15,7 +15,7 @@ import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
 public class EntityTree {
-	protected HashMap<String, HashMap<String, HashSet<Pair<String, BigDecimal>>>> tree;
+	public HashMap<String, HashMap<String, HashSet<Pair<String, BigDecimal>>>> tree;
 	
 	/**
 	 * Constructs a new, empty EntityTree object

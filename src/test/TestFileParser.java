@@ -1,6 +1,7 @@
 package test;
 
 import java.io.File;
+import java.net.UnknownHostException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
@@ -10,6 +11,7 @@ import java.util.Map.Entry;
 import java.util.Scanner;
 
 import commonsense.Pair;
+import commonsense.Query;
 
 public class TestFileParser {
 	// Pair of comparisons to correct answer.
@@ -65,13 +67,20 @@ public class TestFileParser {
 			String arg2 = comparisons.getValue();
 			String result = "IDK";
 			// Use arg 1 and arg 2 to get result
+			String[] args = {arg1, arg2};
+			try {
+				result = Query.query(args);
+			} catch (UnknownHostException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 			actualMap.put(comparisons, result);
 		}
 		
-		//double actualValue = checkResults(actualMap);
-		double naiveValue = naiveResults();
-		//System.out.println("actual: " + actualValue);
-		System.out.println("naive: " + naiveValue);
+		double actualValue = checkResults(actualMap);
+		//double naiveValue = naiveResults();
+		System.out.println("actual: " + actualValue);
+		//System.out.println("naive: " + naiveValue);
 	}
 
 	private static double naiveResults() {
@@ -99,6 +108,7 @@ public class TestFileParser {
 			}
 			total++;
 		}
+		System.out.println(counter);
 		return counter/(double) total;
 	}
 }
