@@ -195,8 +195,8 @@
 		{"height": 89.8652}
 	],
 	"blue men": [
-		{"length": 5540},
 		{"length": 5504},
+		{"length": 5540},
 		{"length": 5234}
 	],
 	"newborn": [
@@ -216,9 +216,9 @@
 		{"height": 84.7090}
 	],
 	"blue women": [
-		{"length": 5234},
 		{"length": 5540},
-		{"length": 5504}
+		{"length": 5504},
+		{"length": 5234}
 	],
 	"1224mo": [
 		{"height": 77.0636},
@@ -237,14 +237,14 @@
 		{"height": 89.9414}
 	],
 	"red women": [
-		{"length": 5080},
 		{"length": 4818},
+		{"length": 5080},
 		{"length": 4981}
 	],
 	"white men": [
-		{"length": 6406},
+		{"length": 6375},
 		{"length": 5771},
-		{"length": 6375}
+		{"length": 6406}
 	],
 	"red men": [
 		{"length": 5080},
@@ -252,9 +252,9 @@
 		{"length": 4818}
 	],
 	"yellow men": [
-		{"length": 5970},
+		{"length": 5977},
 		{"length": 5620},
-		{"length": 5977}
+		{"length": 5970}
 	],
 	"white women": [
 		{"length": 5771}
@@ -373,14 +373,14 @@
 		{"length": 5620}
 	],
 	"red women": [
-		{"length": 5080},
 		{"length": 4818},
+		{"length": 5080},
 		{"length": 4981}
 	],
 	"white men": [
-		{"length": 6406},
+		{"length": 6375},
 		{"length": 5771},
-		{"length": 6375}
+		{"length": 6406}
 	],
 	"red men": [
 		{"length": 5080},
@@ -388,22 +388,22 @@
 		{"length": 4818}
 	],
 	"yellow men": [
-		{"length": 5970},
+		{"length": 5977},
 		{"length": 5620},
-		{"length": 5977}
+		{"length": 5970}
 	],
 	"white women": [
 		{"length": 5771}
 	],
 	"blue men": [
-		{"length": 5540},
 		{"length": 5504},
+		{"length": 5540},
 		{"length": 5234}
 	],
 	"blue women": [
-		{"length": 5234},
 		{"length": 5540},
-		{"length": 5504}
+		{"length": 5504},
+		{"length": 5234}
 	]
 },
 "Currency": {
@@ -550,14 +550,14 @@
 		{"length": 5620}
 	],
 	"red women": [
-		{"length": 5080},
 		{"length": 4818},
+		{"length": 5080},
 		{"length": 4981}
 	],
 	"white men": [
-		{"length": 6406},
+		{"length": 6375},
 		{"length": 5771},
-		{"length": 6375}
+		{"length": 6406}
 	],
 	"red men": [
 		{"length": 5080},
@@ -565,22 +565,22 @@
 		{"length": 4818}
 	],
 	"yellow men": [
-		{"length": 5970},
+		{"length": 5977},
 		{"length": 5620},
-		{"length": 5977}
+		{"length": 5970}
 	],
 	"white women": [
 		{"length": 5771}
 	],
 	"blue men": [
-		{"length": 5540},
 		{"length": 5504},
+		{"length": 5540},
 		{"length": 5234}
 	],
 	"blue women": [
-		{"length": 5234},
 		{"length": 5540},
-		{"length": 5504}
+		{"length": 5504},
+		{"length": 5234}
 	]
 },
 "Quotation Subject": {
@@ -694,14 +694,14 @@
 		{"length": 5620}
 	],
 	"red women": [
-		{"length": 5080},
 		{"length": 4818},
+		{"length": 5080},
 		{"length": 4981}
 	],
 	"white men": [
-		{"length": 6406},
+		{"length": 6375},
 		{"length": 5771},
-		{"length": 6375}
+		{"length": 6406}
 	],
 	"red men": [
 		{"length": 5080},
@@ -709,22 +709,22 @@
 		{"length": 4818}
 	],
 	"yellow men": [
-		{"length": 5970},
+		{"length": 5977},
 		{"length": 5620},
-		{"length": 5977}
+		{"length": 5970}
 	],
 	"white women": [
 		{"length": 5771}
 	],
 	"blue men": [
-		{"length": 5540},
 		{"length": 5504},
+		{"length": 5540},
 		{"length": 5234}
 	],
 	"blue women": [
-		{"length": 5234},
 		{"length": 5540},
-		{"length": 5504}
+		{"length": 5504},
+		{"length": 5234}
 	]
 },
 "Canonical Version": {
@@ -904,14 +904,14 @@
 		{"length": 5620}
 	],
 	"red women": [
-		{"length": 5080},
 		{"length": 4818},
+		{"length": 5080},
 		{"length": 4981}
 	],
 	"white men": [
-		{"length": 6406},
+		{"length": 6375},
 		{"length": 5771},
-		{"length": 6375}
+		{"length": 6406}
 	],
 	"red men": [
 		{"length": 5080},
@@ -919,22 +919,22 @@
 		{"length": 4818}
 	],
 	"yellow men": [
-		{"length": 5970},
+		{"length": 5977},
 		{"length": 5620},
-		{"length": 5977}
+		{"length": 5970}
 	],
 	"white women": [
 		{"length": 5771}
 	],
 	"blue men": [
-		{"length": 5540},
 		{"length": 5504},
+		{"length": 5540},
 		{"length": 5234}
 	],
 	"blue women": [
-		{"length": 5234},
 		{"length": 5540},
-		{"length": 5504}
+		{"length": 5504},
+		{"length": 5234}
 	]
 },
 "City/Town/Village": {
@@ -984,8 +984,8 @@
 		{"height": 89.8652}
 	],
 	"blue men": [
-		{"length": 5540},
 		{"length": 5504},
+		{"length": 5540},
 		{"length": 5234}
 	],
 	"newborn": [
@@ -1005,9 +1005,9 @@
 		{"height": 84.7090}
 	],
 	"blue women": [
-		{"length": 5234},
 		{"length": 5540},
-		{"length": 5504}
+		{"length": 5504},
+		{"length": 5234}
 	],
 	"1224mo": [
 		{"height": 77.0636},
@@ -1026,14 +1026,14 @@
 		{"height": 89.9414}
 	],
 	"red women": [
-		{"length": 5080},
 		{"length": 4818},
+		{"length": 5080},
 		{"length": 4981}
 	],
 	"white men": [
-		{"length": 6406},
+		{"length": 6375},
 		{"length": 5771},
-		{"length": 6375}
+		{"length": 6406}
 	],
 	"red men": [
 		{"length": 5080},
@@ -1041,9 +1041,9 @@
 		{"length": 4818}
 	],
 	"yellow men": [
-		{"length": 5970},
+		{"length": 5977},
 		{"length": 5620},
-		{"length": 5977}
+		{"length": 5970}
 	],
 	"white women": [
 		{"length": 5771}
@@ -1172,8 +1172,8 @@
 		{"height": 89.8652}
 	],
 	"blue men": [
-		{"length": 5540},
 		{"length": 5504},
+		{"length": 5540},
 		{"length": 5234}
 	],
 	"newborn": [
@@ -1193,9 +1193,9 @@
 		{"height": 84.7090}
 	],
 	"blue women": [
-		{"length": 5234},
 		{"length": 5540},
-		{"length": 5504}
+		{"length": 5504},
+		{"length": 5234}
 	],
 	"1224mo": [
 		{"height": 77.0636},
@@ -1214,14 +1214,14 @@
 		{"height": 89.9414}
 	],
 	"red women": [
-		{"length": 5080},
 		{"length": 4818},
+		{"length": 5080},
 		{"length": 4981}
 	],
 	"white men": [
-		{"length": 6406},
+		{"length": 6375},
 		{"length": 5771},
-		{"length": 6375}
+		{"length": 6406}
 	],
 	"red men": [
 		{"length": 5080},
@@ -1229,9 +1229,9 @@
 		{"length": 4818}
 	],
 	"yellow men": [
-		{"length": 5970},
+		{"length": 5977},
 		{"length": 5620},
-		{"length": 5977}
+		{"length": 5970}
 	],
 	"white women": [
 		{"length": 5771}
@@ -1308,8 +1308,8 @@
 		{"height": 89.8652}
 	],
 	"blue men": [
-		{"length": 5540},
 		{"length": 5504},
+		{"length": 5540},
 		{"length": 5234}
 	],
 	"newborn": [
@@ -1329,9 +1329,9 @@
 		{"height": 84.7090}
 	],
 	"blue women": [
-		{"length": 5234},
 		{"length": 5540},
-		{"length": 5504}
+		{"length": 5504},
+		{"length": 5234}
 	],
 	"1224mo": [
 		{"height": 77.0636},
@@ -1350,14 +1350,14 @@
 		{"height": 89.9414}
 	],
 	"red women": [
-		{"length": 5080},
 		{"length": 4818},
+		{"length": 5080},
 		{"length": 4981}
 	],
 	"white men": [
-		{"length": 6406},
+		{"length": 6375},
 		{"length": 5771},
-		{"length": 6375}
+		{"length": 6406}
 	],
 	"red men": [
 		{"length": 5080},
@@ -1365,9 +1365,9 @@
 		{"length": 4818}
 	],
 	"yellow men": [
-		{"length": 5970},
+		{"length": 5977},
 		{"length": 5620},
-		{"length": 5977}
+		{"length": 5970}
 	],
 	"white women": [
 		{"length": 5771}
@@ -1821,8 +1821,8 @@
 		{"height": 89.8652}
 	],
 	"blue men": [
-		{"length": 5540},
 		{"length": 5504},
+		{"length": 5540},
 		{"length": 5234}
 	],
 	"newborn": [
@@ -1842,9 +1842,9 @@
 		{"height": 84.7090}
 	],
 	"blue women": [
-		{"length": 5234},
 		{"length": 5540},
-		{"length": 5504}
+		{"length": 5504},
+		{"length": 5234}
 	],
 	"1224mo": [
 		{"height": 77.0636},
@@ -1863,14 +1863,14 @@
 		{"height": 89.9414}
 	],
 	"red women": [
-		{"length": 5080},
 		{"length": 4818},
+		{"length": 5080},
 		{"length": 4981}
 	],
 	"white men": [
-		{"length": 6406},
+		{"length": 6375},
 		{"length": 5771},
-		{"length": 6375}
+		{"length": 6406}
 	],
 	"red men": [
 		{"length": 5080},
@@ -1878,9 +1878,9 @@
 		{"length": 4818}
 	],
 	"yellow men": [
-		{"length": 5970},
+		{"length": 5977},
 		{"length": 5620},
-		{"length": 5977}
+		{"length": 5970}
 	],
 	"white women": [
 		{"length": 5771}
