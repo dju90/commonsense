@@ -106,19 +106,22 @@ public class TableCrawler { //should we make this an object, so it can handle mu
 						}
 					}
 					
-					int ct = 0;
-					int freq = (int) Math.round(Math.pow(3.7, Math.log10(entities.size()))); // see FrequencyMain
-					int adjFreq = freq - (int) Math.round(Math.log10(freq)+1); //lower end a little more frequent
-					for( String entity : entities ) {
-						if( ct % adjFreq == 1 ) { //don't do it for the first entity
-							// do a free base lookup for fraction of entities and add resulting set to file-specific map
-							entity = Inflection.singularize(entity);
-							Set<String> possibleSuperEntities = FreeBaseCaller.apiQuery(entity);
-							if( possibleSuperEntities != null ) {
-								freeBaseHits.add(possibleSuperEntities);
+					if( entities.size() > 0 ) {
+						int ct = 0;
+						int freq = (int) Math.round(Math.pow(3.7, Math.log10(entities.size()))); // see FrequencyMain
+						freq = freq >= 1 ? freq : 1;
+						int adjFreq = freq - (int) Math.round(Math.log10(freq)+1); //lower end a little more frequent
+						for( String entity : entities ) {
+							if( ct % adjFreq == 1 ) { //don't do it for the first entity
+								// do a free base lookup for fraction of entities and add resulting set to file-specific map
+								entity = Inflection.singularize(entity);
+								Set<String> possibleSuperEntities = FreeBaseCaller.apiQuery(entity);
+								if( possibleSuperEntities != null ) {
+									freeBaseHits.add(possibleSuperEntities);
+								}
 							}
+							ct++;
 						}
-						ct++;
 					}
 				}
 				if (entityData != null && entityData.size() > 0 

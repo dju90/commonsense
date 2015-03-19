@@ -34,35 +34,43 @@ public class TableInfo {
 	 * @param info
 	 */
 	public TableInfo(File f, String info) {
-		file = f;
-		valid = true;
-		relevantIndexes = new ArrayList<Integer>();
-		colDims = new ArrayList<String>();
-		colNames = new ArrayList<String>();
-		colUnits = new ArrayList<String>();
-		firstLines = new ArrayList<String>();
-		if (info == null) {
-			entityIndex = -1;
-			size = 0;
-		} else {
-			try {
-				String[] prelim = info.split("\\|");
-				String[] meta = prelim[0].split(":");
-				entityIndex = Integer.parseInt(meta[1]);
-				String[] cols = prelim[1].split(",");
-				for (int i = 0; i < cols.length; i++) {
-					String[] data = cols[i].split(";");
-					relevantIndexes.add(Integer.parseInt(data[0]));
-					colDims.add(data[1]);
-					colNames.add(data[2]);
-					colUnits.add(data[3]);
-					size++;
+		if( f != null ) {
+			file = f;
+			valid = true;
+			relevantIndexes = new ArrayList<Integer>();
+			colDims = new ArrayList<String>();
+			colNames = new ArrayList<String>();
+			colUnits = new ArrayList<String>();
+			firstLines = new ArrayList<String>();
+			if (info == null) {
+				entityIndex = -1;
+				size = 0;
+			} else {
+				try {
+					String[] prelim = info.split("\\|");
+					String[] meta = prelim[0].split(":");
+					entityIndex = Integer.parseInt(meta[1]);
+					String[] cols = prelim[1].split(",");
+					for (int i = 0; i < cols.length; i++) {
+						String[] data = cols[i].split(";");
+						relevantIndexes.add(Integer.parseInt(data[0]));
+						colDims.add(data[1]);
+						colNames.add(data[2]);
+						colUnits.add(data[3]);
+						size++;
+					}
+				} catch (Exception e) {
+					valid = false;
 				}
-			} catch (Exception e) {
-				valid = false;
 			}
+		} else {
+			valid = false;
 		}
 	}
+	
+//	public TableInfo(String dir, String info) {
+//		this(new File(dir + "/" + info.split(":")[0]), info);
+//	}
 
 	/**
 	 * Populates with n lines from the file and determines entity column
@@ -92,6 +100,10 @@ public class TableInfo {
 		} catch (FileNotFoundException f) {
 			return null;
 		}
+	}
+	
+	public File getFile() { 
+		return file;
 	}
 	
 	/*
