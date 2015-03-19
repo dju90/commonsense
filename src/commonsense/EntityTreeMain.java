@@ -8,13 +8,14 @@ public class EntityTreeMain {
 
 	public static void main(String[] args) {
 		EntityTree tree = new EntityTree(args[0]);
-		try {
-			PrintStream testOut = new PrintStream(new File(args[1]));
-			testOut.println(tree);
-		} catch (FileNotFoundException e) {
+	//	try {
+			//PrintStream testOut = new PrintStream(new File(args[1]));
+			//testOut.println(tree);
+			DatabaseBuilder.addToDB(tree);
+	//	} //catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		//	e.printStackTrace();
+	//	}
 	}
 
 }
