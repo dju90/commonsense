@@ -1,0 +1,17 @@
+body {
+		height: 100%;
+		background-color: #39275B;
+		color: #C79900;
+		font-family: "Comic Sans MS", cursive, sans-serif; 
+		text-align: center;
+		text-shadow: 0 1px 3px rgba(0,0,0,.5);
+}
+.results {
+		color: black;
+		background-color: #FFFF66;
+		width: 75%;
+		top: 50%;
+		margin-left: 200px;
+		text-shadow: none;
+		border-radius: 25px;
+}
