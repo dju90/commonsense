@@ -93,22 +93,26 @@ public class TableCrawler { //should we make this an object, so it can handle mu
 						for(int i = 0; i < line.length; i++ ) {
 							line[i] = line[i].replaceAll("&[A-Za-z]+;", "").replaceAll("[^A-Za-z0-9 ]", "");
 						}
-						String entity = line[info.getEntityIndex()];
-						entities.add(entity);
-						
-						HashSet<Pair<String, BigDecimal>> entry = processLine(line, entity, relevantCols, dimensions, 
-																																	attributes, units);
-						if( entry != null ) {
-							entityData.put(entity, entry);					
+						int entityIndex = info.getEntityIndex();
+						if( entityIndex > 0 && entityIndex < line.length ) {
+							String entity = line[entityIndex];
+							entities.add(entity);
+							
+							HashSet<Pair<String, BigDecimal>> entry = processLine(line, entity, relevantCols, dimensions, 
+																																		attributes, units);
+							if( entry != null ) {
+								entityData.put(entity, entry);					
+							}
 						}
 					}
 					
 					int ct = 0;
-					int freq = (int) Math.round(Math.pow(5, Math.log10(entities.size())));
-					int adjFreq = freq - (int) Math.round(Math.log10(freq))+1; //lower end has to be a little more frequent
+					int freq = (int) Math.round(Math.pow(3.7, Math.log10(entities.size()))); // see FrequencyMain
+					int adjFreq = freq - (int) Math.round(Math.log10(freq)+1); //lower end a little more frequent
 					for( String entity : entities ) {
 						if( ct % adjFreq == 1 ) { //don't do it for the first entity
 							// do a free base lookup for fraction of entities and add resulting set to file-specific map
+							entity = Inflection.singularize(entity);
 							Set<String> possibleSuperEntities = FreeBaseCaller.apiQuery(entity);
 							if( possibleSuperEntities != null ) {
 								freeBaseHits.add(possibleSuperEntities);
@@ -201,7 +205,7 @@ public class TableCrawler { //should we make this an object, so it can handle mu
 				if( datum != null ) {
 					attVals.add(new Pair<String, BigDecimal>(attributes[i], datum));				
 				}
-			} else { // malformed file
+			} else { // special chars in file or file too short
 				return null;
 			}
 		}

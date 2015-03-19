@@ -13,6 +13,7 @@ public class EntityTree {
 		tree = new HashMap<String, HashMap<String, HashSet<Pair<String, BigDecimal>>>>();
 	}
 	
+	
 	public String toString() {
 		String rep = "{\n";
 		Set<String> superKeys = tree.keySet();
