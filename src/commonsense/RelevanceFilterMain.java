@@ -71,17 +71,21 @@ public class RelevanceFilterMain {
 		int eI = info.getEntityIndex();
 		if( eI >= 0 ) {
 			for( String line : info.firstLines ) {
-				line = line.replaceAll("&[A-Za-z]+;", "");
 				String[] cols = line.split(",");
-				writer.print(cols[eI].replaceAll(" {2,}", " ") + ": "); //print entity name
-				Integer[] rIndexes = info.getRelevantIndexes();
-				for(int i = 0; i < rIndexes.length; i++) {
-					int index = rIndexes[i];
-					if( index >= 0 && index < cols.length ) {
-						writer.print(cols[index]);					
-					}
+				for( int i = 0; i < cols.length; i++) {
+					cols[i] = cols[i].replaceAll("&[A-Za-z]+;", "").replaceAll(" {2,}", " ");
 				}
-				writer.println();
+				if( eI < cols.length ) {
+					writer.print(cols[eI] + ": "); //print entity name
+					Integer[] rIndexes = info.getRelevantIndexes();
+					for(int i = 0; i < rIndexes.length; i++) {
+						int index = rIndexes[i];
+						if( index >= 0 && index < cols.length ) {
+							writer.print(cols[index]);					
+						}
+					}
+					writer.println();
+				}
 			}
 			writer.println();
 		} //no entity

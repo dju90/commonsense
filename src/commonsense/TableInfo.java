@@ -159,7 +159,10 @@ public class TableInfo {
 	 * @return
 	 */
 	public String getLine(int i) {
-		return firstLines.get(i);
+		if( i < firstLines.size() )
+			return firstLines.get(i);
+		else
+			return null;
 	}
 
 	/**
