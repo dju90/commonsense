@@ -328,11 +328,9 @@ public class TableCrawler { //should we make this an object, so it can handle mu
 	}
 		
 	public class PairComparator implements Comparator<Pair<String,Integer>> {
-
 		@Override
 		public int compare(Pair<String, Integer> p1, Pair<String, Integer> p2) {
 			return p1.getValue().compareTo(p2.getValue());
 		}
-
 	}
 }
