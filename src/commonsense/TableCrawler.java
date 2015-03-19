@@ -76,7 +76,7 @@ public class TableCrawler { //should we make this an object, so it can handle mu
 					scan.nextLine();
 					entityData = new HashMap<String, HashSet<Pair<String, BigDecimal>>>();
 					entities = new HashSet<String>();
-					freeBaseHits = new HashSet<Set<String>>(); //TODO: call freebasecaller
+					freeBaseHits = new HashSet<Set<String>>();
 					
 					// unpack tableInfo
 					Integer[] relevantCols = info.getRelevantIndexes();
@@ -144,10 +144,10 @@ public class TableCrawler { //should we make this an object, so it can handle mu
 	
 	private static void populateTree(HashMap<String, HashSet<Pair<String, BigDecimal>>> entityData, 
 																	 Set<Set<String>> freeBaseHits) {
-		Set<String> superEntities = intersect(freeBaseHits);
-		if( superEntities.size() == 0 ) {
-			superEntities.add(findMaxIntersect(freeBaseHits));
-		}
+		Set<String> superEntities = nIntersect(5, freeBaseHits); //top five
+//		if( superEntities.size() == 0 ) {
+//			superEntities.add(findMaxIntersect(freeBaseHits));
+//		}
 		for( String superEntity : superEntities ) {
 			if( superEntity != "") {
 				if( attMap.tree.containsKey(superEntity) ) { // append entity if superentity exists
@@ -170,7 +170,7 @@ public class TableCrawler { //should we make this an object, so it can handle mu
 		}
 	}
 	
-	/*TODO: steer  calves == no hits, steer calf = cattle...Stanford parser?
+	/* TODO: steer  calves == no hits, steer calf = cattle...Stanford parser?
 	 * Processes a single line in a csv file.
 	 * @return The HashSet from the entity to its collection of attributes.
 	 */
@@ -185,7 +185,7 @@ public class TableCrawler { //should we make this an object, so it can handle mu
 			if( index < line.length ) {
 				String[] data = line[index].split("-");
 				BigDecimal datum;
-				if( data.length == 1 ) { //TODO conversions
+				if( data.length == 1 ) {
 					datum = extractData(data[0]);
 				} else {
 					BigDecimal sum = new BigDecimal(0);
@@ -220,6 +220,9 @@ public class TableCrawler { //should we make this an object, so it can handle mu
 		}
 	}
 
+	/*
+	 * Returns a BigDecimal representation of the number data in a string
+	 */
 	private static BigDecimal extractData(String data) {
 		String number = data.replaceAll("[^\\d\\.]", "");
 		//\d+\.?\d+
@@ -235,39 +238,9 @@ public class TableCrawler { //should we make this an object, so it can handle mu
 	}
 	
 	/*
-	 * Returns the intersect of a set of sets
+	 * Finds the n most common Strings among a set of a set of strings
 	 */
-	private static Set<String> intersect(Set<Set<String>> freeBaseHits) {
-		Set<String> intersect = new HashSet<String>();
-		int size = freeBaseHits.size();
-		if( size == 0 ) {
-			return intersect;
-		} else {
-			Iterator<Set<String>> iter = freeBaseHits.iterator();
-			if( size == 1 ) {
-				return iter.next();
-			} else {
-				Set<String> set0 = iter.next();
-				for( String s : set0 ) {
-					intersect.add(s);
-				}
-				while( iter.hasNext() ) {
-					intersect.retainAll(iter.next());
-					if( intersect.size() == 0 ) {
-						return intersect;
-					}
-				}
-				return intersect;
-			}
-		}
-	}
-
-	/*
-	 * Finds the maximum intersection between all sets
-	 * 
-	 * @return -1 if no alphabetic entity column
-	 */
-	private static String findMaxIntersect(Set<Set<String>> freeBaseHits) {
+	private static Set<String> nIntersect(int topN, Set<Set<String>> freeBaseHits) {
 		Map<String, Integer> counts = new HashMap<String, Integer>();
 		for(Set<String> set : freeBaseHits) {
 			for( String superEntity : set ) {
@@ -278,25 +251,78 @@ public class TableCrawler { //should we make this an object, so it can handle mu
 				}
 			}
 		}
-		// set1.retainAll(set2)
-		// return max count? or alphanumeric?
-		return maxCount(counts);
+		Queue<Pair<String,Integer>> pCounts = new PriorityQueue<Pair<String,Integer>>(); 
+		for( String superEntity : counts.keySet() ) {
+			pCounts.add(new Pair<String,Integer>(superEntity, counts.get(superEntity)));
+		}
+		Set<String> maxEntities = new HashSet<String>();
+		for( int i = 0; i < topN && !pCounts.isEmpty() ; i++ ) {
+			maxEntities.add(pCounts.poll().getKey());
+		}
+		return maxEntities;
 	}
 	
-	/*
-	 * Returns the string in the map with the highest count
-	 * 
-	 * @param counts
-	 * @return
-	 */
-	private static String maxCount(Map<String, Integer> counts) {
-		String maxEntity = "";
-		counts.put(maxEntity, 0);
-		for( String superEntity : counts.keySet() ) {
-			if( counts.get(superEntity) > counts.get(maxEntity) ) {
-				maxEntity = superEntity;
-			}
-		}
-		return maxEntity;
-	}
+//	/*
+//	 * Returns the intersect of a set of sets
+//	 */
+//	private static Set<String> intersect(Set<Set<String>> freeBaseHits) {
+//		Set<String> intersect = new HashSet<String>();
+//		int size = freeBaseHits.size();
+//		if( size == 0 ) {
+//			return intersect;
+//		} else {
+//			Iterator<Set<String>> iter = freeBaseHits.iterator();
+//			if( size == 1 ) {
+//				return iter.next();
+//			} else {
+//				Set<String> set0 = iter.next();
+//				for( String s : set0 ) {
+//					intersect.add(s);
+//				}
+//				while( iter.hasNext() ) {
+//					intersect.retainAll(iter.next());
+//					if( intersect.size() == 0 ) {
+//						return intersect;
+//					}
+//				}
+//				return intersect;
+//			}
+//		}
+//	}
+//
+//	/*
+//	 * Finds the maximum intersection between all sets
+//	 * 
+//	 * @return -1 if no alphabetic entity column
+//	 */
+//	private static String findMaxIntersect(Set<Set<String>> freeBaseHits) {
+//		Map<String, Integer> counts = new HashMap<String, Integer>();
+//		for(Set<String> set : freeBaseHits) {
+//			for( String superEntity : set ) {
+//				if( counts.keySet().contains(superEntity) ) {
+//					counts.put(superEntity, counts.get(superEntity) + 1);
+//				} else {
+//					counts.put(superEntity, 1);
+//				}
+//			}
+//		}
+//		return maxCount(counts);
+//	}
+//	
+//	/*
+//	 * Returns the string in the map with the highest count
+//	 * 
+//	 * @param counts
+//	 * @return
+//	 */
+//	private static String maxCount(Map<String, Integer> counts) {
+//		String maxEntity = "";
+//		counts.put(maxEntity, 0);
+//		for( String superEntity : counts.keySet() ) {
+//			if( counts.get(superEntity) > counts.get(maxEntity) ) {
+//				maxEntity = superEntity;
+//			}
+//		}
+//		return maxEntity;
+//	}
 }

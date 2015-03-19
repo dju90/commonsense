@@ -17,5 +17,6 @@
 	<classpathentry kind="lib" path="langdetect.jar"/>
 	<classpathentry kind="lib" path="mongo-java-driver-2.13.0.jar"/>
 	<classpathentry kind="lib" path="org.json-20120521.jar"/>
+	<classpathentry kind="lib" path="ws4j-1.0.1.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

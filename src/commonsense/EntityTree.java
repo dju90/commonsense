@@ -14,6 +14,11 @@ import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
+/**
+ * Wrapper class for superentity { entity { attribute pairs hashmap in TableCrawler.java
+ * @author DJu90
+ *
+ */
 public class EntityTree {
 	public HashMap<String, HashMap<String, HashSet<Pair<String, BigDecimal>>>> tree;
 	
