@@ -250,10 +250,10 @@ public class TableCrawler { //should we make this an object, so it can handle mu
 				}
 			}
 		}
-		Comparator<Pair<String,Integer>> comparator = new PairComparator();
-		Queue<Pair<String,Integer>> pCounts = new PriorityQueue<Pair<String,Integer>>(comparator); 
+		//Comparator<Pair<String,Integer>> comparator = new PairComparator();
+		Queue<ComPair> pCounts = new PriorityQueue<ComPair>();//(comparator);
 		for( String superEntity : counts.keySet() ) {
-			Pair<String,Integer> insert = new Pair<String,Integer>(superEntity, counts.get(superEntity));
+			ComPair insert = new ComPair(superEntity, counts.get(superEntity));
 			pCounts.add(insert);
 		}
 		Set<String> maxEntities = new HashSet<String>();
@@ -327,10 +327,10 @@ public class TableCrawler { //should we make this an object, so it can handle mu
 		return maxEntity;
 	}
 		
-	public class PairComparator implements Comparator<Pair<String,Integer>> {
-		@Override
-		public int compare(Pair<String, Integer> p1, Pair<String, Integer> p2) {
-			return p1.getValue().compareTo(p2.getValue());
-		}
-	}
+//	public class PairComparator implements Comparator<Pair<String,Integer>> {
+//		@Override
+//		public int compare(Pair<String, Integer> p1, Pair<String, Integer> p2) {
+//			return p1.getValue().compareTo(p2.getValue());
+//		}
+//	}
 }
