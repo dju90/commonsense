@@ -27,7 +27,7 @@ public class Query {
 			BasicDBObject fields = new BasicDBObject("_id", false).append("entity", false).append("type", false);
 			all = dbc.find().toArray();
 			String e1 = closestMatch(args[0], MATCH_THRESHOLD);
-			String e2 = closestMatch(args[0], MATCH_THRESHOLD);
+			String e2 = closestMatch(args[1], MATCH_THRESHOLD);
 			Pattern p1 = Pattern.compile("^" + e1 + "$", Pattern.CASE_INSENSITIVE);
 			Pattern p2 = Pattern.compile("^" + e2 + "$", Pattern.CASE_INSENSITIVE);
 			BasicDBObject o1 = new BasicDBObject("entity", p1);

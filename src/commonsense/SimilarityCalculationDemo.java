@@ -13,6 +13,12 @@ import edu.cmu.lti.ws4j.impl.Resnik;
 import edu.cmu.lti.ws4j.impl.WuPalmer;
 import edu.cmu.lti.ws4j.util.WS4JConfiguration;
 
+/**
+ * 
+ * @author Hideki Shima
+ * https://code.google.com/p/ws4j/
+ *
+ */
 public class SimilarityCalculationDemo {
         
         private static ILexicalDatabase db = new NictWordNet();

@@ -3,6 +3,7 @@ package commonsense;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.io.PrintStream;
 import java.math.BigDecimal;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -87,6 +88,20 @@ public class EntityTree {
 		}
 	}
 	
+	public void printAllEntities(PrintStream output) {
+		Set<String> entities = new HashSet<String>();
+		for( String superEntity : tree.keySet() ) {
+			for( String entity : tree.get(superEntity).keySet() ) {
+				entities.add(entity);
+			}
+		}
+		int counter = 1;
+		for( String entity : entities ) {
+			output.println(counter + ", " +entity);
+			counter++;
+		}
+		
+	}
 	public String toString() {
 		String rep = "{\n";
 		Set<String> superKeys = tree.keySet();
