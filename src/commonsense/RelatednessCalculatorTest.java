@@ -10,6 +10,12 @@ import edu.cmu.lti.jawjaw.util.WordNetUtil;
 import edu.cmu.lti.lexical_db.data.Concept;
 import edu.cmu.lti.ws4j.util.WS4JConfiguration;
 
+/**
+ * 
+ * @author Hideki Shima
+ * https://code.google.com/p/ws4j/
+ *
+ */
 abstract public class RelatednessCalculatorTest {
         {
                 WS4JConfiguration.getInstance().setLeskNormalize( false );

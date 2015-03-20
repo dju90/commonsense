@@ -15,6 +15,7 @@ public class DatabaseBuilderTest {
 				new HashMap<String, HashMap<String, HashSet<Pair<String, BigDecimal>>>>();
 		addTestData(attMapTest);
 		//DatabaseBuilder.addToDB(attMapTest);
+
 	}
 
 	/**

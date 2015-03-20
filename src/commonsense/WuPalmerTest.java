@@ -12,6 +12,7 @@ import edu.cmu.lti.ws4j.RelatednessCalculator;
 
 /**
  * @author Hideki Shima
+ * https://code.google.com/p/ws4j/
  *
  */
 public class WuPalmerTest extends RelatednessCalculatorTest {

@@ -11,7 +11,8 @@ import edu.cmu.lti.ws4j.RelatednessCalculator;
 import edu.cmu.lti.ws4j.util.DepthFinder.Depth;
 
 /**
- * @author Hideki
+ * @author Hideki Shima
+ * https://code.google.com/p/ws4j/
  *
  */
 public class WuPalmer extends RelatednessCalculator {
