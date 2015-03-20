@@ -47,16 +47,16 @@ public class Query {
 				if (intersect.size() > 0) {
 					result = determineComparison(intersect, args[0], args[1]);
 				} else {
-					System.out.println("Incomparable");
+					//System.out.println("Incomparable");
 					result = "Incomparable";
 				}
 			} else {
 				if (result1.size() == 0) {
-					System.out.println("Dont know" + args[0]);
+					//System.out.println("Dont know" + args[0]);
 					result =  "Dont know " + args[0];
 				} else {
 					// result2.size() == 0
-					System.out.println("Dont know" + args[1]);
+					//System.out.println("Dont know" + args[1]);
 					result = "Dont know " + args[1];
 				}
 			}
