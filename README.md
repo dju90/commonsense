@@ -67,4 +67,11 @@ an output filename for a json representation of a hashtable
 10. Since the web code has already been written for you and should be located in your web directory, and your database has been built, 
     ensure that your local web server is running and then your own version of The Common Sense DB should be running at your 
     public DNS address 
-    - Modify webpage with corresponding html pages located in your web directory. Should be there when you unpacked html in step 10. 
+    - Modify webpage with corresponding html pages located in your web directory. Should be there when you unpacked html in step 8. 
+
+
+
+  
+
+
+
