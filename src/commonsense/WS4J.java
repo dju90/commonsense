@@ -21,6 +21,7 @@ import edu.cmu.lti.ws4j.RelatednessCalculator;
  * For doing more complicated stuff, use DAO classes under the package edu.cmu.lti.jawjaw.dao
  * 
  * @author Hideki Shima
+ * https://code.google.com/p/ws4j/
  *
  */
 public class WS4J extends JAWJAW {
