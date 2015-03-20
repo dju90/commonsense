@@ -28,6 +28,10 @@ public class SimilarityCalculationDemo {
                         System.out.println( rc.getClass().getName()+"\t"+s );
                 }
         }
+        public static double similarityIndex(String word1, String word2) {
+        	WS4JConfiguration.getInstance().setMFS(true);
+        	return rcs[3].calcRelatednessOfWords(word1,word2);
+        }
         
         private static void runWuP( String word1, String word2 ) {
         	WS4JConfiguration.getInstance().setMFS(true);
