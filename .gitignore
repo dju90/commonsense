@@ -1,2 +1,7 @@
+
+/attributeFiltrate
 /bin
 /data
+*.class
+.*
+.classpath

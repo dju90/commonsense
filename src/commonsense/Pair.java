@@ -14,7 +14,7 @@ public class Pair<K, V> {
 	}
 	
 	public String toString() {
-		return key + " " + value;
+		return "{\"" + key + "\": " + value + "}";
 	}
 	
 	public K getKey() {
@@ -25,4 +25,7 @@ public class Pair<K, V> {
 		return value;
 	}
 	
+	public void setValue(V value) {
+		this.value = value; 
+	}
 }

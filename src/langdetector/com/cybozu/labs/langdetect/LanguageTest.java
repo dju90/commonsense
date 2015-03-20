@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.cybozu.labs.langdetect;
+package langdetector.com.cybozu.labs.langdetect;
 
 import static org.junit.Assert.*;
 

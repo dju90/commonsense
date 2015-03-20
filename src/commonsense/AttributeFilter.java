@@ -9,37 +9,33 @@ import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
 public class AttributeFilter {
-	private HashSet<String> attributeList;
+	private HashMap<String, String> attributeList;
+	private UnitFilter uF;
 
-	public AttributeFilter(String attributeFilePath) {
-		attributeList = parseJson(attributeFilePath);
+	public AttributeFilter(String attributeFilePath, String unitFilePath) {
+		parseJson(attributeFilePath);
+		uF = new UnitFilter(unitFilePath);
 	}
 
-	private HashSet<String> parseJson(String filePath) {
-		attributeList = new HashSet<String>();
+	private void parseJson(String filePath) {
+		attributeList = new HashMap<String, String>();
 		try {
 			JSONParser parser = new JSONParser();
 			JSONObject jsonObject = (JSONObject) parser.parse(new FileReader(
 					filePath));
-
 			// ultra-specific to our attributeList file :/
 			jsonObject = (JSONObject) ((JSONObject) jsonObject.get("attribute"))
 					.get("size");
 			Set<?> dimensions = jsonObject.keySet();
-			for (Object dim : dimensions) {
-				JSONArray subtypes = (JSONArray) jsonObject.get(dim);
-				if (subtypes != null) {
-					for (int i = 0; i < subtypes.size(); i++) {
-						JSONArray innerArray = (JSONArray) subtypes.get(i);
-						if (innerArray != null) {
-							for (int j = 0; j < innerArray.size(); j++) {
-								attributeList.add((String) innerArray.get(j));
-							}
-						}
+			for (Object dimension : dimensions) {
+				String dim = "" + dimension;				
+				JSONArray attributes = (JSONArray) jsonObject.get(dim);
+				if (attributes != null) {
+					for (int i = 0; i < attributes.size(); i++) {
+						attributeList.put((String) attributes.get(i), dim);
 					}
 				}
 			}
-
 		} catch (FileNotFoundException fnfe) {
 			System.out.println("File not found.");
 			fnfe.printStackTrace();
@@ -50,38 +46,62 @@ public class AttributeFilter {
 			System.out.println("Parse error.");
 			pe.printStackTrace();
 		}
-		return attributeList;
 	}
-
+	
 	/**
-	 * Returns the indices of relevant columns within a csv table file
-	 * 
-	 * @param scan
-	 *            Scanner with file pre-loaded
-	 * @return An ArrayList containing the indices of the relevant columns
-	 * 			null if invalid file name or empty file
-	 * @throws FileNotFoundException
+	 * Returns a TableInfo object with all the relevant column information.
+	 * @param f
+	 * @return
 	 */
-	public Integer[] relevance(File f) {
-		try {
-			Scanner scan = new Scanner(f);
-			if( scan.hasNextLine() ) {
-				String[] attributes = scan.nextLine().split(",");
-				ArrayList<Integer> relevantColumns = new ArrayList<Integer>();
-				for (int i = 0; i < attributes.length; i++) {
-					String attribute = attributes[i].replaceAll("[^A-Za-z0-9 ]", "");
-					if (attributeList.contains(attribute)) {
-						relevantColumns.add(i);
+	public TableInfo relevance(File f) {
+		TableInfo info = new TableInfo(f);
+		String[] colHeadings = info.ready(5);
+		if( colHeadings != null ) {
+			int entityI = info.getEntityIndex();
+			for (int i = 0; i < colHeadings.length && info.isValid(); i++) { // each col heading
+				if( i != entityI ) { //entity col != attribute col
+					String columnCandidate = colHeadings[i].replaceAll("[^A-Za-z0-9 ]", "");
+					for( String attribute : attributeList.keySet() ) { //check for regex match on possible atts
+						if( columnCandidate.matches("\\b" + attribute + "\\b") ){ // attribute token
+							String unit = containsUnits(i, columnCandidate, info);
+							if( unit != null && unit != "BAD_TABLE") {
+								info.addRelevantColumn(i, attributeList.get(attribute), columnCandidate, unit);							
+							} else { // unit == "BAD_TABLE" || unit )
+								info.nullify(); // bad table format
+								break;
+							}
+						} // no match, go to the next possible attribute
 					}
 				}
-				scan.close();
-				return relevantColumns.toArray(new Integer[relevantColumns.size()]);
 			}
-			scan.close();
-			return null;
-		} catch(FileNotFoundException fe) {
+			return info;
+		} else { // empty table
 			return null;
 		}
-		
+	}
+	
+	/*
+	 * Returns if a column contains units either in the header or cells
+	 */
+	private String containsUnits(int index, String candidate, TableInfo info) {
+		String hUnits = uF.headerUnits(candidate);
+		if( hUnits == null ) {	// the attribute does not contain units
+			try {
+				String[] columns1 = info.getLine(0).replaceAll(" {2,}", " ").split(",");
+				String[] columns2 = info.getLine(1).replaceAll(" {2,}", " ").split(",");
+				String col1Unit = uF.cellUnits(columns1[index]); 
+				String col2Unit = uF.cellUnits(columns2[index]);
+				if( col1Unit == null && col2Unit == null )  {
+					return null;
+				} else {
+					String retUnit = col2Unit == null ? col1Unit : col2Unit;
+					return retUnit;
+				}
+			} catch( IndexOutOfBoundsException i ) {
+				return "BAD_TABLE";
+			}
+		} else {
+			return hUnits;
+		}
 	}
 }

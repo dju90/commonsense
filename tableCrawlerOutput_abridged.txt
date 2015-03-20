@@ -1,0 +1,2065 @@
+{
+"Pop Album": {
+	"single": [
+		{"length": 1.90}
+	],
+	"double": [
+		{"length": 1.90}
+	],
+	"super kingsize": [
+		{"length": 2.00}
+	],
+	"small double": [
+		{"length": 1.90}
+	],
+	"kingsize": [
+		{"length": 2.00}
+	],
+	"small single": [
+		{"length": 1.90}
+	]
+},
+"Television Broadcasting Business": {
+	"4x4": [
+		{"weight": 952.543200}
+	],
+	"argyle": [
+		{"weight": 589.669600}
+	],
+	"projector": [
+		{"weight": 1133.980000}
+	],
+	"2x2 tabletop": [
+		{"weight": 317.514400}
+	],
+	"pyramid": [
+		{"weight": 430.912400}
+	],
+	"3 quad pyramid tabletop": [
+		{"weight": 249.475600}
+	],
+	"10 quad pyramid": [
+		{"weight": 657.708400}
+	],
+	"1x3": [
+		{"weight": 249.475600}
+	],
+	"2x3": [
+		{"weight": 430.912400}
+	],
+	"xframe": [
+		{"weight": 408.232800}
+	],
+	"3x3": [
+		{"weight": 566.990000}
+	],
+	"4x3": [
+		{"weight": 771.106400}
+	]
+},
+"Dancehall Artist": {
+	"yellow women": [
+		{"length": 5620}
+	],
+	"red women": [
+		{"length": 4818}
+	],
+	"white men": [
+		{"length": 5771}
+	],
+	"red men": [
+		{"length": 4818}
+	],
+	"white women": [
+		{"length": 5771}
+	],
+	"yellow men": [
+		{"length": 5620}
+	],
+	"blue men": [
+		{"length": 5234}
+	],
+	"blue women": [
+		{"length": 5234}
+	]
+},
+"Amino Acid": {
+	"s": [
+		{"height": 1.60}
+	],
+	"xl": [
+		{"height": 1.75}
+	],
+	"xs": [
+		{"height": 1.55}
+	],
+	"l": [
+		{"height": 1.70}
+	],
+	"xxxl": [
+		{"height": 1.85}
+	],
+	"m": [
+		{"height": 1.65}
+	],
+	"xxl": [
+		{"height": 1.80}
+	]
+},
+"Consumer product": {
+	"day 03": [
+		{"altitude": 1951},
+		{"altitude": 1951}
+	],
+	"day 02": [
+		{"altitude": 1563},
+		{"altitude": 1563}
+	],
+	"day 01": [
+		{"altitude": 1400},
+		{"altitude": 1400}
+	],
+	"day 11": [
+		{"altitude": 900},
+		{"altitude": 900}
+	],
+	"day 07": [
+		{"altitude": 3566},
+		{"altitude": 3566}
+	],
+	"day 06": [
+		{"altitude": 3000},
+		{"altitude": 3000}
+	],
+	"day 05": [
+		{"altitude": 2377},
+		{"altitude": 2377}
+	],
+	"day 04": [
+		{"altitude": 1952},
+		{"altitude": 1952}
+	],
+	"day 09": [
+		{"altitude": 1646},
+		{"altitude": 1646}
+	],
+	"day 08": [
+		{"altitude": 1952},
+		{"altitude": 1952}
+	]
+},
+"Disease or medical condition": {
+	"1824mo": [
+		{"height": 79.5782},
+		{"height": 79.5782},
+		{"height": 79.5782},
+		{"height": 79.5782},
+		{"height": 79.5782},
+		{"height": 79.5782}
+	],
+	"4t toddler": [
+		{"height": 97.5868},
+		{"height": 97.5868},
+		{"height": 97.5868},
+		{"height": 97.5868},
+		{"height": 97.5868},
+		{"height": 97.5868}
+	],
+	"yellow women": [
+		{"length": 5970},
+		{"length": 5977},
+		{"length": 5620}
+	],
+	"2t3t toddler": [
+		{"height": 87.3252},
+		{"height": 87.3252},
+		{"height": 87.3252},
+		{"height": 87.3252},
+		{"height": 87.3252},
+		{"height": 87.3252}
+	],
+	"612mo": [
+		{"height": 66.8020},
+		{"height": 66.8020},
+		{"height": 66.8020},
+		{"height": 66.8020},
+		{"height": 66.8020},
+		{"height": 66.8020}
+	],
+	"3t  toddler": [
+		{"height": 89.8652},
+		{"height": 89.8652},
+		{"height": 89.8652},
+		{"height": 89.8652},
+		{"height": 89.8652},
+		{"height": 89.8652}
+	],
+	"blue men": [
+		{"length": 5504},
+		{"length": 5540},
+		{"length": 5234}
+	],
+	"newborn": [
+		{"height": 46.3296},
+		{"height": 46.3296},
+		{"height": 46.3296},
+		{"height": 46.3296},
+		{"height": 46.3296},
+		{"height": 46.3296}
+	],
+	"2t  toddler": [
+		{"height": 84.7090},
+		{"height": 84.7090},
+		{"height": 84.7090},
+		{"height": 84.7090},
+		{"height": 84.7090},
+		{"height": 84.7090}
+	],
+	"blue women": [
+		{"length": 5540},
+		{"length": 5504},
+		{"length": 5234}
+	],
+	"1224mo": [
+		{"height": 77.0636},
+		{"height": 77.0636},
+		{"height": 77.0636},
+		{"height": 77.0636},
+		{"height": 77.0636},
+		{"height": 77.0636}
+	],
+	"2t4t toddler": [
+		{"height": 89.9414},
+		{"height": 89.9414},
+		{"height": 89.9414},
+		{"height": 89.9414},
+		{"height": 89.9414},
+		{"height": 89.9414}
+	],
+	"red women": [
+		{"length": 4818},
+		{"length": 5080},
+		{"length": 4981}
+	],
+	"white men": [
+		{"length": 6375},
+		{"length": 5771},
+		{"length": 6406}
+	],
+	"red men": [
+		{"length": 5080},
+		{"length": 4981},
+		{"length": 4818}
+	],
+	"yellow men": [
+		{"length": 5977},
+		{"length": 5620},
+		{"length": 5970}
+	],
+	"white women": [
+		{"length": 5771}
+	],
+	"36mo": [
+		{"height": 61.6712},
+		{"height": 61.6712},
+		{"height": 61.6712},
+		{"height": 61.6712},
+		{"height": 61.6712},
+		{"height": 61.6712}
+	],
+	"06mo": [
+		{"height": 51.4604},
+		{"height": 51.4604},
+		{"height": 51.4604},
+		{"height": 51.4604},
+		{"height": 51.4604},
+		{"height": 51.4604}
+	],
+	"1218mo": [
+		{"height": 74.4728},
+		{"height": 74.4728},
+		{"height": 74.4728},
+		{"height": 74.4728},
+		{"height": 74.4728},
+		{"height": 74.4728}
+	]
+},
+"Music Festival": {
+	"day 03": [
+		{"altitude": 1951},
+		{"altitude": 1951}
+	],
+	"day 02": [
+		{"altitude": 1563},
+		{"altitude": 1563}
+	],
+	"day 01": [
+		{"altitude": 1400},
+		{"altitude": 1400}
+	],
+	"day 11": [
+		{"altitude": 900},
+		{"altitude": 900}
+	],
+	"day 07": [
+		{"altitude": 3566},
+		{"altitude": 3566}
+	],
+	"day 06": [
+		{"altitude": 3000},
+		{"altitude": 3000}
+	],
+	"day 05": [
+		{"altitude": 2377},
+		{"altitude": 2377}
+	],
+	"day 04": [
+		{"altitude": 1952},
+		{"altitude": 1952}
+	],
+	"day 09": [
+		{"altitude": 1646},
+		{"altitude": 1646}
+	],
+	"day 08": [
+		{"altitude": 1952},
+		{"altitude": 1952}
+	]
+},
+"Quotation": {
+	"single": [
+		{"length": 1.90}
+	],
+	"double": [
+		{"length": 1.90}
+	],
+	"super kingsize": [
+		{"length": 2.00}
+	],
+	"small double": [
+		{"length": 1.90}
+	],
+	"kingsize": [
+		{"length": 2.00}
+	],
+	"small single": [
+		{"length": 1.90}
+	]
+},
+"Military Regiment": {
+	"single": [
+		{"length": 1.90}
+	],
+	"double": [
+		{"length": 1.90}
+	],
+	"super kingsize": [
+		{"length": 2.00}
+	],
+	"small double": [
+		{"length": 1.90}
+	],
+	"kingsize": [
+		{"length": 2.00}
+	],
+	"small single": [
+		{"length": 1.90}
+	]
+},
+"Book": {
+	"yellow women": [
+		{"length": 5970},
+		{"length": 5977},
+		{"length": 5620}
+	],
+	"red women": [
+		{"length": 4818},
+		{"length": 5080},
+		{"length": 4981}
+	],
+	"white men": [
+		{"length": 6375},
+		{"length": 5771},
+		{"length": 6406}
+	],
+	"red men": [
+		{"length": 5080},
+		{"length": 4981},
+		{"length": 4818}
+	],
+	"yellow men": [
+		{"length": 5977},
+		{"length": 5620},
+		{"length": 5970}
+	],
+	"white women": [
+		{"length": 5771}
+	],
+	"blue men": [
+		{"length": 5504},
+		{"length": 5540},
+		{"length": 5234}
+	],
+	"blue women": [
+		{"length": 5540},
+		{"length": 5504},
+		{"length": 5234}
+	]
+},
+"Currency": {
+	"s": [
+		{"height": 1.60}
+	],
+	"xl": [
+		{"height": 1.75}
+	],
+	"xs": [
+		{"height": 1.55}
+	],
+	"l": [
+		{"height": 1.70}
+	],
+	"xxxl": [
+		{"height": 1.85}
+	],
+	"m": [
+		{"height": 1.65}
+	],
+	"xxl": [
+		{"height": 1.80}
+	]
+},
+"Biological Genus": {
+	"chamarel rhumerie": [
+		{"altitude": 331}
+	],
+	"eyeglass loupe 5x": [
+		{"diameter": 0.240}
+	],
+	"quinze cantons": [
+		{"altitude": 424}
+	],
+	"eyeglass loupe 3x": [
+		{"diameter": 0.240}
+	],
+	"rondpoint riviere rempart": [
+		{"altitude": 50}
+	],
+	"la marie": [
+		{"altitude": 510}
+	],
+	"point de vue": [
+		{"altitude": 317}
+	],
+	"carrefour b9 le morne": [
+		{"altitude": 26}
+	],
+	"le paradis": [
+		{"altitude": 11}
+	],
+	"quatre bornes": [
+		{"altitude": 330}
+	],
+	"mare aux vacoas": [
+		{"altitude": 580}
+	],
+	"day 11": [
+		{"altitude": 900},
+		{"altitude": 900}
+	],
+	"case noyale": [
+		{"altitude": 60}
+	],
+	"eyeglass loupe 7x": [
+		{"diameter": 0.240}
+	],
+	"carrefour b9 le norme": [
+		{"altitude": 26}
+	],
+	"carrefour quatre bornes": [
+		{"altitude": 130}
+	],
+	"eyeglass loupe 4x": [
+		{"diameter": 0.240}
+	],
+	"la gaulette": [
+		{"altitude": 17}
+	],
+	"grande rivire noire": [
+		{"altitude": 29}
+	],
+	"tamarin": [
+		{"altitude": 35}
+	],
+	"rondpoint": [
+		{"altitude": 712}
+	],
+	"jet ranch": [
+		{"altitude": 668}
+	],
+	"day 03": [
+		{"altitude": 1951},
+		{"altitude": 1951}
+	],
+	"glen park": [
+		{"altitude": 465}
+	],
+	"day 02": [
+		{"altitude": 1563},
+		{"altitude": 1563}
+	],
+	"day 01": [
+		{"altitude": 1400},
+		{"altitude": 1400}
+	],
+	"day 07": [
+		{"altitude": 3566},
+		{"altitude": 3566}
+	],
+	"day 06": [
+		{"altitude": 3000},
+		{"altitude": 3000}
+	],
+	"day 05": [
+		{"altitude": 2377},
+		{"altitude": 2377}
+	],
+	"day 04": [
+		{"altitude": 1952},
+		{"altitude": 1952}
+	],
+	"le ptrin": [
+		{"altitude": 665}
+	],
+	"day 09": [
+		{"altitude": 1646},
+		{"altitude": 1646}
+	],
+	"col chamarel": [
+		{"altitude": 734}
+	],
+	"day 08": [
+		{"altitude": 1952},
+		{"altitude": 1952}
+	]
+},
+"Professional Sports Team": {
+	"yellow women": [
+		{"length": 5970},
+		{"length": 5977},
+		{"length": 5620}
+	],
+	"red women": [
+		{"length": 4818},
+		{"length": 5080},
+		{"length": 4981}
+	],
+	"white men": [
+		{"length": 6375},
+		{"length": 5771},
+		{"length": 6406}
+	],
+	"red men": [
+		{"length": 5080},
+		{"length": 4981},
+		{"length": 4818}
+	],
+	"yellow men": [
+		{"length": 5977},
+		{"length": 5620},
+		{"length": 5970}
+	],
+	"white women": [
+		{"length": 5771}
+	],
+	"blue men": [
+		{"length": 5504},
+		{"length": 5540},
+		{"length": 5234}
+	],
+	"blue women": [
+		{"length": 5540},
+		{"length": 5504},
+		{"length": 5234}
+	]
+},
+"Quotation Subject": {
+	"single": [
+		{"length": 1.90}
+	],
+	"double": [
+		{"length": 1.90}
+	],
+	"super kingsize": [
+		{"length": 2.00}
+	],
+	"small double": [
+		{"length": 1.90}
+	],
+	"kingsize": [
+		{"length": 2.00}
+	],
+	"small single": [
+		{"length": 1.90}
+	]
+},
+"Mass Transportation System": {
+	"s": [
+		{"height": 1.60}
+	],
+	"xl": [
+		{"height": 1.75}
+	],
+	"xs": [
+		{"height": 1.55}
+	],
+	"l": [
+		{"height": 1.70}
+	],
+	"xxxl": [
+		{"height": 1.85}
+	],
+	"m": [
+		{"height": 1.65}
+	],
+	"xxl": [
+		{"height": 1.80}
+	]
+},
+"Musical Album": {
+	"4x4": [
+		{"weight": 952.543200}
+	],
+	"argyle": [
+		{"weight": 589.669600}
+	],
+	"projector": [
+		{"weight": 1133.980000}
+	],
+	"2x2 tabletop": [
+		{"weight": 317.514400}
+	],
+	"pyramid": [
+		{"weight": 430.912400}
+	],
+	"3 quad pyramid tabletop": [
+		{"weight": 249.475600}
+	],
+	"10 quad pyramid": [
+		{"weight": 657.708400}
+	],
+	"1x3": [
+		{"weight": 249.475600}
+	],
+	"2x3": [
+		{"weight": 430.912400}
+	],
+	"xframe": [
+		{"weight": 408.232800}
+	],
+	"3x3": [
+		{"weight": 566.990000}
+	],
+	"4x3": [
+		{"weight": 771.106400}
+	]
+},
+"American football team": {
+	"s": [
+		{"height": 1.60}
+	],
+	"xl": [
+		{"height": 1.75}
+	],
+	"xs": [
+		{"height": 1.55}
+	],
+	"l": [
+		{"height": 1.70}
+	],
+	"xxxl": [
+		{"height": 1.85}
+	],
+	"m": [
+		{"height": 1.65}
+	],
+	"xxl": [
+		{"height": 1.80}
+	]
+},
+"Drug": {
+	"yellow women": [
+		{"length": 5970},
+		{"length": 5977},
+		{"length": 5620}
+	],
+	"red women": [
+		{"length": 4818},
+		{"length": 5080},
+		{"length": 4981}
+	],
+	"white men": [
+		{"length": 6375},
+		{"length": 5771},
+		{"length": 6406}
+	],
+	"red men": [
+		{"length": 5080},
+		{"length": 4981},
+		{"length": 4818}
+	],
+	"yellow men": [
+		{"length": 5977},
+		{"length": 5620},
+		{"length": 5970}
+	],
+	"white women": [
+		{"length": 5771}
+	],
+	"blue men": [
+		{"length": 5504},
+		{"length": 5540},
+		{"length": 5234}
+	],
+	"blue women": [
+		{"length": 5540},
+		{"length": 5504},
+		{"length": 5234}
+	]
+},
+"Canonical Version": {
+	"chamarel rhumerie": [
+		{"altitude": 331}
+	],
+	"eyeglass loupe 5x": [
+		{"diameter": 0.240}
+	],
+	"quinze cantons": [
+		{"altitude": 424}
+	],
+	"eyeglass loupe 3x": [
+		{"diameter": 0.240}
+	],
+	"rondpoint riviere rempart": [
+		{"altitude": 50}
+	],
+	"la marie": [
+		{"altitude": 510}
+	],
+	"point de vue": [
+		{"altitude": 317}
+	],
+	"carrefour b9 le morne": [
+		{"altitude": 26}
+	],
+	"le paradis": [
+		{"altitude": 11}
+	],
+	"quatre bornes": [
+		{"altitude": 330}
+	],
+	"mare aux vacoas": [
+		{"altitude": 580}
+	],
+	"day 11": [
+		{"altitude": 900},
+		{"altitude": 900}
+	],
+	"case noyale": [
+		{"altitude": 60}
+	],
+	"eyeglass loupe 7x": [
+		{"diameter": 0.240}
+	],
+	"carrefour b9 le norme": [
+		{"altitude": 26}
+	],
+	"carrefour quatre bornes": [
+		{"altitude": 130}
+	],
+	"eyeglass loupe 4x": [
+		{"diameter": 0.240}
+	],
+	"la gaulette": [
+		{"altitude": 17}
+	],
+	"grande rivire noire": [
+		{"altitude": 29}
+	],
+	"tamarin": [
+		{"altitude": 35}
+	],
+	"rondpoint": [
+		{"altitude": 712}
+	],
+	"jet ranch": [
+		{"altitude": 668}
+	],
+	"day 03": [
+		{"altitude": 1951},
+		{"altitude": 1951}
+	],
+	"glen park": [
+		{"altitude": 465}
+	],
+	"day 02": [
+		{"altitude": 1563},
+		{"altitude": 1563}
+	],
+	"day 01": [
+		{"altitude": 1400},
+		{"altitude": 1400}
+	],
+	"day 07": [
+		{"altitude": 3566},
+		{"altitude": 3566}
+	],
+	"day 06": [
+		{"altitude": 3000},
+		{"altitude": 3000}
+	],
+	"day 05": [
+		{"altitude": 2377},
+		{"altitude": 2377}
+	],
+	"day 04": [
+		{"altitude": 1952},
+		{"altitude": 1952}
+	],
+	"le ptrin": [
+		{"altitude": 665}
+	],
+	"day 09": [
+		{"altitude": 1646},
+		{"altitude": 1646}
+	],
+	"col chamarel": [
+		{"altitude": 734}
+	],
+	"day 08": [
+		{"altitude": 1952},
+		{"altitude": 1952}
+	]
+},
+"TV Season": {
+	"day 03": [
+		{"altitude": 1951},
+		{"altitude": 1951}
+	],
+	"day 02": [
+		{"altitude": 1563},
+		{"altitude": 1563}
+	],
+	"day 01": [
+		{"altitude": 1400},
+		{"altitude": 1400}
+	],
+	"day 11": [
+		{"altitude": 900},
+		{"altitude": 900}
+	],
+	"day 07": [
+		{"altitude": 3566},
+		{"altitude": 3566}
+	],
+	"day 06": [
+		{"altitude": 3000},
+		{"altitude": 3000}
+	],
+	"day 05": [
+		{"altitude": 2377},
+		{"altitude": 2377}
+	],
+	"day 04": [
+		{"altitude": 1952},
+		{"altitude": 1952}
+	],
+	"day 09": [
+		{"altitude": 1646},
+		{"altitude": 1646}
+	],
+	"day 08": [
+		{"altitude": 1952},
+		{"altitude": 1952}
+	]
+},
+"Composition": {
+	"eyeglass loupe 5x": [
+		{"diameter": 0.240}
+	],
+	"eyeglass loupe 4x": [
+		{"diameter": 0.240}
+	],
+	"eyeglass loupe 3x": [
+		{"diameter": 0.240}
+	],
+	"eyeglass loupe 7x": [
+		{"diameter": 0.240}
+	]
+},
+"Musical Artist": {
+	"yellow women": [
+		{"length": 5970},
+		{"length": 5977},
+		{"length": 5620}
+	],
+	"red women": [
+		{"length": 4818},
+		{"length": 5080},
+		{"length": 4981}
+	],
+	"white men": [
+		{"length": 6375},
+		{"length": 5771},
+		{"length": 6406}
+	],
+	"red men": [
+		{"length": 5080},
+		{"length": 4981},
+		{"length": 4818}
+	],
+	"yellow men": [
+		{"length": 5977},
+		{"length": 5620},
+		{"length": 5970}
+	],
+	"white women": [
+		{"length": 5771}
+	],
+	"blue men": [
+		{"length": 5504},
+		{"length": 5540},
+		{"length": 5234}
+	],
+	"blue women": [
+		{"length": 5540},
+		{"length": 5504},
+		{"length": 5234}
+	]
+},
+"City/Town/Village": {
+	"1824mo": [
+		{"height": 79.5782},
+		{"height": 79.5782},
+		{"height": 79.5782},
+		{"height": 79.5782},
+		{"height": 79.5782},
+		{"height": 79.5782}
+	],
+	"4t toddler": [
+		{"height": 97.5868},
+		{"height": 97.5868},
+		{"height": 97.5868},
+		{"height": 97.5868},
+		{"height": 97.5868},
+		{"height": 97.5868}
+	],
+	"yellow women": [
+		{"length": 5970},
+		{"length": 5977},
+		{"length": 5620}
+	],
+	"2t3t toddler": [
+		{"height": 87.3252},
+		{"height": 87.3252},
+		{"height": 87.3252},
+		{"height": 87.3252},
+		{"height": 87.3252},
+		{"height": 87.3252}
+	],
+	"612mo": [
+		{"height": 66.8020},
+		{"height": 66.8020},
+		{"height": 66.8020},
+		{"height": 66.8020},
+		{"height": 66.8020},
+		{"height": 66.8020}
+	],
+	"3t  toddler": [
+		{"height": 89.8652},
+		{"height": 89.8652},
+		{"height": 89.8652},
+		{"height": 89.8652},
+		{"height": 89.8652},
+		{"height": 89.8652}
+	],
+	"blue men": [
+		{"length": 5504},
+		{"length": 5540},
+		{"length": 5234}
+	],
+	"newborn": [
+		{"height": 46.3296},
+		{"height": 46.3296},
+		{"height": 46.3296},
+		{"height": 46.3296},
+		{"height": 46.3296},
+		{"height": 46.3296}
+	],
+	"2t  toddler": [
+		{"height": 84.7090},
+		{"height": 84.7090},
+		{"height": 84.7090},
+		{"height": 84.7090},
+		{"height": 84.7090},
+		{"height": 84.7090}
+	],
+	"blue women": [
+		{"length": 5540},
+		{"length": 5504},
+		{"length": 5234}
+	],
+	"1224mo": [
+		{"height": 77.0636},
+		{"height": 77.0636},
+		{"height": 77.0636},
+		{"height": 77.0636},
+		{"height": 77.0636},
+		{"height": 77.0636}
+	],
+	"2t4t toddler": [
+		{"height": 89.9414},
+		{"height": 89.9414},
+		{"height": 89.9414},
+		{"height": 89.9414},
+		{"height": 89.9414},
+		{"height": 89.9414}
+	],
+	"red women": [
+		{"length": 4818},
+		{"length": 5080},
+		{"length": 4981}
+	],
+	"white men": [
+		{"length": 6375},
+		{"length": 5771},
+		{"length": 6406}
+	],
+	"red men": [
+		{"length": 5080},
+		{"length": 4981},
+		{"length": 4818}
+	],
+	"yellow men": [
+		{"length": 5977},
+		{"length": 5620},
+		{"length": 5970}
+	],
+	"white women": [
+		{"length": 5771}
+	],
+	"36mo": [
+		{"height": 61.6712},
+		{"height": 61.6712},
+		{"height": 61.6712},
+		{"height": 61.6712},
+		{"height": 61.6712},
+		{"height": 61.6712}
+	],
+	"06mo": [
+		{"height": 51.4604},
+		{"height": 51.4604},
+		{"height": 51.4604},
+		{"height": 51.4604},
+		{"height": 51.4604},
+		{"height": 51.4604}
+	],
+	"1218mo": [
+		{"height": 74.4728},
+		{"height": 74.4728},
+		{"height": 74.4728},
+		{"height": 74.4728},
+		{"height": 74.4728},
+		{"height": 74.4728}
+	]
+},
+"Football team": {
+	"4x4": [
+		{"weight": 952.543200}
+	],
+	"argyle": [
+		{"weight": 589.669600}
+	],
+	"projector": [
+		{"weight": 1133.980000}
+	],
+	"2x2 tabletop": [
+		{"weight": 317.514400}
+	],
+	"pyramid": [
+		{"weight": 430.912400}
+	],
+	"3 quad pyramid tabletop": [
+		{"weight": 249.475600}
+	],
+	"10 quad pyramid": [
+		{"weight": 657.708400}
+	],
+	"1x3": [
+		{"weight": 249.475600}
+	],
+	"2x3": [
+		{"weight": 430.912400}
+	],
+	"xframe": [
+		{"weight": 408.232800}
+	],
+	"3x3": [
+		{"weight": 566.990000}
+	],
+	"4x3": [
+		{"weight": 771.106400}
+	]
+},
+"Aircraft model": {
+	"eyeglass loupe 5x": [
+		{"diameter": 0.240}
+	],
+	"eyeglass loupe 4x": [
+		{"diameter": 0.240}
+	],
+	"eyeglass loupe 3x": [
+		{"diameter": 0.240}
+	],
+	"eyeglass loupe 7x": [
+		{"diameter": 0.240}
+	]
+},
+"Film music contributor": {
+	"1824mo": [
+		{"height": 79.5782},
+		{"height": 79.5782},
+		{"height": 79.5782},
+		{"height": 79.5782},
+		{"height": 79.5782},
+		{"height": 79.5782}
+	],
+	"4t toddler": [
+		{"height": 97.5868},
+		{"height": 97.5868},
+		{"height": 97.5868},
+		{"height": 97.5868},
+		{"height": 97.5868},
+		{"height": 97.5868}
+	],
+	"yellow women": [
+		{"length": 5970},
+		{"length": 5977},
+		{"length": 5620}
+	],
+	"2t3t toddler": [
+		{"height": 87.3252},
+		{"height": 87.3252},
+		{"height": 87.3252},
+		{"height": 87.3252},
+		{"height": 87.3252},
+		{"height": 87.3252}
+	],
+	"612mo": [
+		{"height": 66.8020},
+		{"height": 66.8020},
+		{"height": 66.8020},
+		{"height": 66.8020},
+		{"height": 66.8020},
+		{"height": 66.8020}
+	],
+	"3t  toddler": [
+		{"height": 89.8652},
+		{"height": 89.8652},
+		{"height": 89.8652},
+		{"height": 89.8652},
+		{"height": 89.8652},
+		{"height": 89.8652}
+	],
+	"blue men": [
+		{"length": 5504},
+		{"length": 5540},
+		{"length": 5234}
+	],
+	"newborn": [
+		{"height": 46.3296},
+		{"height": 46.3296},
+		{"height": 46.3296},
+		{"height": 46.3296},
+		{"height": 46.3296},
+		{"height": 46.3296}
+	],
+	"2t  toddler": [
+		{"height": 84.7090},
+		{"height": 84.7090},
+		{"height": 84.7090},
+		{"height": 84.7090},
+		{"height": 84.7090},
+		{"height": 84.7090}
+	],
+	"blue women": [
+		{"length": 5540},
+		{"length": 5504},
+		{"length": 5234}
+	],
+	"1224mo": [
+		{"height": 77.0636},
+		{"height": 77.0636},
+		{"height": 77.0636},
+		{"height": 77.0636},
+		{"height": 77.0636},
+		{"height": 77.0636}
+	],
+	"2t4t toddler": [
+		{"height": 89.9414},
+		{"height": 89.9414},
+		{"height": 89.9414},
+		{"height": 89.9414},
+		{"height": 89.9414},
+		{"height": 89.9414}
+	],
+	"red women": [
+		{"length": 4818},
+		{"length": 5080},
+		{"length": 4981}
+	],
+	"white men": [
+		{"length": 6375},
+		{"length": 5771},
+		{"length": 6406}
+	],
+	"red men": [
+		{"length": 5080},
+		{"length": 4981},
+		{"length": 4818}
+	],
+	"yellow men": [
+		{"length": 5977},
+		{"length": 5620},
+		{"length": 5970}
+	],
+	"white women": [
+		{"length": 5771}
+	],
+	"36mo": [
+		{"height": 61.6712},
+		{"height": 61.6712},
+		{"height": 61.6712},
+		{"height": 61.6712},
+		{"height": 61.6712},
+		{"height": 61.6712}
+	],
+	"06mo": [
+		{"height": 51.4604},
+		{"height": 51.4604},
+		{"height": 51.4604},
+		{"height": 51.4604},
+		{"height": 51.4604},
+		{"height": 51.4604}
+	],
+	"1218mo": [
+		{"height": 74.4728},
+		{"height": 74.4728},
+		{"height": 74.4728},
+		{"height": 74.4728},
+		{"height": 74.4728},
+		{"height": 74.4728}
+	]
+},
+"Jazz pianist": {
+	"1824mo": [
+		{"height": 79.5782},
+		{"height": 79.5782},
+		{"height": 79.5782},
+		{"height": 79.5782},
+		{"height": 79.5782},
+		{"height": 79.5782}
+	],
+	"4t toddler": [
+		{"height": 97.5868},
+		{"height": 97.5868},
+		{"height": 97.5868},
+		{"height": 97.5868},
+		{"height": 97.5868},
+		{"height": 97.5868}
+	],
+	"yellow women": [
+		{"length": 5970},
+		{"length": 5977},
+		{"length": 5620}
+	],
+	"2t3t toddler": [
+		{"height": 87.3252},
+		{"height": 87.3252},
+		{"height": 87.3252},
+		{"height": 87.3252},
+		{"height": 87.3252},
+		{"height": 87.3252}
+	],
+	"612mo": [
+		{"height": 66.8020},
+		{"height": 66.8020},
+		{"height": 66.8020},
+		{"height": 66.8020},
+		{"height": 66.8020},
+		{"height": 66.8020}
+	],
+	"3t  toddler": [
+		{"height": 89.8652},
+		{"height": 89.8652},
+		{"height": 89.8652},
+		{"height": 89.8652},
+		{"height": 89.8652},
+		{"height": 89.8652}
+	],
+	"blue men": [
+		{"length": 5504},
+		{"length": 5540},
+		{"length": 5234}
+	],
+	"newborn": [
+		{"height": 46.3296},
+		{"height": 46.3296},
+		{"height": 46.3296},
+		{"height": 46.3296},
+		{"height": 46.3296},
+		{"height": 46.3296}
+	],
+	"2t  toddler": [
+		{"height": 84.7090},
+		{"height": 84.7090},
+		{"height": 84.7090},
+		{"height": 84.7090},
+		{"height": 84.7090},
+		{"height": 84.7090}
+	],
+	"blue women": [
+		{"length": 5540},
+		{"length": 5504},
+		{"length": 5234}
+	],
+	"1224mo": [
+		{"height": 77.0636},
+		{"height": 77.0636},
+		{"height": 77.0636},
+		{"height": 77.0636},
+		{"height": 77.0636},
+		{"height": 77.0636}
+	],
+	"2t4t toddler": [
+		{"height": 89.9414},
+		{"height": 89.9414},
+		{"height": 89.9414},
+		{"height": 89.9414},
+		{"height": 89.9414},
+		{"height": 89.9414}
+	],
+	"red women": [
+		{"length": 4818},
+		{"length": 5080},
+		{"length": 4981}
+	],
+	"white men": [
+		{"length": 6375},
+		{"length": 5771},
+		{"length": 6406}
+	],
+	"red men": [
+		{"length": 5080},
+		{"length": 4981},
+		{"length": 4818}
+	],
+	"yellow men": [
+		{"length": 5977},
+		{"length": 5620},
+		{"length": 5970}
+	],
+	"white women": [
+		{"length": 5771}
+	],
+	"36mo": [
+		{"height": 61.6712},
+		{"height": 61.6712},
+		{"height": 61.6712},
+		{"height": 61.6712},
+		{"height": 61.6712},
+		{"height": 61.6712}
+	],
+	"06mo": [
+		{"height": 51.4604},
+		{"height": 51.4604},
+		{"height": 51.4604},
+		{"height": 51.4604},
+		{"height": 51.4604},
+		{"height": 51.4604}
+	],
+	"1218mo": [
+		{"height": 74.4728},
+		{"height": 74.4728},
+		{"height": 74.4728},
+		{"height": 74.4728},
+		{"height": 74.4728},
+		{"height": 74.4728}
+	]
+},
+"Musical Release": {
+	"4x4": [
+		{"weight": 952.543200}
+	],
+	"argyle": [
+		{"weight": 589.669600}
+	],
+	"projector": [
+		{"weight": 1133.980000}
+	],
+	"2x2 tabletop": [
+		{"weight": 317.514400}
+	],
+	"pyramid": [
+		{"weight": 430.912400}
+	],
+	"3 quad pyramid tabletop": [
+		{"weight": 249.475600}
+	],
+	"10 quad pyramid": [
+		{"weight": 657.708400}
+	],
+	"1x3": [
+		{"weight": 249.475600}
+	],
+	"2x3": [
+		{"weight": 430.912400}
+	],
+	"xframe": [
+		{"weight": 408.232800}
+	],
+	"3x3": [
+		{"weight": 566.990000}
+	],
+	"4x3": [
+		{"weight": 771.106400}
+	]
+},
+"Product category": {
+	"single": [
+		{"length": 1.90}
+	],
+	"double": [
+		{"length": 1.90}
+	],
+	"super kingsize": [
+		{"length": 2.00}
+	],
+	"small double": [
+		{"length": 1.90}
+	],
+	"kingsize": [
+		{"length": 2.00}
+	],
+	"small single": [
+		{"length": 1.90}
+	]
+},
+"Sports League Season": {
+	"day 03": [
+		{"altitude": 1951},
+		{"altitude": 1951}
+	],
+	"day 02": [
+		{"altitude": 1563},
+		{"altitude": 1563}
+	],
+	"day 01": [
+		{"altitude": 1400},
+		{"altitude": 1400}
+	],
+	"day 11": [
+		{"altitude": 900},
+		{"altitude": 900}
+	],
+	"day 07": [
+		{"altitude": 3566},
+		{"altitude": 3566}
+	],
+	"day 06": [
+		{"altitude": 3000},
+		{"altitude": 3000}
+	],
+	"day 05": [
+		{"altitude": 2377},
+		{"altitude": 2377}
+	],
+	"day 04": [
+		{"altitude": 1952},
+		{"altitude": 1952}
+	],
+	"day 09": [
+		{"altitude": 1646},
+		{"altitude": 1646}
+	],
+	"day 08": [
+		{"altitude": 1952},
+		{"altitude": 1952}
+	]
+},
+"Musical Recording": {
+	"chamarel rhumerie": [
+		{"altitude": 331}
+	],
+	"eyeglass loupe 5x": [
+		{"diameter": 0.240}
+	],
+	"quinze cantons": [
+		{"altitude": 424}
+	],
+	"eyeglass loupe 3x": [
+		{"diameter": 0.240}
+	],
+	"rondpoint riviere rempart": [
+		{"altitude": 50}
+	],
+	"la marie": [
+		{"altitude": 510}
+	],
+	"point de vue": [
+		{"altitude": 317}
+	],
+	"carrefour b9 le morne": [
+		{"altitude": 26}
+	],
+	"le paradis": [
+		{"altitude": 11}
+	],
+	"quatre bornes": [
+		{"altitude": 330}
+	],
+	"mare aux vacoas": [
+		{"altitude": 580}
+	],
+	"day 11": [
+		{"altitude": 900},
+		{"altitude": 900}
+	],
+	"case noyale": [
+		{"altitude": 60}
+	],
+	"eyeglass loupe 7x": [
+		{"diameter": 0.240}
+	],
+	"carrefour b9 le norme": [
+		{"altitude": 26}
+	],
+	"carrefour quatre bornes": [
+		{"altitude": 130}
+	],
+	"eyeglass loupe 4x": [
+		{"diameter": 0.240}
+	],
+	"la gaulette": [
+		{"altitude": 17}
+	],
+	"grande rivire noire": [
+		{"altitude": 29}
+	],
+	"tamarin": [
+		{"altitude": 35}
+	],
+	"rondpoint": [
+		{"altitude": 712}
+	],
+	"jet ranch": [
+		{"altitude": 668}
+	],
+	"day 03": [
+		{"altitude": 1951},
+		{"altitude": 1951}
+	],
+	"glen park": [
+		{"altitude": 465}
+	],
+	"day 02": [
+		{"altitude": 1563},
+		{"altitude": 1563}
+	],
+	"day 01": [
+		{"altitude": 1400},
+		{"altitude": 1400}
+	],
+	"day 07": [
+		{"altitude": 3566},
+		{"altitude": 3566}
+	],
+	"day 06": [
+		{"altitude": 3000},
+		{"altitude": 3000}
+	],
+	"day 05": [
+		{"altitude": 2377},
+		{"altitude": 2377}
+	],
+	"day 04": [
+		{"altitude": 1952},
+		{"altitude": 1952}
+	],
+	"le ptrin": [
+		{"altitude": 665}
+	],
+	"day 09": [
+		{"altitude": 1646},
+		{"altitude": 1646}
+	],
+	"col chamarel": [
+		{"altitude": 734}
+	],
+	"day 08": [
+		{"altitude": 1952},
+		{"altitude": 1952}
+	]
+},
+"Software": {
+	"chamarel rhumerie": [
+		{"altitude": 331}
+	],
+	"eyeglass loupe 5x": [
+		{"diameter": 0.240}
+	],
+	"quinze cantons": [
+		{"altitude": 424}
+	],
+	"eyeglass loupe 3x": [
+		{"diameter": 0.240}
+	],
+	"rondpoint riviere rempart": [
+		{"altitude": 50}
+	],
+	"la marie": [
+		{"altitude": 510}
+	],
+	"point de vue": [
+		{"altitude": 317}
+	],
+	"carrefour b9 le morne": [
+		{"altitude": 26}
+	],
+	"le paradis": [
+		{"altitude": 11}
+	],
+	"quatre bornes": [
+		{"altitude": 330}
+	],
+	"mare aux vacoas": [
+		{"altitude": 580}
+	],
+	"day 11": [
+		{"altitude": 900},
+		{"altitude": 900}
+	],
+	"case noyale": [
+		{"altitude": 60}
+	],
+	"eyeglass loupe 7x": [
+		{"diameter": 0.240}
+	],
+	"carrefour b9 le norme": [
+		{"altitude": 26}
+	],
+	"carrefour quatre bornes": [
+		{"altitude": 130}
+	],
+	"eyeglass loupe 4x": [
+		{"diameter": 0.240}
+	],
+	"la gaulette": [
+		{"altitude": 17}
+	],
+	"grande rivire noire": [
+		{"altitude": 29}
+	],
+	"tamarin": [
+		{"altitude": 35}
+	],
+	"rondpoint": [
+		{"altitude": 712}
+	],
+	"jet ranch": [
+		{"altitude": 668}
+	],
+	"day 03": [
+		{"altitude": 1951},
+		{"altitude": 1951}
+	],
+	"glen park": [
+		{"altitude": 465}
+	],
+	"day 02": [
+		{"altitude": 1563},
+		{"altitude": 1563}
+	],
+	"day 01": [
+		{"altitude": 1400},
+		{"altitude": 1400}
+	],
+	"day 07": [
+		{"altitude": 3566},
+		{"altitude": 3566}
+	],
+	"day 06": [
+		{"altitude": 3000},
+		{"altitude": 3000}
+	],
+	"day 05": [
+		{"altitude": 2377},
+		{"altitude": 2377}
+	],
+	"day 04": [
+		{"altitude": 1952},
+		{"altitude": 1952}
+	],
+	"le ptrin": [
+		{"altitude": 665}
+	],
+	"day 09": [
+		{"altitude": 1646},
+		{"altitude": 1646}
+	],
+	"col chamarel": [
+		{"altitude": 734}
+	],
+	"day 08": [
+		{"altitude": 1952},
+		{"altitude": 1952}
+	]
+},
+"Risk Factor": {
+	"s": [
+		{"height": 1.60}
+	],
+	"xl": [
+		{"height": 1.75}
+	],
+	"xs": [
+		{"height": 1.55}
+	],
+	"l": [
+		{"height": 1.70}
+	],
+	"xxxl": [
+		{"height": 1.85}
+	],
+	"m": [
+		{"height": 1.65}
+	],
+	"xxl": [
+		{"height": 1.80}
+	]
+},
+"Rhythm and blues Artist": {
+	"yellow women": [
+		{"length": 5620}
+	],
+	"red women": [
+		{"length": 4818}
+	],
+	"white men": [
+		{"length": 5771}
+	],
+	"red men": [
+		{"length": 4818}
+	],
+	"white women": [
+		{"length": 5771}
+	],
+	"yellow men": [
+		{"length": 5620}
+	],
+	"blue men": [
+		{"length": 5234}
+	],
+	"blue women": [
+		{"length": 5234}
+	]
+},
+"Film subject": {
+	"1824mo": [
+		{"height": 79.5782},
+		{"height": 79.5782},
+		{"height": 79.5782},
+		{"height": 79.5782},
+		{"height": 79.5782},
+		{"height": 79.5782}
+	],
+	"4t toddler": [
+		{"height": 97.5868},
+		{"height": 97.5868},
+		{"height": 97.5868},
+		{"height": 97.5868},
+		{"height": 97.5868},
+		{"height": 97.5868}
+	],
+	"yellow women": [
+		{"length": 5970},
+		{"length": 5977},
+		{"length": 5620}
+	],
+	"2t3t toddler": [
+		{"height": 87.3252},
+		{"height": 87.3252},
+		{"height": 87.3252},
+		{"height": 87.3252},
+		{"height": 87.3252},
+		{"height": 87.3252}
+	],
+	"612mo": [
+		{"height": 66.8020},
+		{"height": 66.8020},
+		{"height": 66.8020},
+		{"height": 66.8020},
+		{"height": 66.8020},
+		{"height": 66.8020}
+	],
+	"3t  toddler": [
+		{"height": 89.8652},
+		{"height": 89.8652},
+		{"height": 89.8652},
+		{"height": 89.8652},
+		{"height": 89.8652},
+		{"height": 89.8652}
+	],
+	"blue men": [
+		{"length": 5504},
+		{"length": 5540},
+		{"length": 5234}
+	],
+	"newborn": [
+		{"height": 46.3296},
+		{"height": 46.3296},
+		{"height": 46.3296},
+		{"height": 46.3296},
+		{"height": 46.3296},
+		{"height": 46.3296}
+	],
+	"2t  toddler": [
+		{"height": 84.7090},
+		{"height": 84.7090},
+		{"height": 84.7090},
+		{"height": 84.7090},
+		{"height": 84.7090},
+		{"height": 84.7090}
+	],
+	"blue women": [
+		{"length": 5540},
+		{"length": 5504},
+		{"length": 5234}
+	],
+	"1224mo": [
+		{"height": 77.0636},
+		{"height": 77.0636},
+		{"height": 77.0636},
+		{"height": 77.0636},
+		{"height": 77.0636},
+		{"height": 77.0636}
+	],
+	"2t4t toddler": [
+		{"height": 89.9414},
+		{"height": 89.9414},
+		{"height": 89.9414},
+		{"height": 89.9414},
+		{"height": 89.9414},
+		{"height": 89.9414}
+	],
+	"red women": [
+		{"length": 4818},
+		{"length": 5080},
+		{"length": 4981}
+	],
+	"white men": [
+		{"length": 6375},
+		{"length": 5771},
+		{"length": 6406}
+	],
+	"red men": [
+		{"length": 5080},
+		{"length": 4981},
+		{"length": 4818}
+	],
+	"yellow men": [
+		{"length": 5977},
+		{"length": 5620},
+		{"length": 5970}
+	],
+	"white women": [
+		{"length": 5771}
+	],
+	"36mo": [
+		{"height": 61.6712},
+		{"height": 61.6712},
+		{"height": 61.6712},
+		{"height": 61.6712},
+		{"height": 61.6712},
+		{"height": 61.6712}
+	],
+	"06mo": [
+		{"height": 51.4604},
+		{"height": 51.4604},
+		{"height": 51.4604},
+		{"height": 51.4604},
+		{"height": 51.4604},
+		{"height": 51.4604}
+	],
+	"1218mo": [
+		{"height": 74.4728},
+		{"height": 74.4728},
+		{"height": 74.4728},
+		{"height": 74.4728},
+		{"height": 74.4728},
+		{"height": 74.4728}
+	]
+},
+"Biological Species": {
+	"chamarel rhumerie": [
+		{"altitude": 331}
+	],
+	"eyeglass loupe 5x": [
+		{"diameter": 0.240}
+	],
+	"quinze cantons": [
+		{"altitude": 424}
+	],
+	"eyeglass loupe 3x": [
+		{"diameter": 0.240}
+	],
+	"rondpoint riviere rempart": [
+		{"altitude": 50}
+	],
+	"la marie": [
+		{"altitude": 510}
+	],
+	"point de vue": [
+		{"altitude": 317}
+	],
+	"carrefour b9 le morne": [
+		{"altitude": 26}
+	],
+	"le paradis": [
+		{"altitude": 11}
+	],
+	"quatre bornes": [
+		{"altitude": 330}
+	],
+	"mare aux vacoas": [
+		{"altitude": 580}
+	],
+	"day 11": [
+		{"altitude": 900},
+		{"altitude": 900}
+	],
+	"case noyale": [
+		{"altitude": 60}
+	],
+	"eyeglass loupe 7x": [
+		{"diameter": 0.240}
+	],
+	"carrefour b9 le norme": [
+		{"altitude": 26}
+	],
+	"carrefour quatre bornes": [
+		{"altitude": 130}
+	],
+	"eyeglass loupe 4x": [
+		{"diameter": 0.240}
+	],
+	"la gaulette": [
+		{"altitude": 17}
+	],
+	"grande rivire noire": [
+		{"altitude": 29}
+	],
+	"tamarin": [
+		{"altitude": 35}
+	],
+	"rondpoint": [
+		{"altitude": 712}
+	],
+	"jet ranch": [
+		{"altitude": 668}
+	],
+	"day 03": [
+		{"altitude": 1951},
+		{"altitude": 1951}
+	],
+	"glen park": [
+		{"altitude": 465}
+	],
+	"day 02": [
+		{"altitude": 1563},
+		{"altitude": 1563}
+	],
+	"day 01": [
+		{"altitude": 1400},
+		{"altitude": 1400}
+	],
+	"day 07": [
+		{"altitude": 3566},
+		{"altitude": 3566}
+	],
+	"day 06": [
+		{"altitude": 3000},
+		{"altitude": 3000}
+	],
+	"day 05": [
+		{"altitude": 2377},
+		{"altitude": 2377}
+	],
+	"day 04": [
+		{"altitude": 1952},
+		{"altitude": 1952}
+	],
+	"le ptrin": [
+		{"altitude": 665}
+	],
+	"day 09": [
+		{"altitude": 1646},
+		{"altitude": 1646}
+	],
+	"col chamarel": [
+		{"altitude": 734}
+	],
+	"day 08": [
+		{"altitude": 1952},
+		{"altitude": 1952}
+	]
+},
+"Location": {
+	"4x4": [
+		{"weight": 952.543200}
+	],
+	"argyle": [
+		{"weight": 589.669600}
+	],
+	"projector": [
+		{"weight": 1133.980000}
+	],
+	"2x2 tabletop": [
+		{"weight": 317.514400}
+	],
+	"pyramid": [
+		{"weight": 430.912400}
+	],
+	"3 quad pyramid tabletop": [
+		{"weight": 249.475600}
+	],
+	"10 quad pyramid": [
+		{"weight": 657.708400}
+	],
+	"1x3": [
+		{"weight": 249.475600}
+	],
+	"2x3": [
+		{"weight": 430.912400}
+	],
+	"xframe": [
+		{"weight": 408.232800}
+	],
+	"3x3": [
+		{"weight": 566.990000}
+	],
+	"4x3": [
+		{"weight": 771.106400}
+	]
+}
+}

@@ -1,0 +1,623 @@
+: {
+	cimg0077jpg= [
+		size, 9
+	]
+	thesimskeynichesetzip= [
+		size, 6003
+	]
+	cimg0157jpg= [
+		size, 10
+	]
+	cimg0163jpg= [
+		size, 10
+	]
+	cimg0105jpg= [
+		size, 9
+	]
+	cimg0140jpg= [
+		size, 9
+	]
+	cimg0177jpg= [
+		size, 10
+	]
+	cimg0192jpg= [
+		size, 9
+	]
+	cimg0154jpg= [
+		size, 10
+	]
+	cimg0189jpg= [
+		size, 10
+	]
+	cimg0200jpg= [
+		size, 9
+	]
+	cimg0114jpg= [
+		size, 9
+	]
+	cimg0097jpg= [
+		size, 9
+	]
+	cimg0128avi= [
+		size, 183
+	]
+	cimg0208jpg= [
+		size, 10
+	]
+	cimg0160jpg= [
+		size, 9
+	]
+	sauce serving ladle= [
+		length, 18.50
+		length, 18.50
+	]
+	cimg0181jpg= [
+		size, 9
+	]
+	ch310541= [
+		volume, 3.28195047
+	]
+	r0150200= [
+		size, 0.013
+	]
+	cimg0143jpg= [
+		size, 9
+	]
+	cimg0086jpg= [
+		size, 9
+	]
+	cimg0108jpg= [
+		size, 10
+	]
+	cimg0122jpg= [
+		size, 10
+	]
+	cimg0131avi= [
+		size, 194
+	]
+	fls310= [
+		size, 3.0480
+		size, 3.0480
+	]
+	cimg0139avi= [
+		size, 160
+	]
+	cimg0146jpg= [
+		size, 10
+	]
+	fls312= [
+		size, 3.6576
+		size, 3.6576
+	]
+	section1flv= [
+		size, 2109
+	]
+	r0150600= [
+		size, 0.040
+	]
+	fls314= [
+		size, 4.2672
+		size, 4.2672
+	]
+	fls316= [
+		size, 4.8768
+		size, 4.8768
+	]
+	cimg0111jpg= [
+		size, 9
+	]
+	cimg0125avi= [
+		size, 92
+	]
+	rotp35= [
+		volume, 0.34825772
+	]
+	cimg0075jpg= [
+		size, 9
+	]
+	cimg0161jpg= [
+		size, 10
+	]
+	cimg0188jpg= [
+		size, 10
+	]
+	cimg0178jpg= [
+		size, 9
+	]
+	ro152= [
+		volume, 0.20819755
+	]
+	cimg0180jpg= [
+		size, 9
+	]
+	cimg0107jpg= [
+		size, 10
+	]
+	ro1070= [
+		volume, 0.05299574
+	]
+	cimg0206jpg= [
+		size, 9
+	]
+	cimg0149jpg= [
+		size, 9
+	]
+	cimg0095jpg= [
+		size, 9
+	]
+	ch308341= [
+		volume, 0.54888445
+	]
+	cimg0152jpg= [
+		size, 10
+	]
+	2730 cm= [
+		length, 1.38
+		length, 1.38
+	]
+	rcd297isomd5sum= [
+		size, 1
+	]
+	cimg0078jpg= [
+		size, 9
+	]
+	cimg0175avi= [
+		size, 202
+	]
+	cimg0158jpg= [
+		size, 10
+	]
+	cimg0183jpg= [
+		size, 10
+	]
+	cimg0141jpg= [
+		size, 10
+	]
+	frenchwindowssetzip= [
+		size, 10
+	]
+	cimg0084jpg= [
+		size, 9
+	]
+	r0150100= [
+		size, 0.010
+	]
+	cimg0102jpg= [
+		size, 9
+	]
+	ch343941= [
+		volume, 2.27124600
+	]
+	r0150500= [
+		size, 0.032
+	]
+	cimg0155jpg= [
+		size, 10
+	]
+	dessert  luncheon forks= [
+		length, 18.50
+		length, 18.50
+	]
+	r0150900= [
+		size, 0.064
+	]
+	cimg0113jpg= [
+		size, 9
+	]
+	cimg0109jpg= [
+		size, 10
+	]
+	cimg0176avi= [
+		size, 110
+	]
+	frenchoutdoorsetzip= [
+		size, 9050
+	]
+	pidgin240exe= [
+		size, 124
+	]
+	cimg0191avi= [
+		size, 47
+	]
+	senator post lantern in black= [
+		weight, 7.257472
+	]
+	ch343951= [
+		volume, 4.53113577
+	]
+	cimg0147jpg= [
+		size, 10
+	]
+	cimg0150jpg= [
+		size, 9
+	]
+	on557a= [
+		weight, 0.005
+	]
+	cimg0093jpg= [
+		size, 9
+	]
+	cimg0118jpg= [
+		size, 9
+	]
+	section1mov= [
+		size, 2062
+	]
+	on557c= [
+		weight, 0.025
+	]
+	cimg0204jpg= [
+		size, 10
+	]
+	on557d= [
+		weight, 0.100
+	]
+	on557e= [
+		weight, 0.500
+	]
+	cimg0124avi= [
+		size, 53
+	]
+	tea  coffee spoons= [
+		length, 14.50
+		length, 14.50
+	]
+	cimg0156jpg= [
+		size, 10
+	]
+	cimg0164jpg= [
+		size, 10
+	]
+	siteurltxt= [
+		size, 1
+	]
+	pidgin240targz= [
+		size, 128
+	]
+	ro122p= [
+		volume, 0.09463525
+	]
+	cimg0110avi= [
+		size, 24
+	]
+	r0150000= [
+		size, 0.007
+	]
+	cimg0104jpg= [
+		size, 10
+	]
+	lww512p= [
+		length, 0.500
+	]
+	lww524p= [
+		length, 1.000
+	]
+	lww536p= [
+		length, 1.200
+	]
+	cimg0170jpg= [
+		size, 9
+	]
+	r0150400= [
+		size, 0.027
+	]
+	section1mp3= [
+		size, 219
+	]
+	ch308391= [
+		volume, 0.74951118
+	]
+	r0150800= [
+		size, 0.050
+	]
+	cimg0153jpg= [
+		size, 10
+	]
+	cimg0079jpg= [
+		size, 9
+	]
+	cimg0129avi= [
+		size, 36
+	]
+	dessert serving fork= [
+		length, 23.30
+		length, 23.30
+	]
+	cimg0174avi= [
+		size, 73
+	]
+	rcd297iso= [
+		size, 1284
+	]
+	cimg0159jpg= [
+		size, 9
+	]
+	cimg0184jpg= [
+		size, 10
+	]
+	ro2000= [
+		volume, 0.07570820
+	]
+	cimg0132avi= [
+		size, 157
+	]
+	cimg0142jpg= [
+		size, 9
+	]
+	cimg0100jpg= [
+		size, 9
+	]
+	cimg0145jpg= [
+		size, 10
+	]
+	cimg0168jpg= [
+		size, 10
+	]
+	cimg0190jpg= [
+		size, 10
+	]
+	cimg0202jpg= [
+		size, 9
+	]
+	large serving spoon= [
+		length, 25.80
+		length, 25.80
+	]
+	luncheon  dessert spoons= [
+		length, 18.70
+		length, 18.70
+	]
+	cimg0099jpg= [
+		size, 9
+	]
+	cimg0112jpg= [
+		size, 9
+	]
+	rcdmod= [
+		size, 50
+	]
+	basilicasetzip= [
+		size, 49
+	]
+	cimg0106jpg= [
+		size, 9
+	]
+	cimg0179jpg= [
+		size, 9
+	]
+	cimg0211jpg= [
+		size, 9
+	]
+	corsetpacktskzip= [
+		size, 38
+	]
+	r0150300= [
+		size, 0.020
+	]
+	cimg0193jpg= [
+		size, 9
+	]
+	lww518p= [
+		length, 0.600
+	]
+	cimg0117jpg= [
+		size, 10
+	]
+	r0150700= [
+		size, 0.048
+	]
+	cimg0094jpg= [
+		size, 9
+	]
+	cimg0123avi= [
+		size, 226
+	]
+	ch308651= [
+		volume, 1.52552023
+	]
+	ch308531= [
+		volume, 1.11669595
+	]
+}
+TV Network: {
+	ghb= [
+		size, 14.0208
+	]
+	crb= [
+		size, 21.9456
+	]
+	cts= [
+		size, 17.0688
+	]
+	tmk= [
+		size, 42.0624
+	]
+	cpe= [
+		size, 18.8976
+	]
+	hnb= [
+		size, 3.9624
+	]
+	lpb= [
+		size, 14.9352
+	]
+}
+K-pop Artist: {
+	block a= [
+		size, 702
+	]
+	block b= [
+		size, 702
+	]
+	block c= [
+		size, 702
+	]
+	block d= [
+		size, 702
+	]
+	block e= [
+		size, 702
+	]
+}
+Aircraft model: {
+	block a= [
+		size, 702
+	]
+	block b= [
+		size, 702
+	]
+	block c= [
+		size, 702
+	]
+	block d= [
+		size, 702
+	]
+	block e= [
+		size, 702
+	]
+}
+Short Film: {
+	block a= [
+		size, 702
+	]
+	block b= [
+		size, 702
+	]
+	block c= [
+		size, 702
+	]
+	block d= [
+		size, 702
+	]
+	block e= [
+		size, 702
+	]
+}
+Deceased Person: {
+	wibv= [
+		weight, 299.370720
+	]
+	luke= [
+		height, 1.80
+		height, 1.80
+	]
+	wiec= [
+		weight, 226.796000
+	]
+	wibo= [
+		weight, 79.378600
+	]
+	wieb= [
+		weight, 24.947560
+	]
+	wibn= [
+		weight, 27.215520
+	]
+	widp= [
+		weight, 226.796000
+	]
+	wido= [
+		weight, 29.483480
+	]
+	wgni= [
+		weight, 353.801760
+	]
+	wgng= [
+		weight, 54.431040
+	]
+	sabrine= [
+		height, 1.75
+		height, 1.75
+	]
+}
+Actor: {
+	luke= [
+		height, 1.80
+		height, 1.80
+	]
+	sabrine= [
+		height, 1.75
+		height, 1.75
+	]
+}
+Musical Recording: {
+	block a= [
+		size, 702
+	]
+	block b= [
+		size, 702
+	]
+	block c= [
+		size, 702
+	]
+	block d= [
+		size, 702
+	]
+	block e= [
+		size, 702
+	]
+}
+River: {
+	luke= [
+		height, 1.80
+		height, 1.80
+	]
+	sabrine= [
+		height, 1.75
+		height, 1.75
+	]
+}
+Pornographic actor: {
+	luke= [
+		height, 1.80
+		height, 1.80
+	]
+	sabrine= [
+		height, 1.75
+		height, 1.75
+	]
+}
+TV Episode: {
+	luke= [
+		height, 1.80
+		height, 1.80
+	]
+	sabrine= [
+		height, 1.75
+		height, 1.75
+	]
+}
+Woman: {
+	luke= [
+		height, 1.80
+		height, 1.80
+	]
+	sabrine= [
+		height, 1.75
+		height, 1.75
+	]
+}
+Quotation Subject: {
+	12 month= [
+		weight, 825.991032
+	]
+	18 month= [
+		weight, 918.070208
+	]
+	6 month= [
+		weight, 506.208672
+	]
+	newborn= [
+		weight, 276.691120
+	]
+	9 month= [
+		weight, 689.006248
+	]
+	24 month= [
+		weight, 1055.508584
+	]
+	3 month= [
+		weight, 368.316704
+	]
+}
+
