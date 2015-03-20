@@ -1,8 +1,7 @@
 CSE 454 '15 WI 
 Mentors: Dan Weld, Stephen Soderland, Xiao Ling
 
-						Common Sense Database Build 
-					       ==============================
+					     Common Sense Database Build 
 					  By Amrita Mohan Bryan Djunaedi York Wei 
 
 
