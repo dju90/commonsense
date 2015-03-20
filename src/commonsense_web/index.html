@@ -40,9 +40,10 @@
               <h3 class="masthead-brand">The Common Sense Database</h3>
               <nav>
                 <ul class="nav masthead-nav">
-                  <li class="active"><a href="#">Home</a></li>
-                  <li><a href="#">About</a></li>
-                  <li><a href="#">Contact</a></li>
+                  <li class="active"><a href="index.html">Home</a></li>
+                  <li><a href="about.html">About</a></li>
+				  <li><a href="people.html">People</a></li>
+                  <li><a href="contact.html">Contact</a></li>
                 </ul>
               </nav>
             </div>
@@ -50,13 +51,18 @@
 
           <div class="inner cover">
             <h1 class="cover-heading">Welcome to the Common Sense Database</h1>
-            <p class="lead">Input an object name below, and the database will do its best to return common sense results related to the objects size.</p>
-			<form class="navbar-form navbar-center" role="search">
+            <p class="lead">Input two object names below and the database will do its best to return common sense size comparisons on the two objects.</p>
+			<form action="action_page.php"  method="get" class="navbar-form navbar-center" role="search">
             <div class="form-group">
-              <input type="text" class="form-control" placeholder="        Input argument">
+              <input type="text" name="arg1" class="form-control" placeholder="Input argument 1 here">
             </div>
-            <button type="submit" class="btn btn-default">Submit</button>
+			<div class="form-group">
+              <input type="text" name="arg2" class="form-control" placeholder="Input argument 2 here">
+            </div>
+            <input type="submit" class="btn btn-default">
           </form>
+		  
+		  <p id="test"></p>
           </div>
 
           <div class="mastfoot">
@@ -79,5 +85,6 @@
     <script src="http://getbootstrap.com/assets/js/docs.min.js"></script>
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <script src="http://getbootstrap.com/assets/js/ie10-viewport-bug-workaround.js"></script>
+  
   </body>
 </html>

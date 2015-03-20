@@ -98,17 +98,27 @@ public class TestFileParser {
 	}
 
 	private static double checkResults(Map<Pair<String, String>, String> actualMap) {
-		int counter = 0;
+		int correct = 0;
+		int idk = 0;
+		int incomparable = 0;
 		int total = 0;
 		for (Map.Entry<Pair<String, String>, String> comparisonEntry :  testMap.entrySet() ) {
 			String actual = actualMap.get(comparisonEntry.getKey());
 			String expected = comparisonEntry.getValue();
-			if (actual.equals(expected)) {
-				counter++;
+			if (actual.contains("Dont know")) {
+				idk++;
+			} else if (actual.equals("Incomparable")) {
+				incomparable++;
+				
+			} else if (actual.equals(expected)) {
+				correct++;
 			}
 			total++;
 		}
-		System.out.println(counter);
-		return counter/(double) total;
+		System.out.println("System Don't knows" + idk);
+		System.out.println("System says incomparable " + incomparable);
+		System.out.println("System correct " + correct);
+		System.out.println("System incorrect " + (total - idk - incomparable));
+		return correct/(double) (total-idk);
 	}
 }

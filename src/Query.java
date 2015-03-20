@@ -15,6 +15,7 @@ import com.mongodb.DBCollection;
 import com.mongodb.DBCursor;
 import com.mongodb.DBObject;
 import com.mongodb.MongoClient;
+import commonsense.Pair;
 
 public class Query {
 	public static void main(String[] args) throws UnknownHostException, FileNotFoundException {
