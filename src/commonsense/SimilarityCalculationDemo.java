@@ -28,10 +28,31 @@ public class SimilarityCalculationDemo {
                         System.out.println( rc.getClass().getName()+"\t"+s );
                 }
         }
-        public static void main(String[] args) {
-                long t0 = System.currentTimeMillis();
-                run( "empire state building","skyscraper" );
-                long t1 = System.currentTimeMillis();
-                System.out.println( "Done in "+(t1-t0)+" msec." );
+        
+        private static void runWuP( String word1, String word2 ) {
+        	WS4JConfiguration.getInstance().setMFS(true);
+        	double s = rcs[3].calcRelatednessOfWords(word1,word2);
+        	System.out.println("edu.cmu.lti.ws4j.imple.WuPalmer\t" + s);
+        }
+        public static void main(String[] args) {      
+        	long t0 = System.currentTimeMillis();
+          runWuP( "empire state building","skyscraper" );
+          long t1 = System.currentTimeMillis();
+          System.out.println( "Done in "+(t1-t0)+" msec." );
+          
+          t0 = System.currentTimeMillis();
+          runWuP( "cat","food" );
+          t1 = System.currentTimeMillis();
+          System.out.println( "Done in "+(t1-t0)+" msec." );
+          
+          t0 = System.currentTimeMillis();
+          runWuP( "cat","dog" );
+          t1 = System.currentTimeMillis();
+          System.out.println( "Done in "+(t1-t0)+" msec." );
+          
+          t0 = System.currentTimeMillis();
+          runWuP( "burj khalifa","skyscraper" );
+          t1 = System.currentTimeMillis();
+          System.out.println( "Done in "+(t1-t0)+" msec." );
         }
 }
