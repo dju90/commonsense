@@ -15,7 +15,7 @@ import com.mongodb.DBObject;
 import com.mongodb.MongoClient;
 
 public class Query {
-	public static final double MATCH_THRESHOLD = 0.8; 
+	public static final double MATCH_THRESHOLD = 0.7; 
 	private static List<DBObject> all;
 	
 	public static String query(String[] args) throws UnknownHostException {
@@ -27,7 +27,7 @@ public class Query {
 			BasicDBObject fields = new BasicDBObject("_id", false).append("entity", false).append("type", false);
 			all = dbc.find().toArray();
 			String e1 = closestMatch(args[0], MATCH_THRESHOLD);
-			String e2 = closestMatch(args[0], MATCH_THRESHOLD);
+			String e2 = closestMatch(args[1], MATCH_THRESHOLD);
 			Pattern p1 = Pattern.compile("^" + e1 + "$", Pattern.CASE_INSENSITIVE);
 			Pattern p2 = Pattern.compile("^" + e2 + "$", Pattern.CASE_INSENSITIVE);
 			BasicDBObject o1 = new BasicDBObject("entity", p1);
@@ -36,6 +36,7 @@ public class Query {
 			
 			DBCursor c1 = dbc.find(o1, fields);
 			DBCursor c2 = dbc.find(o2, fields);
+
 			
 			List<DBObject> result1 = c1.toArray();
 			List<DBObject> result2 = c2.toArray();
