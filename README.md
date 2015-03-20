@@ -1,8 +1,9 @@
 CSE 454 '15 WI 
 Mentors: Dan Weld, Stephen Soderland, Xiao Ling
 
-					     Common Sense Database Build 
-					  By Amrita Mohan Bryan Djunaedi York Wei 
+			Common Sense Database Build 
+		     ==============================
+		 By Amrita Mohan Bryan Djunaedi York Wei 
 
 
 An external UI running the project can be located at: http://ec2-54-69-54-128.us-west-2.compute.amazonaws.com/
@@ -40,34 +41,30 @@ to filter out as much noise as possible.[Optional Language Filter available]
 
 6. When completed, use the attrbute filter located in commonsense/src/commonsense/AttributeFilter.java. 
    - Create an instance of AttibuteFilter passing in the attribute.json file located under the main commonsense/ directory and 
-     the units.json file also at that location. 
+     the units.json file also at that location, a filename to write a sample of the results, and a filename to write the list of relevant files
    - for all files in your transposed web table directory you can now classify their relevance to object size. 
 
-7. Unit Conversions
-
-8. Freebase Caller 
-
-9. Table Crawler
-
+7. Unit Conversions and Freebase Caller and TableCrawler
+Create an instance of TableCrawlerMain located in commonsense/src/commensense/TableCrawlerMain.java and pass in the following arguments:
+an input filename of the list of relevant files
+units-conversion.json
+the location of the transposedTables
+an output filename for a json representation of a hashtable
 
 
  WEB/UI DEPLOYMENT
 --------------------
-10. There should now be a crawl *.txt file outputted from the Table Crawler results to the file name of your choice.  
+8. There should now be a crawl *.txt file outputted from the Table Crawler results to the file name of your choice.  
     Under main commonsense/ dir you should see an html.zip file. This will be the code you will use to deploy your website. 
     - Unzip this file in the web directory for your website and perform the mv /* . command to move its content into that directory. 
     - Move your crawl file into your web directory with mv command
 
-11. You will see a jar file in your web directory called dbbuild.jar. Assuming you have MongoDB installed correctly on your server
+9. You will see a jar file in your web directory called dbbuild.jar. Assuming you have MongoDB installed correctly on your server
     you can simply pass your crawl file as an argument into dbbuild and it will create your Database under the name "commonsense" and the 
     collection "relations".
     - Do so using the command java -jar dbbuild.jar [-CRAWLFILE.TXT]
 
-12. Since the web code has already been written for you and should be located in your web directory, and your database has been built, 
+10. Since the web code has already been written for you and should be located in your web directory, and your database has been built, 
     ensure that your local web server is running and then your own version of The Common Sense DB should be running at your 
     public DNS address 
     - Modify webpage with corresponding html pages located in your web directory. Should be there when you unpacked html in step 10. 
-
-
-
-  
